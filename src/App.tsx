@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Posts } from "./components/Posts";
 
 export const App = () => {
   const [theme, setTheme] = useState("light");
@@ -11,5 +12,9 @@ export const App = () => {
     document.documentElement.setAttribute("theme", theme);
   }, [theme]);
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Posts />
+    </div>
+  );
 };
