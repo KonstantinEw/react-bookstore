@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BooksList, Header, Subscribe, Title } from "./components";
+import { BooksList, Footer, Header, Subscribe } from "./components";
 import { Wrapper } from "./ui";
 
 export const App = () => {
@@ -16,6 +16,7 @@ export const App = () => {
       <Header />
       <BooksList />
       <Subscribe />
+      <Footer />
     </Wrapper>
   );
 };

@@ -6,6 +6,7 @@ import { Title } from "./Title/Title";
 import { BooksList } from "./BooksList/BooksList";
 import { BookItem } from "./BookItem/BookItem";
 import { Subscribe } from "./Subscribe/Subscribe";
+import { Footer } from "./Footer/Footer";
 
 export {
   Header,
@@ -16,4 +17,5 @@ export {
   BooksList,
   BookItem,
   Subscribe,
+  Footer,
 };

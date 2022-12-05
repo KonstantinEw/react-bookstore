@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Title } from "..";
 import { booksAPI } from "../../services";
-import { IBook, IResponseBooks } from "../../types";
+import { IResponseBooks } from "../../types";
 import { BookItem } from "..";
 import { StyledBooksList } from "./styles";
 
@@ -26,16 +26,18 @@ export const BooksList = () => {
     <section>
       <Title text="New Releases Books" />
       <StyledBooksList>
-        {booksList.books.map((book) => (
-          <BookItem
-            key={book.isbn13}
-            image={book.image}
-            price={book.price}
-            subtitle={book.subtitle}
-            title={book.title}
-            url={book.url}
-          />
-        ))}
+        {booksList.books.map(
+          ({ isbn13, image, price, title, subtitle, url }) => (
+            <BookItem
+              key={isbn13}
+              image={image}
+              price={price}
+              subtitle={subtitle}
+              title={title}
+              url={url}
+            />
+          )
+        )}
       </StyledBooksList>
     </section>
   );

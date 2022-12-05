@@ -9,6 +9,7 @@ export const StyledBooksList = styled.ul`
   margin-bottom: ${Margin1.desktop};
   ${Media.MD} {
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
     grid-column-gap: 32px;
     grid-row-gap: 48px;
   }

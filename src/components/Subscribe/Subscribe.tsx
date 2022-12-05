@@ -1,17 +1,23 @@
-import React from "react";
+import {
+  StyledForm,
+  StyledInputField,
+  StyledSubscribe,
+  StyledSubTitle,
+  StyledTitle,
+} from "./styles";
 
 export const Subscribe = () => {
   return (
-    <section>
-      <h2>Subscribe to Newsletter</h2>
-      <p>
+    <StyledSubscribe>
+      <StyledTitle>Subscribe to Newsletter</StyledTitle>
+      <StyledSubTitle>
         Be the first to know about new IT books, upcoming releases, exclusive
         offers and more.
-      </p>
-      <form>
-        <input type="email" />
+      </StyledSubTitle>
+      <StyledForm>
+        <StyledInputField type="email" />
         <input type="submit" />
-      </form>
-    </section>
+      </StyledForm>
+    </StyledSubscribe>
   );
 };
