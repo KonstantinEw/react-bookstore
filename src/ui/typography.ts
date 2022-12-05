@@ -45,7 +45,7 @@ const S1 = css`
 `;
 
 const B1 = css`
-  font-family: Helios;
+  font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
   line-height: 32px;
@@ -53,7 +53,7 @@ const B1 = css`
 `;
 
 const B2 = css`
-  font-family: Helios;
+  font-family: Roboto;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;

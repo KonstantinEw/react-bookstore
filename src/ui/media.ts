@@ -1,4 +1,6 @@
 export enum Media {
-  SM = "@media(max-width: 320px)",
-  MD = "@media(max-width: 768px)",
+  SM = "@media(max-width: 575px)",
+  MD = "@media(max-width: 767px)",
+  LG = "@media (max-width: 991px)",
+  EL = "@media (max-width: 1199px)",
 }
