@@ -7,13 +7,13 @@ export const StyledBooksList = styled.ul`
   grid-column-gap: 32px;
   grid-row-gap: 48px;
   margin-bottom: ${Margin1.desktop};
-  ${Media.MD} {
+  ${Media.LG} {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     grid-column-gap: 32px;
     grid-row-gap: 48px;
   }
-  ${Media.SM} {
+  ${Media.MD} {
     grid-template-columns: 1fr;
     grid-row-gap: 48px;
   }

@@ -12,7 +12,7 @@ export const StyledSearch = styled.input`
   &::placeholder {
     color: ${Color.Secondary};
   }
-  ${Media.MD} {
+  ${Media.LG} {
     display: none;
   }
 `;
