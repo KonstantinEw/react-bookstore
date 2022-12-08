@@ -7,22 +7,22 @@ export const StyledSubscribe = styled.section`
   background-color: ${Color.Purple};
 `;
 
-export const StyledForm = styled.form`
+export const Form = styled.form`
   height: 56px;
   display: grid;
   grid-template-columns: 73% 27%;
 `;
 
-export const StyledInputField = styled.input`
+export const InputField = styled.input`
   padding: 16px 24px;
 `;
 
-export const StyledTitle = styled.h2`
+export const Title = styled.h2`
   ${Margin7.desktop}
   ${H2}
 `;
 
-export const StyledSubTitle = styled.p`
+export const SubTitle = styled.p`
   margin-bottom: ${Margin4.desktop};
   ${S1}
   color:${Color.Secondary};

@@ -1,3 +1,4 @@
+import { useInput } from "../../hooks";
 import { StyledSearch } from "./styles";
 
 interface IProps {
@@ -6,5 +7,7 @@ interface IProps {
 }
 
 export const Search = ({ placeholder, type }: IProps) => {
+  const search = useInput();
+
   return <StyledSearch type={type} placeholder={placeholder}></StyledSearch>;
 };

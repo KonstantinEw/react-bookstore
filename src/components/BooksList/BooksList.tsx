@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Title } from "..";
-import { booksAPI } from "../../services";
+import { restBooksAPI } from "../../services";
 import { IResponseBooks } from "../../types";
 import { BookItem } from "..";
 import { StyledBooksList } from "./styles";
@@ -11,7 +11,7 @@ export const BooksList = () => {
   );
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    booksAPI
+    restBooksAPI
       .getNewBooks()
       .then(setBooksList)
       .finally(() => {

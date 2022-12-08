@@ -1,23 +1,17 @@
-import {
-  StyledForm,
-  StyledInputField,
-  StyledSubscribe,
-  StyledSubTitle,
-  StyledTitle,
-} from "./styles";
+import { Form, InputField, StyledSubscribe, SubTitle, Title } from "./styles";
 
 export const Subscribe = () => {
   return (
     <StyledSubscribe>
-      <StyledTitle>Subscribe to Newsletter</StyledTitle>
-      <StyledSubTitle>
+      <Title>Subscribe to Newsletter</Title>
+      <SubTitle>
         Be the first to know about new IT books, upcoming releases, exclusive
         offers and more.
-      </StyledSubTitle>
-      <StyledForm>
-        <StyledInputField type="email" />
+      </SubTitle>
+      <Form>
+        <InputField type="email" />
         <input type="submit" />
-      </StyledForm>
+      </Form>
     </StyledSubscribe>
   );
 };

@@ -9,6 +9,6 @@ export const StyledHeader = styled.header`
   border-bottom: 1px solid ${Color.Gray};
 `;
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled.a`
   padding: 14px 0px 14px 0px;
 `;

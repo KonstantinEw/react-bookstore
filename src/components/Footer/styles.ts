@@ -8,7 +8,7 @@ export const StyledFooter = styled.footer`
   border-top: 1px solid ${Color.Gray};
 `;
 
-export const StyledText = styled.p`
+export const Text = styled.p`
   ${B1}
   color: ${Color.Secondary}
 `;

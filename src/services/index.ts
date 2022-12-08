@@ -1,3 +1,3 @@
-import { booksAPI } from "./ibooksApi";
+import { restBooksAPI } from "./ibooksApi";
 
-export { booksAPI };
+export { restBooksAPI };
