@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Title } from "..";
 import { restBooksAPI } from "../../services";
-import { IResponseBooks } from "../../types";
+import { IResponseNewBooks } from "../../types";
 import { BookItem } from "..";
 import { StyledBooksList } from "./styles";
 
 export const BooksList = () => {
-  const [booksList, setBooksList] = useState<IResponseBooks>(
-    {} as IResponseBooks
+  const [booksList, setBooksList] = useState<IResponseNewBooks>(
+    {} as IResponseNewBooks
   );
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -35,6 +35,7 @@ export const BooksList = () => {
               subtitle={subtitle}
               title={title}
               url={url}
+              isbn13={isbn13}
             />
           )
         )}

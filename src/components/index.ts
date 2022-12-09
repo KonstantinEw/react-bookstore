@@ -7,6 +7,7 @@ import { BooksList } from "./BooksList/BooksList";
 import { BookItem } from "./BookItem/BookItem";
 import { Subscribe } from "./Subscribe/Subscribe";
 import { Footer } from "./Footer/Footer";
+import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   BookItem,
   Subscribe,
   Footer,
+  ThemeToggler,
 };

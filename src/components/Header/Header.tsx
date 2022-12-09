@@ -1,15 +1,17 @@
-import { ReactComponent as LogoIcon } from "../../assets/icons/bookstore-logo.svg";
-import { HeaderNav } from "../HeaderNav/HeaderNav";
-import { Search } from "../Search/Search";
+import { HeaderNav, Search, ThemeToggler } from "..";
+import { LogoIcon } from "../../assets";
+import { useInput } from "../../hooks";
 import { LogoWrapper, StyledHeader } from "./styles";
 
 export const Header = () => {
+  const search = useInput();
   return (
     <StyledHeader>
       <LogoWrapper href="/">
         <LogoIcon />
       </LogoWrapper>
-      <Search type="search" placeholder="Search" />
+      <Search {...search} type="search" placeholder="Search" />
+      <ThemeToggler type="checkbox" />
       <HeaderNav />
     </StyledHeader>
   );

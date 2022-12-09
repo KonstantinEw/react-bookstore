@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Color } from "./colors";
 import { Media } from "./media";
 import { resetCSS } from "./resetCSS";
 import { DarkTheme, LightTheme } from "./theme";
@@ -6,7 +7,6 @@ import { DarkTheme, LightTheme } from "./theme";
 export const GlobalStyles = createGlobalStyle`
 
 ${resetCSS}
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital@0;1&display=swap');
 
 html[theme="dark"]{
@@ -15,12 +15,17 @@ html[theme="dark"]{
 html[theme="light"]{
     ${LightTheme}
 }
+
+body {
+  background-color: ${Color.Primary_Light};
+}
 `;
 
 export const Wrapper = styled.div`
   max-width: 1200px;
   margin: 0px auto;
   padding: 0px 40px 0px 40px;
+  background-color: ${Color.Primary_Light};
   ${Media.EL} {
     max-width: 1000px;
   }

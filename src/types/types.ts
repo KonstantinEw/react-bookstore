@@ -7,8 +7,36 @@ export interface IBook {
   url: string;
 }
 
-export interface IResponseBooks {
+export interface IResponseNewBooks {
   error: string;
   total: string;
+  books: IBook[];
+}
+
+export interface IResponseBook {
+  error: string;
+  title: string;
+  subtitle: string;
+  authors: string;
+  publisher: string;
+  language: string;
+  isbn10: string;
+  isbn13: string;
+  pages: string;
+  year: string;
+  rating: string;
+  desc: string;
+  price: string;
+  image: string;
+  url: string;
+  pdf?: {
+    [key: string]: string;
+  };
+}
+
+export interface IResponseSearch {
+  error: string;
+  total: string;
+  page: string;
   books: IBook[];
 }

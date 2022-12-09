@@ -5,6 +5,7 @@ interface IProps {
   title: string;
   url: string;
   key: string;
+  isbn13: string;
 }
 
 export const BookItem = ({ image, price, subtitle, title, url }: IProps) => {

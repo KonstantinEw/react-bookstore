@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IResponseBooks } from "../types";
+import { IResponseBook, IResponseNewBooks, IResponseSearch } from "../types";
 
 class booksAPI {
   private readonly BASE_URL = "https://api.itbook.store/1.0/";
@@ -8,17 +8,17 @@ class booksAPI {
   });
 
   public async getNewBooks() {
-    const { data } = await this.API.get<IResponseBooks>("new");
+    const { data } = await this.API.get<IResponseNewBooks>("new");
     return data;
   }
 
   public async searchBooks() {
-    const { data } = await this.API.get<IResponseBooks>("search");
+    const { data } = await this.API.get<IResponseSearch>("search/");
     return data;
   }
-
+  // need типизация
   public async getBook() {
-    const { data } = await this.API.get<IResponseBooks>("books");
+    const { data } = await this.API.get<IResponseBook>("books/");
     return data;
   }
 }
