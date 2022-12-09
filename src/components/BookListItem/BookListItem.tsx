@@ -4,11 +4,16 @@ interface IProps {
   subtitle: string;
   title: string;
   url: string;
-  key: string;
   isbn13: string;
 }
 
-export const BookItem = ({ image, price, subtitle, title, url }: IProps) => {
+export const BookListItem = ({
+  image,
+  title,
+  url,
+  subtitle,
+  price,
+}: IProps) => {
   return (
     <figure>
       <div>

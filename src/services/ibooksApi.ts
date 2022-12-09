@@ -16,7 +16,6 @@ class booksAPI {
     const { data } = await this.API.get<IResponseSearch>("search/");
     return data;
   }
-  // need типизация
   public async getBook() {
     const { data } = await this.API.get<IResponseBook>("books/");
     return data;

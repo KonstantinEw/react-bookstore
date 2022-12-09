@@ -9,6 +9,8 @@ interface IProps {
 }
 
 export const Search = ({ placeholder, type, value, onChange }: IProps) => {
+  const getBooks = () => {};
+
   return (
     <StyledSearch
       type={type}

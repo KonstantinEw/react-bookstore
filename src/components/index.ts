@@ -3,11 +3,12 @@ import { HeaderLink } from "./HeaderLink/HeaderLink";
 import { HeaderNav } from "./HeaderNav/HeaderNav";
 import { Search } from "./Search/Search";
 import { Title } from "./Title/Title";
-import { BooksList } from "./BooksList/BooksList";
-import { BookItem } from "./BookItem/BookItem";
+import { NewBooks } from "./NewBooks/NewBooks";
+import { BooksList } from "./BooksIist/BooksList";
 import { Subscribe } from "./Subscribe/Subscribe";
 import { Footer } from "./Footer/Footer";
 import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
+import { BookListItem } from "./BookListItem/BookListItem";
 
 export {
   Header,
@@ -15,9 +16,10 @@ export {
   HeaderNav,
   Search,
   Title,
+  NewBooks,
   BooksList,
-  BookItem,
   Subscribe,
   Footer,
   ThemeToggler,
+  BookListItem,
 };
