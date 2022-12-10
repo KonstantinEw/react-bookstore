@@ -13,6 +13,7 @@ import {
   Margin7,
   Margin8,
 } from "./margin";
+import { randomColor } from "./randomColor";
 export {
   Color,
   H1,
@@ -33,4 +34,5 @@ export {
   Margin6,
   Margin7,
   Margin8,
+  randomColor,
 };

@@ -1,3 +1,13 @@
+import { StarsRaiting } from "..";
+import {
+  RaitingWrapper,
+  ImageWrap,
+  StyledBooksListItem,
+  Subtitle,
+  Title,
+  Cost,
+} from "./styles";
+
 interface IProps {
   image: string;
   price: string;
@@ -15,16 +25,16 @@ export const BookListItem = ({
   price,
 }: IProps) => {
   return (
-    <figure>
-      <div>
+    <StyledBooksListItem>
+      <ImageWrap>
         <img src={image} alt={title} />
-      </div>
-      <a href={url}>{title}</a>
-      <p>{subtitle}</p>
-      <div>
-        <span>{price}</span>
-        <span></span>
-      </div>
-    </figure>
+      </ImageWrap>
+      <Title href={url}>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+      <RaitingWrapper>
+        <Cost>{price}</Cost>
+        <StarsRaiting />
+      </RaitingWrapper>
+    </StyledBooksListItem>
   );
 };

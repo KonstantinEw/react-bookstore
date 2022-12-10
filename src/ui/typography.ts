@@ -48,7 +48,7 @@ const B1 = css`
   font-family: Roboto;
   font-size: 16px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 16px;
   letter-spacing: 0em;
 `;
 

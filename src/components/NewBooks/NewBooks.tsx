@@ -10,13 +10,12 @@ import {
 
 export const NewBooks = () => {
   const { isLoading, result } = useAppSelector(getNewBooks);
-  console.log(result);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchNewBooks());
   }, [dispatch]);
   return isLoading ? (
-    <Title text="New Releases Books" />
+    <Title text="Loading..." />
   ) : (
     <section>
       <Title text="New Releases Books" />

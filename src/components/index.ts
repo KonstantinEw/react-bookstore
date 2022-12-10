@@ -9,6 +9,7 @@ import { Subscribe } from "./Subscribe/Subscribe";
 import { Footer } from "./Footer/Footer";
 import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { BookListItem } from "./BookListItem/BookListItem";
+import { StarsRaiting } from "./StarsRaiting/StarsRaiting";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   Footer,
   ThemeToggler,
   BookListItem,
+  StarsRaiting,
 };
