@@ -45,3 +45,8 @@ export interface ISearchParams {
   name: string;
   page: string;
 }
+
+export interface ISearchResult {
+  searchValue: string;
+  page: string;
+}

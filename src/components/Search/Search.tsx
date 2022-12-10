@@ -15,27 +15,30 @@ interface IProps {
 }
 
 export const Search = ({ placeholder, type, value, onChange }: IProps) => {
-  const [params, setParams] = useState(value);
+  const [params, setParams] = useState({
+    searchValue: "",
+    page: "",
+  });
   const dispatch = useAppDispatch();
   const { result, isLoading } = useAppSelector(getSearchBooks);
   useEffect(() => {
     dispatch(feachSearchBooks(params));
-  }, [dispatch]);
+  }, [dispatch, params]);
+  // const { books, page } = result;
 
-  // разобраться с типизацией
-
-  const searchBooks = result.filter((book) => {
-    return book.title.toLowerCase().includes(params.toLowerCase());
-  });
-
+  const handleParams = () => {
+    setParams({ searchValue: value, page: "1" });
+  };
   return (
     <>
+      {" "}
       <StyledSearch
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       ></StyledSearch>
+      <button onClick={handleParams}>test</button>
     </>
   );
 };

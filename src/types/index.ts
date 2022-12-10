@@ -4,6 +4,7 @@ import {
   IResponseSearch,
   IResponseBook,
   ISearchParams,
+  ISearchResult,
 } from "./types";
 
 export type {
@@ -12,4 +13,5 @@ export type {
   IResponseBook,
   IResponseSearch,
   ISearchParams,
+  ISearchResult,
 };

@@ -1,27 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { restBooksAPI } from "../../services";
-import { IBook, IResponseSearch, ISearchParams } from "../../types";
+import { IBook, IResponseSearch, ISearchResult } from "../../types";
 import { RootState } from "../store";
 
-export const feachSearchBooks = createAsyncThunk(
-  "search/fetchSearchBooks",
-  async (params: string) => {
-    return await (
-      await restBooksAPI.searchBooks(params)
-    ).books;
-  }
-);
-
-//разобраться с типизацией initialState
+export const feachSearchBooks = createAsyncThunk<
+  IResponseSearch,
+  ISearchResult
+>("search/fetchSearchBooks", async (params: ISearchResult) => {
+  return await restBooksAPI.searchBooks(params);
+});
 
 interface ISearchBook {
-  result: IBook[];
+  result: IResponseSearch;
   isLoading: boolean;
   error: null | string;
 }
 
 const initialState: ISearchBook = {
-  result: [],
+  result: {} as IResponseSearch,
   isLoading: false,
   error: null,
 };
@@ -36,7 +32,8 @@ const searchBooksSlice = createSlice({
     });
     builder.addCase(feachSearchBooks.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.result = payload;
+      state.result.books = payload.books;
+      state.result.page = payload.page;
     });
     builder.addCase(feachSearchBooks.rejected, (state, { payload }: any) => {
       state.isLoading = true;
@@ -47,3 +44,5 @@ const searchBooksSlice = createSlice({
 });
 
 export default searchBooksSlice.reducer;
+
+// дотипизировать pyload
