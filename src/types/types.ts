@@ -40,3 +40,8 @@ export interface IResponseSearch {
   page: string;
   books: IBook[];
 }
+
+export interface ISearchParams {
+  name: string;
+  page: string;
+}

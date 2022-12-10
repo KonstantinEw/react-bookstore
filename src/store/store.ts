@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReduser from "./slices/userSlice";
 import faviriteReducer from "./slices/faviriteSlice";
 import newBooksReducer from "./slices/newBooksSlice";
+import searchBooksReduser from "./slices/searchSlice";
 
 //Типизация возвращаемого значения
 export type RootState = ReturnType<typeof store.getState>;
@@ -14,5 +15,6 @@ export const store = configureStore({
     user: userReduser,
     favorite: faviriteReducer,
     newBooks: newBooksReducer,
+    searchBooks: searchBooksReduser,
   },
 });
