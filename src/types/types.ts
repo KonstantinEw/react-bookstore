@@ -50,3 +50,7 @@ export interface ISearchResult {
   searchValue: string;
   page: string;
 }
+
+export interface IBookIsbn13 {
+  isbn13: string;
+}

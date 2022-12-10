@@ -1,13 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 import { restBooksAPI } from "../../services";
-import { IBook, IResponseSearch, ISearchResult } from "../../types";
-import { RootState } from "../store";
+import { IResponseSearch, ISearchResult } from "../../types";
 
 export const feachSearchBooks = createAsyncThunk<
   IResponseSearch,
-  ISearchResult
->("search/fetchSearchBooks", async (params: ISearchResult) => {
-  return await restBooksAPI.searchBooks(params);
+  ISearchResult,
+  { rejectValue: string }
+>("search/fetchSearchBooks", async (params, { rejectWithValue }) => {
+  try {
+    return await restBooksAPI.searchBooks(params);
+  } catch (error) {
+    const errorResponse = error as AxiosError;
+    return rejectWithValue(errorResponse.message);
+  }
 });
 
 interface ISearchBook {
@@ -29,20 +35,20 @@ const searchBooksSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(feachSearchBooks.pending, (state) => {
       state.isLoading = true;
+      state.error = null;
     });
     builder.addCase(feachSearchBooks.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       state.result.books = payload.books;
       state.result.page = payload.page;
     });
-    builder.addCase(feachSearchBooks.rejected, (state, { payload }: any) => {
-      state.isLoading = true;
-      state.result = payload;
-      state.error = payload;
+    builder.addCase(feachSearchBooks.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isLoading = true;
+        state.error = payload;
+      }
     });
   },
 });
 
 export default searchBooksSlice.reducer;
-
-// дотипизировать pyload

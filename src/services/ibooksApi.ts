@@ -3,7 +3,6 @@ import {
   IResponseBook,
   IResponseNewBooks,
   IResponseSearch,
-  ISearchParams,
   ISearchResult,
 } from "../types";
 
@@ -30,8 +29,10 @@ class booksAPI {
     );
     return data;
   }
-  public async getBook() {
-    const { data } = await this.API.get<IResponseBook>(this.ENDPOINTS.books);
+  public async getBook(isbn13: string) {
+    const { data } = await this.API.get<IResponseBook>(
+      `${this.ENDPOINTS.books}/${isbn13}}`
+    );
     return data;
   }
 }

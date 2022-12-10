@@ -3,6 +3,7 @@ import userReduser from "./slices/userSlice";
 import faviriteReducer from "./slices/faviriteSlice";
 import newBooksReducer from "./slices/newBooksSlice";
 import searchBooksReduser from "./slices/searchSlice";
+import bookReducer from "./slices/bookSlice";
 
 //Типизация возвращаемого значения
 export type RootState = ReturnType<typeof store.getState>;
@@ -16,5 +17,6 @@ export const store = configureStore({
     favorite: faviriteReducer,
     newBooks: newBooksReducer,
     searchBooks: searchBooksReduser,
+    bookISBN: bookReducer,
   },
 });
