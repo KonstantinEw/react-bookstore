@@ -1,6 +1,6 @@
-import { HeaderNav, Search, ThemeToggler } from "..";
-import { StyledLogoIcon } from "../../assets";
-import { useInput } from "../../hooks";
+import { StyledLogoIcon } from "assets";
+import { HeaderNav, Search, ThemeToggler } from "components";
+import { useInput } from "hooks";
 import { LogoWrapper, StyledHeader } from "./styles";
 
 export const Header = () => {

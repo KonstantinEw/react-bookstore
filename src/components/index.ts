@@ -1,5 +1,4 @@
 import { Header } from "./Header/Header";
-import { HeaderLink } from "./HeaderLink/HeaderLink";
 import { HeaderNav } from "./HeaderNav/HeaderNav";
 import { Search } from "./Search/Search";
 import { Title } from "./Title/Title";
@@ -13,10 +12,11 @@ import { StarsRaiting } from "./StarsRaiting/StarsRaiting";
 import { BookDescription } from "./BookDescription/BookDescription";
 import { DescriptionTabs } from "./DescriptionTabs/DescriptionTabs";
 import { DiscriptionList } from "./DescriptionList/DiscriptionList";
+import { Button } from "./Button/Button";
+import { BookSlider } from "./BookSlider/BookSlider";
 
 export {
   Header,
-  HeaderLink,
   HeaderNav,
   Search,
   Title,
@@ -30,4 +30,6 @@ export {
   BookDescription,
   DescriptionTabs,
   DiscriptionList,
+  Button,
+  BookSlider,
 };

@@ -1,4 +1,4 @@
-import { StarsRaiting } from "..";
+import { StarsRaiting } from "components";
 import {
   RaitingWrapper,
   ImageWrap,

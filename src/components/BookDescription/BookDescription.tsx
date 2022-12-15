@@ -1,5 +1,4 @@
-import { DescriptionTabs, DiscriptionList, Title } from "..";
-import { Button } from "../Button/Button";
+import { Button, DescriptionTabs, DiscriptionList, Title } from "components";
 import { BookDetails, DescrWrap, ImageWrap } from "./styles";
 
 export const BookDescription = () => {

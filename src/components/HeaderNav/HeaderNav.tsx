@@ -2,7 +2,7 @@ import {
   StyledFavoriteIcon,
   StyledShopBagIcon,
   StyledUserProfileIcon,
-} from "../../assets";
+} from "assets";
 import { NavLink, ShopBagLink, StyledNav } from "./styles";
 
 export const HeaderNav = () => {

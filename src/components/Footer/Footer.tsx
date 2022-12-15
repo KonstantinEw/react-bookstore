@@ -1,4 +1,3 @@
-import React from "react";
 import { StyledFooter, Text } from "./styles";
 
 export const Footer = () => {

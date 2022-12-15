@@ -1,12 +1,12 @@
+import { BooksList, Title } from "components";
 import { useEffect } from "react";
-import { Title } from "..";
-import { BooksList } from "..";
+
 import {
   fetchNewBooks,
   getNewBooks,
   useAppDispatch,
   useAppSelector,
-} from "../../store";
+} from "store";
 
 export const NewBooks = () => {
   const { isLoading, result } = useAppSelector(getNewBooks);
