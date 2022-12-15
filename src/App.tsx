@@ -4,9 +4,9 @@ import {
   Header,
   Subscribe,
   BookDescription,
-} from "./components";
-import { BookSlider } from "./components/BookSlider/BookSlider";
-import { Wrapper } from "./ui";
+  BookSlider,
+} from "components";
+import { Wrapper } from "ui";
 
 export const App = () => {
   return (

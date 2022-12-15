@@ -1,4 +1,4 @@
-import { Button } from "../Button/Button";
+import { Button } from "components";
 import { Form, InputField, StyledSubscribe, SubTitle, Title } from "./styles";
 
 export const Subscribe = () => {
