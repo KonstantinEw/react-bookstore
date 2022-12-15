@@ -10,6 +10,9 @@ import { Footer } from "./Footer/Footer";
 import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { BookListItem } from "./BookListItem/BookListItem";
 import { StarsRaiting } from "./StarsRaiting/StarsRaiting";
+import { BookDescription } from "./BookDescription/BookDescription";
+import { DescriptionTabs } from "./DescriptionTabs/DescriptionTabs";
+import { DiscriptionList } from "./DescriptionList/DiscriptionList";
 
 export {
   Header,
@@ -24,4 +27,7 @@ export {
   ThemeToggler,
   BookListItem,
   StarsRaiting,
+  BookDescription,
+  DescriptionTabs,
+  DiscriptionList,
 };
