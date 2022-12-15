@@ -6,8 +6,7 @@ export const Subscribe = () => {
     <StyledSubscribe>
       <Title>Subscribe to Newsletter</Title>
       <SubTitle>
-        Be the first to know about new IT books, upcoming releases, exclusive
-        offers and more.
+        Be the first to know about new IT books, upcoming releases, exclusive offers and more.
       </SubTitle>
       <Form>
         <InputField type="email" />
