@@ -1,11 +1,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { SearchIcon } from "../../assets";
 import {
   feachSearchBooks,
   getSearchBooks,
   useAppDispatch,
   useAppSelector,
 } from "../../store";
-import { StyledSearch } from "./styles";
+import { SearchButton, StyledSearch, Wrapper } from "./styles";
 
 interface IProps {
   placeholder: string;
@@ -30,7 +31,7 @@ export const Search = ({ placeholder, type, value, onChange }: IProps) => {
     setParams({ searchValue: value, page: "1" });
   };
   return (
-    <>
+    <Wrapper>
       {" "}
       <StyledSearch
         type={type}
@@ -38,7 +39,9 @@ export const Search = ({ placeholder, type, value, onChange }: IProps) => {
         value={value}
         onChange={onChange}
       ></StyledSearch>
-      <button onClick={handleParams}>test</button>
-    </>
+      <SearchButton onClick={handleParams}>
+        <SearchIcon />
+      </SearchButton>
+    </Wrapper>
   );
 };

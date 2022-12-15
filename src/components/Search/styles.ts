@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { B1, Color, Media } from "../../ui";
 
 export const StyledSearch = styled.input`
-  width: 50%;
+  width: 100%;
   height: 56px;
   padding: 15px 20px 15px 20px;
   border: 1px solid ${Color.Gray};
@@ -15,4 +15,18 @@ export const StyledSearch = styled.input`
   ${Media.LG} {
     display: none;
   }
+`;
+
+export const SearchButton = styled.button`
+  position: absolute;
+  right: 1%;
+  top: 23%;
+  background: none;
+  border: none;
+  outline: none;
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  width: 50%;
 `;
