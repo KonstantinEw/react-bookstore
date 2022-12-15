@@ -1,17 +1,21 @@
-import { FavoriteIcon, ShopBagIcon, UserProfileIcon } from "../../assets";
+import {
+  StyledFavoriteIcon,
+  StyledShopBagIcon,
+  StyledUserProfileIcon,
+} from "../../assets";
 import { NavLink, ShopBagLink, StyledNav } from "./styles";
 
 export const HeaderNav = () => {
   return (
     <StyledNav>
       <NavLink href="/">
-        <FavoriteIcon />
+        <StyledFavoriteIcon />
       </NavLink>
       <ShopBagLink href="/">
-        <ShopBagIcon />
+        <StyledShopBagIcon />
       </ShopBagLink>
       <NavLink href="/">
-        <UserProfileIcon />
+        <StyledUserProfileIcon />
       </NavLink>
     </StyledNav>
   );

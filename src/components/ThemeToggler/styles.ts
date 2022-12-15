@@ -2,29 +2,29 @@ import styled from "styled-components";
 import { Color } from "../../ui";
 
 export const StyledThemeToggler = styled.input`
-  appearance: none;
+  position: relative;
+  display: block;
   width: 62px;
   height: 32px;
-  display: block;
-  position: relative;
   margin: 13px 0px 0px 0px;
+  border: none;
   border-radius: 50px;
   overflow: hidden;
   outline: none;
-  border: none;
+  appearance: none;
   cursor: pointer;
   background: ${Color.Gray};
   transition: background-color ease 0.3s;
   &::before {
     content: url("https://shivanarrthine.com/public/images/icons/sun.svg");
-    display: block;
     position: absolute;
+    left: 4px;
+    top: 4px;
+    display: block;
     z-index: 2;
     width: 24px;
     height: 24px;
     background: ${Color.Primary_Light};
-    left: 4px;
-    top: 4px;
     border-radius: 50%;
     text-indent: 4px;
     line-height: 32px;
