@@ -6,8 +6,7 @@ import { DarkTheme, LightTheme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
 
-${resetCSS}
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital@0;1&display=swap');
+${resetCSS};
 
 html[theme="dark"]{
     ${DarkTheme}

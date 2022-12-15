@@ -2,7 +2,7 @@ import { css } from "styled-components";
 import { Color } from "./colors";
 
 const H1 = css`
-  font-family: Bebas Neue;
+  font-family: PT Sans;
   font-size: 56px;
   font-weight: 700;
   line-height: 64px;
@@ -15,7 +15,7 @@ const H1 = css`
 `;
 
 const H2 = css`
-  font-family: Bebas Neue;
+  font-family: PT Sans;
   font-size: 40px;
   font-weight: 700;
   line-height: 60px;
@@ -28,7 +28,7 @@ const H2 = css`
 `;
 
 const H3 = css`
-  font-family: Bebas Neue;
+  font-family: PT Sans;
   font-size: 24px;
   font-weight: 700;
   line-height: 32px;
@@ -37,7 +37,7 @@ const H3 = css`
 `;
 
 const S1 = css`
-  font-family: Bebas Neue;
+  font-family: PT Sans;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
@@ -45,7 +45,7 @@ const S1 = css`
 `;
 
 const B1 = css`
-  font-family: Roboto;
+  font-family: PT Sans;
   font-size: 16px;
   font-weight: 400;
   line-height: 16px;
@@ -53,7 +53,7 @@ const B1 = css`
 `;
 
 const B2 = css`
-  font-family: Roboto;
+  font-family: PT Sans;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
