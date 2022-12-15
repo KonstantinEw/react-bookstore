@@ -1,3 +1,4 @@
+import { Button } from "../Button/Button";
 import { Form, InputField, StyledSubscribe, SubTitle, Title } from "./styles";
 
 export const Subscribe = () => {
@@ -10,7 +11,7 @@ export const Subscribe = () => {
       </SubTitle>
       <Form>
         <InputField type="email" />
-        <input type="submit" />
+        <Button text={"subscribe"} />
       </Form>
     </StyledSubscribe>
   );
