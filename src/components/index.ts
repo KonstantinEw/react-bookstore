@@ -14,6 +14,7 @@ import { DescriptionTabs } from "./DescriptionTabs/DescriptionTabs";
 import { DiscriptionList } from "./DescriptionList/DiscriptionList";
 import { Button } from "./Button/Button";
 import { BookSlider } from "./BookSlider/BookSlider";
+import { Layout } from "./Layout/Layout";
 
 export {
   Header,
@@ -32,4 +33,5 @@ export {
   DiscriptionList,
   Button,
   BookSlider,
+  Layout,
 };
