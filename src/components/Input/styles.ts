@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "ui";
+import { B2, Color } from "ui";
 
 export const StyledInput = styled.input`
   height: 56px;
@@ -9,5 +9,18 @@ export const StyledInput = styled.input`
   outline: none;
   &::placeholder {
     color: ${Color.Secondary};
+    text-transform: capitalize;
   }
+`;
+
+export const Label = styled.label`
+  padding-bottom: 10px;
+  ${B2};
+  color: ${Color.Primary};
+  text-transform: uppercase;
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

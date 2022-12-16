@@ -1,5 +1,10 @@
+import { Profile } from "components";
 import React from "react";
 
 export const ProfilePage = () => {
-  return <div>PageProfilePage</div>;
+  return (
+    <>
+      <Profile />
+    </>
+  );
 };

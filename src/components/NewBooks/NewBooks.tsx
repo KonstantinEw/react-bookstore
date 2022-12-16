@@ -1,12 +1,7 @@
 import { BooksList, Title } from "components";
 import { useEffect } from "react";
 
-import {
-  fetchNewBooks,
-  getNewBooks,
-  useAppDispatch,
-  useAppSelector,
-} from "store";
+import { fetchNewBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
 
 export const NewBooks = () => {
   const { isLoading, result } = useAppSelector(getNewBooks);
@@ -15,10 +10,10 @@ export const NewBooks = () => {
     dispatch(fetchNewBooks());
   }, [dispatch]);
   return isLoading ? (
-    <Title text="Loading..." />
+    <Title>Loading....</Title>
   ) : (
     <section>
-      <Title text="New Releases Books" />
+      <Title>New Releases Books</Title>
       <BooksList responseBooks={result} />
     </section>
   );

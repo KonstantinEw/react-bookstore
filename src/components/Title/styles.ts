@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { H1, Margin3, Media } from "../../ui";
 
 export const StyledTitle = styled.h1`
+  margin-bottom: ${Margin3.desktop};
   ${H1}
-  margin-bottom:${Margin3.desktop};
+  text-transform: uppercase;
   ${Media.SM} {
-    font-size: 32px;
     margin-bottom: ${Margin3.mobile};
+    font-size: 32px;
   }
 `;

@@ -18,6 +18,7 @@ import { Layout } from "./Layout/Layout";
 import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { AuthForm } from "./AuthForm/AuthForm";
 import { Input } from "./Input/Input";
+import { Profile } from "./Profile/Profile";
 
 export {
   Header,
@@ -40,4 +41,5 @@ export {
   CustomNavLink,
   AuthForm,
   Input,
+  Profile,
 };

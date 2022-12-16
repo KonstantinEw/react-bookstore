@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { B1, B2, Color, H3, Media } from "ui";
+import { B1, Color, H3, Media } from "ui";
 
 export const StyledAuthForm = styled.form`
   width: 544px;
@@ -40,14 +40,6 @@ export const BodyForm = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 32px 32px 32px;
-`;
-
-export const Label = styled.label`
-  display: block;
-  padding-bottom: 10px;
-  ${B2};
-  color: ${Color.Primary};
-  text-transform: uppercase;
 `;
 
 export const CustomLink = styled(Link)`

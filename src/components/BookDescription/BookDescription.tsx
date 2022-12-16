@@ -4,7 +4,7 @@ import { BookDetails, DescrWrap, ImageWrap } from "./styles";
 export const BookDescription = () => {
   return (
     <div>
-      <Title text="Lorem ipsum"></Title>
+      <Title>Book title</Title>
       <BookDetails>
         <ImageWrap>
           <img src="" alt="" />

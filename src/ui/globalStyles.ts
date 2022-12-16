@@ -16,14 +16,12 @@ html[theme="light"]{
 }
 
 body {
-  min-height:100%;
+  min-height:100vh;
   background-color: ${Color.Primary_Light};
 }
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   max-width: 1200px;
   min-height: 100%;
   margin: 0px auto;

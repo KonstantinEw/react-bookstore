@@ -11,7 +11,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.PROFILE} element={<ProfilePage />} />
       <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
       <Route path={ROUTE.SHOP_BAG} element={<FavoritesPage />} />
-      <Route path={ROUTE.SINGUP} element={<AuthPage />} />
+      <Route path={ROUTE.SIGNUP} element={<AuthPage />} />
     </Route>,
   ),
 );
