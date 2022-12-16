@@ -1,12 +1,6 @@
 import styled from "styled-components";
-import {
-  FavoriteIcon,
-  LogoIcon,
-  SearchIcon,
-  ShopBagIcon,
-  UserProfileIcon,
-} from ".";
-import { Color } from "../ui";
+import { Arrow, FavoriteIcon, LogoIcon, SearchIcon, ShopBagIcon, UserProfileIcon } from ".";
+import { Color } from "ui";
 
 export const StyledFavoriteIcon = styled(FavoriteIcon)`
   & path {
@@ -36,5 +30,11 @@ export const StyledLogoIcon = styled(LogoIcon)`
 export const StyledSearchIcon = styled(SearchIcon)`
   & path {
     stroke: ${Color.Primary};
+  }
+`;
+
+export const StyledArrow = styled(Arrow)`
+  & path {
+    fill: ${Color.Primary};
   }
 `;
