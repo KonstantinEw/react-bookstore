@@ -11,7 +11,7 @@ export const BookDescription = () => {
         </ImageWrap>
         <DescrWrap>
           <DiscriptionList />
-          <Button text={"add to card"} />
+          <Button>add to card</Button>
         </DescrWrap>
       </BookDetails>
       <DescriptionTabs />

@@ -4,5 +4,6 @@ export enum ROUTE {
   BOOK = "book",
   FAVORITES = "favorites",
   PROFILE = "profile",
-  SINGUP = "singup",
+  SINGUP = "auth",
+  SHOP_BAG = "order",
 }

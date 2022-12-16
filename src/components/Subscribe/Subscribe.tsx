@@ -10,7 +10,7 @@ export const Subscribe = () => {
       </SubTitle>
       <Form>
         <InputField type="email" />
-        <Button text={"subscribe"} />
+        <Button>subscribe</Button>
       </Form>
     </StyledSubscribe>
   );

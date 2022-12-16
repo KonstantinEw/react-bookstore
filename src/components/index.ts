@@ -15,6 +15,9 @@ import { DiscriptionList } from "./DescriptionList/DiscriptionList";
 import { Button } from "./Button/Button";
 import { BookSlider } from "./BookSlider/BookSlider";
 import { Layout } from "./Layout/Layout";
+import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
+import { AuthForm } from "./AuthForm/AuthForm";
+import { Input } from "./Input/Input";
 
 export {
   Header,
@@ -34,4 +37,7 @@ export {
   Button,
   BookSlider,
   Layout,
+  CustomNavLink,
+  AuthForm,
+  Input,
 };

@@ -1,9 +1,10 @@
 import { StyledButton } from "./styles";
 
 interface Iprops {
-  text: string;
+  children: string;
+  type?: "button" | "submit" | "reset";
 }
 
-export const Button = ({ text }: Iprops) => {
-  return <StyledButton>{text}</StyledButton>;
+export const Button = ({ children, type }: Iprops) => {
+  return <StyledButton type={type}>{children}</StyledButton>;
 };

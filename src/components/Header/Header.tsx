@@ -1,15 +1,16 @@
 import { StyledLogoIcon } from "assets";
 import { HeaderNav, Search, ThemeToggler } from "components";
 import { useInput } from "hooks";
-import { LogoWrapper, StyledHeader } from "./styles";
+import { ROUTE } from "router";
+import { LogoLink, StyledHeader } from "./styles";
 
 export const Header = () => {
   const search = useInput();
   return (
     <StyledHeader>
-      <LogoWrapper href="/">
+      <LogoLink to={ROUTE.HOME}>
         <StyledLogoIcon />
-      </LogoWrapper>
+      </LogoLink>
       <Search {...search} type="search" placeholder="Search" />
       <ThemeToggler type="checkbox" />
       <HeaderNav />

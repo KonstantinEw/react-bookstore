@@ -1,22 +1,20 @@
-import {
-  StyledFavoriteIcon,
-  StyledShopBagIcon,
-  StyledUserProfileIcon,
-} from "assets";
-import { NavLink, ShopBagLink, StyledNav } from "./styles";
+import { StyledFavoriteIcon, StyledShopBagIcon, StyledUserProfileIcon } from "assets";
+import { CustomNavLink } from "components";
+import { ROUTE } from "router";
+import { ShopBagLink, StyledNav, StyledNavLink } from "./styles";
 
 export const HeaderNav = () => {
   return (
     <StyledNav>
-      <NavLink href="/">
+      <StyledNavLink to={ROUTE.FAVORITES}>
         <StyledFavoriteIcon />
-      </NavLink>
-      <ShopBagLink href="/">
+      </StyledNavLink>
+      <ShopBagLink to={ROUTE.SHOP_BAG}>
         <StyledShopBagIcon />
       </ShopBagLink>
-      <NavLink href="/">
+      <StyledNavLink to={ROUTE.PROFILE}>
         <StyledUserProfileIcon />
-      </NavLink>
+      </StyledNavLink>
     </StyledNav>
   );
 };

@@ -1,20 +1,10 @@
 import styled from "styled-components";
-import {
-  B1,
-  B2,
-  Color,
-  H3,
-  Margin2,
-  Margin3,
-  Margin7,
-  Margin8,
-  randomColor,
-} from "../../ui";
+import { B1, B2, Color, H3, Margin2, Margin3, Margin7, Margin8, randomColor } from "../../ui";
 
 export const StyledBooksListItem = styled.figure`
   display: flex;
   flex-direction: column;
-  height: 454px;
+  min-height: 454px;
   margin-bottom: ${Margin2.desktop};
 `;
 
@@ -32,6 +22,7 @@ export const Title = styled.a`
 `;
 
 export const Subtitle = styled.p`
+  min-height: 35px;
   margin-bottom: ${Margin3.desktop};
   ${B1};
   color: ${Color.Primary};
