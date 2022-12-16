@@ -1,23 +1,6 @@
-import {
-  NewBooks,
-  Footer,
-  Header,
-  Subscribe,
-  BookDescription,
-  BookSlider,
-} from "components";
-import { Wrapper } from "ui";
+import { RouterProvider } from "react-router-dom";
+import { router } from "router";
 
 export const App = () => {
-  return (
-    <Wrapper>
-      <Header />
-      {/* <NewBooks />
-      <Subscribe /> */}
-      <BookDescription />
-      <Subscribe />
-      <BookSlider />
-      <Footer />
-    </Wrapper>
-  );
+  return <RouterProvider router={router} />;
 };
