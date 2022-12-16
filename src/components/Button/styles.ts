@@ -1,14 +1,19 @@
 import styled from "styled-components";
-import { B2, Color } from "../../ui";
+import { B2, Color } from "ui";
 
-export const StyledButton = styled.button`
-  width: 100%;
+export const StyledButton = styled.button<{
+  buttonWidth?: string;
+  buttonColor?: string;
+  bgColor?: string;
+  brColor?: string;
+}>`
+  width: ${({ buttonWidth }) => buttonWidth || "100%"};
   height: 60px;
-  background: ${Color.Primary};
+  background: ${({ bgColor }) => bgColor || Color.Primary};
   ${B2}
   text-transform: uppercase;
-  color: ${Color.Primary_Light};
-  border: none;
+  color: ${({ buttonColor }) => buttonColor || Color.Primary_Light};
+  border: ${({ brColor }) => `1px solid ${brColor}` || "none"};
   cursor: pointer;
   transition: all 0.3s ease-out;
   &:hover {
