@@ -16,14 +16,16 @@ html[theme="light"]{
 }
 
 body {
-  min-height:100vh;
+  min-height: 100%;
   background-color: ${Color.Primary_Light};
 }
 `;
 
 export const Wrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   max-width: 1200px;
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0px auto;
   padding: 0px 40px 0px 40px;
   background-color: ${Color.Primary_Light};
@@ -36,5 +38,7 @@ export const Wrapper = styled.div`
   ${Media.MD} {
     max-width: none;
     padding: 0px 25px 0px 25px;
+  }
+  ${Media.SM} {
   }
 `;
