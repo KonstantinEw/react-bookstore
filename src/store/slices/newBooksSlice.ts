@@ -1,19 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { restBooksAPI } from "../../services";
-import { IBook } from "../../types";
+import { restBooksAPI } from "services";
+import { IBook, INewBook } from "types";
 
-export const fetchNewBooks = createAsyncThunk<IBook[]>(
-  "newBooks/fetchNewBooks",
-  async () => {
-    return (await restBooksAPI.getNewBooks()).books;
-  }
-);
-
-interface INewBook {
-  result: IBook[];
-  isLoading: boolean;
-  error: null;
-}
+export const fetchNewBooks = createAsyncThunk<IBook[]>("newBooks/fetchNewBooks", async () => {
+  return (await restBooksAPI.getNewBooks()).books;
+});
 
 const initialState: INewBook = {
   result: [],

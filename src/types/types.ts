@@ -54,3 +54,9 @@ export interface ISearchResult {
 export interface IBookIsbn13 {
   isbn13: string;
 }
+
+export interface INewBook {
+  result: IBook[];
+  isLoading: boolean;
+  error: null;
+}

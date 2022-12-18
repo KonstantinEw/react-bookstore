@@ -1,16 +1,8 @@
 import { StarsRaiting } from "components";
+import { IBook } from "types";
 import { RaitingWrapper, ImageWrap, StyledBooksListItem, Subtitle, Title, Cost } from "./styles";
 
-interface IProps {
-  image: string;
-  price: string;
-  subtitle: string;
-  title: string;
-  url: string;
-  isbn13: string;
-}
-
-export const BookListItem = ({ image, title, url, subtitle, price }: IProps) => {
+export const BookListItem = ({ image, title, url, subtitle, price }: IBook) => {
   return (
     <StyledBooksListItem>
       <ImageWrap>
