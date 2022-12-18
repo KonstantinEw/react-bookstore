@@ -1,5 +1,5 @@
 import { Layout, NewBooks } from "components";
-import { AuthPage, FavoritesPage, ProfilePage, SearchPage } from "pages";
+import { AuthPage, FavoritesPage, NotFoundedPage, OrderPage, ProfilePage, SearchPage } from "pages";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUTE } from "./routes";
 
@@ -10,8 +10,9 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
       <Route path={ROUTE.PROFILE} element={<ProfilePage />} />
       <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
-      <Route path={ROUTE.SHOP_BAG} element={<FavoritesPage />} />
+      <Route path={ROUTE.SHOP_BAG} element={<OrderPage />} />
       <Route path={ROUTE.SIGNUP} element={<AuthPage />} />
+      <Route path="*" element={<NotFoundedPage />} />
     </Route>,
   ),
 );
