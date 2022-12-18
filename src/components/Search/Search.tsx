@@ -1,11 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { SearchIcon } from "assets";
-import {
-  feachSearchBooks,
-  getSearchBooks,
-  useAppDispatch,
-  useAppSelector,
-} from "store";
+import { SearchIcon, StyledSearchIcon } from "assets";
+import { feachSearchBooks, getSearchBooks, useAppDispatch, useAppSelector } from "store";
 import { SearchButton, StyledSearch, Wrapper } from "./styles";
 
 interface IProps {
@@ -40,7 +35,7 @@ export const Search = ({ placeholder, type, value, onChange }: IProps) => {
         onChange={onChange}
       ></StyledSearch>
       <SearchButton onClick={handleParams}>
-        <SearchIcon />
+        <StyledSearchIcon />
       </SearchButton>
     </Wrapper>
   );

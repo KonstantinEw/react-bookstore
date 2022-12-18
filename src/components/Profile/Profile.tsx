@@ -1,15 +1,11 @@
-import { StyledArrow } from "assets";
-import { Button, Input, Title } from "components";
-import { ROUTE } from "router";
+import { ArrowBack, Button, Input, Title } from "components";
 import { Color } from "ui";
-import { ButtonWrapper, CustomLink, ProfileInfo, Subtitle } from "./styles";
+import { ButtonWrapper, ProfileInfo, Subtitle } from "./styles";
 
 export const Profile = () => {
   return (
     <form>
-      <CustomLink to={ROUTE.HOME}>
-        <StyledArrow />
-      </CustomLink>
+      <ArrowBack />
       <Title>account</Title>
       <Subtitle>profile</Subtitle>
       <ProfileInfo>

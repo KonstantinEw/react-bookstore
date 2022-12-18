@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "../../ui";
+import { Color, Media } from "ui";
 
 export const StyledThemeToggler = styled.input`
   position: relative;
@@ -15,6 +15,9 @@ export const StyledThemeToggler = styled.input`
   cursor: pointer;
   background: ${Color.Gray};
   transition: background-color ease 0.3s;
+  ${Media.LG} {
+    display: none;
+  }
   &::before {
     content: url("https://shivanarrthine.com/public/images/icons/sun.svg");
     position: absolute;

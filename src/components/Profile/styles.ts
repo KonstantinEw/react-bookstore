@@ -16,11 +16,6 @@ export const Subtitle = styled.h3`
   text-transform: uppercase;
 `;
 
-export const CustomLink = styled(Link)`
-  display: block;
-  margin-bottom: ${Margin4.desktop};
-`;
-
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 30px;
