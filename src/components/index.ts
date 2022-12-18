@@ -19,6 +19,9 @@ import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { AuthForm } from "./AuthForm/AuthForm";
 import { Input } from "./Input/Input";
 import { Profile } from "./Profile/Profile";
+import { FavoriteCard } from "./FavoriteCard/FavoriteCard";
+import { ArrowBack } from "./ArrowBack/ArrowBack";
+import { OrderCard } from "./OrderCard/OrderCard";
 
 export {
   Header,
@@ -42,4 +45,7 @@ export {
   AuthForm,
   Input,
   Profile,
+  FavoriteCard,
+  ArrowBack,
+  OrderCard,
 };

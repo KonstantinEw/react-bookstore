@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { Arrow, FavoriteIcon, LogoIcon, SearchIcon, ShopBagIcon, UserProfileIcon } from ".";
-import { Color } from "ui";
+import { Color, Media } from "ui";
 
 export const StyledFavoriteIcon = styled(FavoriteIcon)`
+  ${Media.LG} {
+    display: none;
+  }
   & path {
     stroke: ${Color.Primary};
   }
@@ -15,6 +18,9 @@ export const StyledShopBagIcon = styled(ShopBagIcon)`
 `;
 
 export const StyledUserProfileIcon = styled(UserProfileIcon)`
+  ${Media.LG} {
+    display: none;
+  }
   & path {
     stroke: ${Color.Primary};
   }
@@ -28,6 +34,9 @@ export const StyledLogoIcon = styled(LogoIcon)`
 `;
 
 export const StyledSearchIcon = styled(SearchIcon)`
+  ${Media.LG} {
+    display: none;
+  }
   & path {
     stroke: ${Color.Primary};
   }
