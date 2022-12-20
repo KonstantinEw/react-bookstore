@@ -1,38 +1,38 @@
 import styled from "styled-components";
-import { B1, B2, Color, H3, Margin2, Margin3, Margin7, Margin8, randomColor } from "../../ui";
+import { B1, B2, Color, H3, Margin3, Margin7, Margin8, randomColor } from "ui";
 
-export const StyledBooksListItem = styled.figure`
-  display: flex;
-  flex-direction: column;
-  min-height: 454px;
-  margin-bottom: ${Margin2.desktop};
+const StyledBooksListItem = styled.figure`
+  display: grid;
+  grid-template-rows: auto 0.5fr 0.5fr auto;
+  justify-items: auto;
+  height: 550px;
 `;
 
-export const ImageWrap = styled.div`
+const ImageWrap = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: ${Margin7.desktop};
   background-color: ${() => randomColor()};
 `;
 
-export const Title = styled.a`
-  margin-bottom: ${Margin8.desktop};
+const Title = styled.a`
   ${H3};
   text-decoration: none;
 `;
 
-export const Subtitle = styled.p`
+const Subtitle = styled.p`
   min-height: 35px;
-  margin-bottom: ${Margin3.desktop};
   ${B1};
   color: ${Color.Primary};
 `;
 
-export const RaitingWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+const DescrWrapper = styled.div`
+  padding: 10px;
 `;
 
-export const Cost = styled.span`
-  ${B2}
+const Cost = styled.span`
+  ${B2};
+  color: ${Color.Primary};
 `;
+
+export { DescrWrapper, Cost, Subtitle, Title, ImageWrap, StyledBooksListItem };
