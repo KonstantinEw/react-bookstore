@@ -1,30 +1,55 @@
 import styled from "styled-components";
-import { B2, Color, H2, Margin1, Margin4, Margin7, S1 } from "../../ui";
+import { B2, Color, H2, Margin1, Margin4, Margin7, Media } from "ui";
 
-export const StyledSubscribe = styled.section`
-  padding: 56px 64px;
+const StyledSubscribe = styled.section`
+  height: 300px;
+  padding: 56px 64px 46px 64px;
   margin-bottom: ${Margin1.desktop};
   background-color: ${Color.Purple};
+
+  ${Media.SM} {
+    height: 400px;
+    padding: 24px;
+    margin-bottom: ${Margin1.mobile};
+  }
 `;
 
-export const Form = styled.form`
-  height: 56px;
+const Form = styled.form`
   display: grid;
   grid-template-columns: 73% 27%;
+  height: 56px;
+  margin-bottom: 10px;
+  ${Media.SM} {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+  }
 `;
 
-export const InputField = styled.input`
+const InputField = styled.input`
+  width: 100%;
   padding: 16px 24px;
+  outline: none;
+  border: none;
+
+  ${Media.SM} {
+    margin-bottom: 10px;
+  }
 `;
 
-export const Title = styled.h2`
+const Title = styled.h2`
   ${Margin7.desktop};
   ${H2};
   color: ${Color.Primary};
 `;
 
-export const SubTitle = styled.p`
+const SubTitle = styled.p`
   margin-bottom: ${Margin4.desktop};
   ${B2};
   color: ${Color.Secondary};
 `;
+
+const ErrorMessage = styled.p`
+  color: ${Color.Red};
+`;
+
+export { ErrorMessage, SubTitle, Title, InputField, Form, StyledSubscribe };
