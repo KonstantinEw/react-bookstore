@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Margin2, Color, Media, Margin5, randomColor, Margin8, H3, B1, S1, H2 } from "ui";
 
-export const StyledOrderCard = styled.div`
+const StyledOrderCard = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 32px;
@@ -25,7 +25,7 @@ export const StyledOrderCard = styled.div`
   }
 `;
 
-export const ImgWrapper = styled.div`
+const ImgWrapper = styled.div`
   width: 100%;
   height: 192px;
   background-color: ${() => randomColor()};
@@ -40,26 +40,26 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-export const TitleWrapper = styled.div`
+const TitleWrapper = styled.div`
   padding: 36px 0px 0px 0px;
   ${Media.SM} {
     padding: 0px 0px 32px 0px;
   }
 `;
 
-export const CardTitle = styled.h3`
+const CardTitle = styled.h3`
   margin-bottom: ${Margin8.desktop};
   ${H3};
   color: ${Color.Primary};
 `;
 
-export const CardSubtitle = styled.p`
+const CardSubtitle = styled.p`
   margin-bottom: ${Margin5.desktop};
   ${B1};
   color: ${Color.Secondary};
 `;
 
-export const CostWrapper = styled.div`
+const CostWrapper = styled.div`
   display: flex;
   padding-top: 56px;
   gap: 113px;
@@ -68,12 +68,12 @@ export const CostWrapper = styled.div`
   }
 `;
 
-export const Cost = styled.span`
+const Cost = styled.span`
   ${H2};
   color: ${Color.Primary};
 `;
 
-export const DeleteButton = styled.button`
+const DeleteButton = styled.button`
   position: relative;
   width: 56px;
   height: 56px;
@@ -83,7 +83,7 @@ export const DeleteButton = styled.button`
   cursor: pointer;
 `;
 
-export const DeleteCross = styled.div`
+const DeleteCross = styled.div`
   width: 32px;
   height: 32px;
   opacity: 0.3;
@@ -107,3 +107,15 @@ export const DeleteCross = styled.div`
     transform: rotate(-45deg);
   }
 `;
+
+export {
+  DeleteCross,
+  DeleteButton,
+  Cost,
+  CostWrapper,
+  CardSubtitle,
+  CardTitle,
+  TitleWrapper,
+  StyledOrderCard,
+  ImgWrapper,
+};

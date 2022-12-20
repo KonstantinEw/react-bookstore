@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { B1, Color, Media } from "ui";
 
-export const StyledFooter = styled.footer`
+const StyledFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   padding: 35px 0px 35px 0px;
@@ -13,7 +13,9 @@ export const StyledFooter = styled.footer`
   }
 `;
 
-export const Text = styled.p`
+const Text = styled.p`
   ${B1}
   color: ${Color.Secondary}
 `;
+
+export { Text, StyledFooter };

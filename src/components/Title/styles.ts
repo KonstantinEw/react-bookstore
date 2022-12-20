@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1, Margin3, Media } from "../../ui";
+import { H1, Margin3, Media } from "ui";
 
 export const StyledTitle = styled.h1`
   margin-bottom: ${Margin3.desktop};

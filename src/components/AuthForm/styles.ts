@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { B1, Color, H3, Media } from "ui";
 
-export const StyledAuthForm = styled.form`
+const StyledAuthForm = styled.form`
   width: 544px;
   min-height: 480px;
   margin-bottom: 100px;
@@ -16,14 +16,14 @@ export const StyledAuthForm = styled.form`
   }
 `;
 
-export const HeaderForm = styled.div`
+const HeaderForm = styled.div`
   height: 72px;
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
 `;
 
-export const ButtonForm = styled.button<{ activeColor?: boolean; activeBorder: boolean }>`
+const ButtonForm = styled.button<{ activeColor?: boolean; activeBorder: boolean }>`
   width: 50%;
   height: 100%;
   background: none;
@@ -36,15 +36,17 @@ export const ButtonForm = styled.button<{ activeColor?: boolean; activeBorder: b
   transition: all 0.3s ease;
 `;
 
-export const BodyForm = styled.div`
+const BodyForm = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 32px 32px 32px;
 `;
 
-export const CustomLink = styled(Link)`
+const CustomLink = styled(Link)`
   margin-bottom: 40px;
   ${B1};
   color: ${Color.Primary};
   text-decoration: none;
 `;
+
+export { CustomLink, BodyForm, ButtonForm, HeaderForm, StyledAuthForm };

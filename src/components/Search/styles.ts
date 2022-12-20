@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { B1, Color, Media } from "../../ui";
+import { B1, Color, Media } from "ui";
 
-export const StyledSearch = styled.input`
+const StyledSearch = styled.input`
   width: 100%;
   height: 56px;
   padding: 15px 20px 15px 20px;
@@ -17,7 +17,7 @@ export const StyledSearch = styled.input`
   }
 `;
 
-export const SearchButton = styled.button`
+const SearchButton = styled.button`
   position: absolute;
   right: 1%;
   top: 23%;
@@ -26,7 +26,9 @@ export const SearchButton = styled.button`
   outline: none;
 `;
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
   width: 50%;
 `;
+
+export { Wrapper, SearchButton, StyledSearch };
