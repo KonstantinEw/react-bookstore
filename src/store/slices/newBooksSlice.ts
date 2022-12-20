@@ -1,10 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { restBooksAPI } from "services";
-import { IBook, INewBook } from "types";
+import { IBook } from "types";
 
 export const fetchNewBooks = createAsyncThunk<IBook[]>("newBooks/fetchNewBooks", async () => {
   return (await restBooksAPI.getNewBooks()).books;
 });
+
+interface INewBook {
+  result: IBook[];
+  isLoading: boolean;
+  error: null | string;
+}
 
 const initialState: INewBook = {
   result: [],
@@ -20,11 +26,9 @@ const newBooksSlice = createSlice({
     builder.addCase(fetchNewBooks.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(fetchNewBooks.fulfilled, (state, action) => {
-      if (action.payload) {
-        state.isLoading = false;
-        state.result = action.payload;
-      }
+    builder.addCase(fetchNewBooks.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.result = payload;
     });
     builder.addCase(fetchNewBooks.rejected, (state, action: any) => {
       state.isLoading = true;

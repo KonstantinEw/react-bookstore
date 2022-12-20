@@ -1,4 +1,4 @@
-import { NewBooks } from "components";
+import { BooksList, Subscribe, Title } from "components";
 import { useEffect } from "react";
 import { fetchNewBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
 
@@ -8,10 +8,17 @@ export const NewBooksPage = () => {
   useEffect(() => {
     dispatch(fetchNewBooks());
   }, [dispatch]);
-
   return (
     <section>
-      <NewBooks error={error} isLoading={isLoading} result={result} />
+      {isLoading ? (
+        <Title>Loading....</Title>
+      ) : (
+        <>
+          <Title>New Releases Books</Title>
+          <BooksList responseBooks={result} />
+          <Subscribe />
+        </>
+      )}
     </section>
   );
 };

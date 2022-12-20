@@ -1,10 +1,10 @@
 import { AuthForm } from "components";
-import { FormWrap } from "./styles";
+import { StyledAuthPage } from "./styles";
 
 export const AuthPage = () => {
   return (
-    <FormWrap>
+    <StyledAuthPage>
       <AuthForm />
-    </FormWrap>
+    </StyledAuthPage>
   );
 };

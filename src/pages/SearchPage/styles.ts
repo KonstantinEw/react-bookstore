@@ -1,6 +1,5 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Color, Margin1, Media } from "ui";
+import { Margin1, Color } from "ui";
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -8,8 +7,4 @@ export const StyledHeader = styled.header`
   padding: 24px 0px 24px 0px;
   margin-bottom: ${Margin1.desktop};
   border-bottom: 1px solid ${Color.Gray};
-`;
-
-export const LogoLink = styled(NavLink)`
-  padding: 14px 0px 14px 0px;
 `;

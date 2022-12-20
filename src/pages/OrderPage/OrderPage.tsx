@@ -5,7 +5,7 @@ export const OrderPage = () => {
   return (
     <StyledOrderPage>
       <ArrowBack />
-      <Title>favorites</Title>
+      <Title>your cart</Title>
       <OrderCard />
       <OrderCard />
       <OrderCard />

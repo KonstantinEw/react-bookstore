@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormWrap = styled.div`
+export const StyledAuthPage = styled.div`
   display: flex;
   justify-content: center;
 `;
