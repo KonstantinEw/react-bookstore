@@ -1,43 +1,49 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { restBooksAPI } from "../../services";
-import { IBook, IResponseSearch, ISearchResult } from "../../types";
+import { AxiosError } from "axios";
+import { restBooksAPI } from "services";
+import { IBookIsbn13, IResponseBook } from "types";
 
-export const feachSearchBooks = createAsyncThunk<
-  IResponseSearch,
-  ISearchResult
->("search/fetchSearchBooks", async (params) => {
-  return await restBooksAPI.searchBooks(params);
-});
+export const feachGetBooks = createAsyncThunk<IResponseBook, IBookIsbn13, { rejectValue: string }>(
+  "getBook/fetchGetBook",
+  async (params, { rejectWithValue }) => {
+    try {
+      return await restBooksAPI.getBook(params);
+    } catch (error) {
+      const errorResponse = error as AxiosError;
+      return rejectWithValue(errorResponse.message);
+    }
+  },
+);
 
-interface ISearchBook {
-  result: IResponseSearch;
+interface IGetBook {
+  result: IResponseBook;
   isLoading: boolean;
   error: null | string;
 }
 
-const initialState: ISearchBook = {
-  result: {} as IResponseSearch,
+const initialState: IGetBook = {
+  result: {} as IResponseBook,
   isLoading: false,
   error: null,
 };
 
 const bookSlice = createSlice({
-  name: "newBooks",
+  name: "getBook",
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(feachSearchBooks.pending, (state) => {
+    builder.addCase(feachGetBooks.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(feachSearchBooks.fulfilled, (state, { payload }) => {
+    builder.addCase(feachGetBooks.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.result.books = payload.books;
-      state.result.page = payload.page;
-    });
-    builder.addCase(feachSearchBooks.rejected, (state, { payload }: any) => {
-      state.isLoading = true;
       state.result = payload;
-      state.error = payload;
+    });
+    builder.addCase(feachGetBooks.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isLoading = true;
+        state.error = payload;
+      }
     });
   },
 });
