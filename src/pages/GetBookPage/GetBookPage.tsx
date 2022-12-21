@@ -1,4 +1,4 @@
-import { BookDescription, Title } from "components";
+import { BookDescription, Loader, Title } from "components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { feachGetBooks, getBook, useAppDispatch, useAppSelector } from "store";
@@ -17,8 +17,7 @@ export const GetBookPage = () => {
     <section>
       {isLoading ? (
         <>
-          <Title>Loading......</Title>
-          <div>{error}</div>
+          <Loader />
         </>
       ) : (
         <>

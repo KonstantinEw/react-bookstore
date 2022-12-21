@@ -21,6 +21,7 @@ import { Profile } from "./Profile/Profile";
 import { FavoriteCard } from "./FavoriteCard/FavoriteCard";
 import { ArrowBack } from "./ArrowBack/ArrowBack";
 import { OrderCard } from "./OrderCard/OrderCard";
+import { Loader } from "./Loader/Loader";
 
 export {
   Header,
@@ -46,4 +47,5 @@ export {
   FavoriteCard,
   ArrowBack,
   OrderCard,
+  Loader,
 };

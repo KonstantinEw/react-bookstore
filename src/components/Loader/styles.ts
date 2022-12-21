@@ -22,9 +22,9 @@ const Spinner = styled.div`
   }
 `;
 
-const SpinnerWrapper = styled.div`
+const StyledLoader = styled.div`
   display: grid;
   height: 100vh;
 `;
 
-export { SpinnerWrapper, Spinner };
+export { StyledLoader, Spinner };

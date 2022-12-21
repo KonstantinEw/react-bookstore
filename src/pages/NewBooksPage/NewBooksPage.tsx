@@ -1,7 +1,6 @@
-import { BooksList, Subscribe, Title } from "components";
+import { BooksList, Loader, Subscribe, Title } from "components";
 import { useEffect, useState } from "react";
 import { feachGetBooks, fetchNewBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
-import { Spinner, SpinnerWrapper } from "./styles";
 
 export const NewBooksPage = () => {
   const { isLoading, result } = useAppSelector(getNewBooks);
@@ -13,9 +12,7 @@ export const NewBooksPage = () => {
   return (
     <section>
       {isLoading ? (
-        <SpinnerWrapper>
-          <Spinner />
-        </SpinnerWrapper>
+        <Loader />
       ) : (
         <>
           <Title>New Releases Books</Title>
