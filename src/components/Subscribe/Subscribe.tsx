@@ -1,7 +1,16 @@
 import axios from "axios";
-import { AuthForm, Button } from "components";
+import { Button } from "components";
 import { useForm } from "react-hook-form";
-import { ErrorMessage, Form, InputField, StyledSubscribe, SubTitle, Title } from "./styles";
+import { FaCheck } from "react-icons/fa";
+import {
+  ErrorMessage,
+  Form,
+  InputField,
+  StyledSubscribe,
+  SubTitle,
+  SuccessTitle,
+  Title,
+} from "./styles";
 
 interface ISubmitEmail {
   email: string;
@@ -29,9 +38,9 @@ export const Subscribe = () => {
   return (
     <StyledSubscribe>
       {isSubmitSuccessful ? (
-        <>
-          <Title>COMPLETE!</Title>
-        </>
+        <SuccessTitle>
+          Successfully! <FaCheck />
+        </SuccessTitle>
       ) : (
         <>
           <Title>Subscribe to Newsletter</Title>

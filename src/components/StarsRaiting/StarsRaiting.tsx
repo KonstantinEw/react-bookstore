@@ -1,5 +1,12 @@
-export const StarsRaiting = () => {
-  const stars = Array(5).fill(0);
+import { useState } from "react";
 
-  return <div>StarsRaiting</div>;
+import StarsRating from "react-star-rate";
+
+export const StarsRaiting = () => {
+  const [value, setValue] = useState(0);
+  return (
+    <div>
+      <StarsRating value={value} />
+    </div>
+  );
 };

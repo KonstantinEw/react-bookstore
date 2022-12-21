@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { B2, Color, H2, Margin1, Margin4, Margin7, Media } from "ui";
 
 const StyledSubscribe = styled.section`
+  display: grid;
   height: 300px;
   padding: 56px 64px 46px 64px;
   margin-bottom: ${Margin1.desktop};
   background-color: ${Color.Purple};
 
-  ${Media.SM} {
+  ${Media.MD} {
     height: 400px;
     padding: 24px;
     margin-bottom: ${Margin1.mobile};
@@ -19,7 +20,7 @@ const Form = styled.form`
   grid-template-columns: 73% 27%;
   height: 56px;
   margin-bottom: 10px;
-  ${Media.SM} {
+  ${Media.MD} {
     grid-template-columns: none;
     grid-template-rows: 1fr 1fr;
   }
@@ -52,4 +53,11 @@ const ErrorMessage = styled.p`
   color: ${Color.Red};
 `;
 
-export { ErrorMessage, SubTitle, Title, InputField, Form, StyledSubscribe };
+const SuccessTitle = styled.p`
+  place-self: center;
+  ${Margin7.desktop};
+  ${H2};
+  color: ${Color.Primary};
+`;
+
+export { ErrorMessage, SubTitle, Title, InputField, Form, StyledSubscribe, SuccessTitle };
