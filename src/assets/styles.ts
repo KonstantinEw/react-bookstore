@@ -1,5 +1,12 @@
 import styled from "styled-components";
-import { ArrowIcon, FavoriteIcon, LogoIcon, SearchIcon, ShopBagIcon, UserProfileIcon } from ".";
+import {
+  ArrowIcon,
+  FavoriteIcon,
+  LogoIcon,
+  SearchIcon,
+  ShopBagIcon,
+  UserProfileIcon,
+} from "assets";
 import { Color, Media } from "ui";
 
 export const StyledFavoriteIcon = styled(FavoriteIcon)`

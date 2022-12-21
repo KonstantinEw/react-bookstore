@@ -1,11 +1,15 @@
 import { StyledArrow } from "assets";
-import { ROUTE } from "router";
-import { CustomLink } from "./styles";
+import { useNavigate } from "react-router";
+import { Button } from "./styles";
 
 export const ArrowBack = () => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
   return (
-    <CustomLink to={ROUTE.HOME}>
+    <Button onClick={handleBack}>
       <StyledArrow />
-    </CustomLink>
+    </Button>
   );
 };
