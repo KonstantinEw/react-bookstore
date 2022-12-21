@@ -29,7 +29,7 @@ const initialState: ISearchBook = {
 };
 
 const searchBooksSlice = createSlice({
-  name: "newBooks",
+  name: "searchBooks",
   initialState,
   reducers: {},
   extraReducers(builder) {

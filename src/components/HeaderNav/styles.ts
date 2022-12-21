@@ -1,4 +1,4 @@
-import { CustomNavLink } from "components";
+import { CustomNavLink } from "components/CustomNavLink/CustomNavLink";
 import styled from "styled-components";
 import { Media } from "ui";
 

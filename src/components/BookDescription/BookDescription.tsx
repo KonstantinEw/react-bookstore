@@ -1,20 +1,28 @@
-import { Button, DescriptionTabs, DiscriptionList, Title } from "components";
-import { BookDetails, DescrWrap, ImageWrap } from "./styles";
+import { ArrowBack, Button, DescriptionTabs, DiscriptionList, Title } from "components";
+import { IResponseBook } from "types";
+import { BookDetails, DescrWrap, ImageWrap, Image } from "./styles";
 
-export const BookDescription = () => {
+interface IProps {
+  result: IResponseBook;
+}
+
+export const BookDescription = ({ result }: IProps) => {
+  const { title, image } = result;
+
   return (
     <div>
-      <Title>Book title</Title>
+      <ArrowBack />
+      <Title>{title}</Title>
       <BookDetails>
         <ImageWrap>
-          <img src="" alt="" />
+          <Image src={image} alt={title} />
         </ImageWrap>
         <DescrWrap>
-          <DiscriptionList />
+          <DiscriptionList result={result} />
           <Button>add to card</Button>
         </DescrWrap>
       </BookDetails>
-      <DescriptionTabs />
+      <DescriptionTabs result={result} />
     </div>
   );
 };

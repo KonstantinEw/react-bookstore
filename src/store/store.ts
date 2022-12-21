@@ -17,6 +17,6 @@ export const store = configureStore({
     favorite: faviriteReducer,
     newBooks: newBooksReducer,
     searchBooks: searchBooksReduser,
-    bookISBN: bookReducer,
+    bookIsbn: bookReducer,
   },
 });

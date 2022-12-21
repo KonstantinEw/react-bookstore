@@ -1,9 +1,16 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { IResponseBook } from "types";
+import { StyledTabs } from "./styles";
 
-export const DescriptionTabs = () => {
+interface IProps {
+  result: IResponseBook;
+}
+
+export const DescriptionTabs = ({ result }: IProps) => {
+  const { desc, authors, subtitle } = result;
   return (
-    <Tabs>
+    <StyledTabs>
       <TabList>
         <Tab>Description</Tab>
         <Tab>Authors</Tab>
@@ -11,14 +18,14 @@ export const DescriptionTabs = () => {
       </TabList>
 
       <TabPanel>
-        <h2>Any content 1</h2>
+        <p>{desc}</p>
       </TabPanel>
       <TabPanel>
-        <h2>Any content 2</h2>
+        <p>{authors}</p>
       </TabPanel>
       <TabPanel>
-        <h2>Any content 2</h2>
+        <p>{subtitle}</p>
       </TabPanel>
-    </Tabs>
+    </StyledTabs>
   );
 };

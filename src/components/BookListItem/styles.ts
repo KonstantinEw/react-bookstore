@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { B1, B2, Color, H3, Margin3, Margin7, Margin8, randomColor } from "ui";
 
@@ -15,7 +16,7 @@ const ImageWrap = styled.div`
   background-color: ${() => randomColor()};
 `;
 
-const Title = styled.a`
+const Title = styled(Link)`
   ${H3};
   text-decoration: none;
 `;

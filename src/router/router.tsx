@@ -8,6 +8,7 @@ import {
   ProfilePage,
   SearchPage,
 } from "pages";
+import { GetBookPage } from "pages/GetBookPage/GetBookPage";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUTE } from "./routes";
 
@@ -20,6 +21,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
       <Route path={ROUTE.SHOP_BAG} element={<OrderPage />} />
       <Route path={ROUTE.SIGNUP} element={<AuthPage />} />
+      <Route path={ROUTE.DETAILS} element={<GetBookPage />} />
       <Route path="*" element={<NotFoundedPage />} />
     </Route>,
   ),

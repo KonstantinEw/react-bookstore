@@ -1,27 +1,33 @@
+import { IResponseBook } from "types";
 import { CostRow, DescrItem, DescrList, DescrText, ListText } from "./styles";
 
-export const DiscriptionList = () => {
+interface IProps {
+  result: IResponseBook;
+}
+
+export const DiscriptionList = ({ result }: IProps) => {
+  const { price, rating, authors, pages, publisher, language, year } = result;
   return (
     <DescrList>
       <CostRow>
-        <span>43$</span>
-        <span>aaaaa</span>
+        <span>{price}</span>
+        <span>{rating}</span>
       </CostRow>
       <DescrItem>
         <ListText>Authors:</ListText>
-        <DescrText>asdasd</DescrText>
+        <DescrText>{authors}</DescrText>
       </DescrItem>
       <DescrItem>
         <ListText>Publisher:</ListText>
-        <DescrText>asdasdasd</DescrText>
+        <DescrText>{publisher}</DescrText>
       </DescrItem>
       <DescrItem>
         <ListText>Language:</ListText>
-        <DescrText>dasdasd</DescrText>
+        <DescrText>{language}</DescrText>
       </DescrItem>
       <DescrItem>
         <ListText>Year:</ListText>
-        <DescrText>asdasd</DescrText>
+        <DescrText>{year}</DescrText>
       </DescrItem>
     </DescrList>
   );
