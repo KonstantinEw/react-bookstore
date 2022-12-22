@@ -11,7 +11,7 @@ export const Header = () => {
       <LogoLink to={ROUTE.HOME}>
         <StyledLogoIcon />
       </LogoLink>
-      <Search {...search} type="search" placeholder="Search" />
+      {/* <Search {...search} type="search" placeholder="Search" /> */}
       <ThemeToggler type="checkbox" />
       <HeaderNav />
     </StyledHeader>

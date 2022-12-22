@@ -21,7 +21,6 @@ export const Search = ({ placeholder, type, value, onChange }: IProps) => {
     dispatch(feachSearchBooks(params));
   }, [dispatch, params]);
   const { books, page, error, total } = result;
-  console.log(books);
   const handleParams = () => {
     setParams({ searchValue: value, page: "1" });
   };
