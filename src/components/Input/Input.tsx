@@ -1,17 +1,20 @@
-import React from "react";
-import { InputWrapper, Label, StyledInput } from "./styles";
+// не работает пока...рефы
+import { ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 
 interface IProps {
   children: string;
-  type: string;
+  type: "password" | "email" | "text";
   placeholder: string;
+  errors?: string;
+  name?: string;
 }
 
-export const Input = ({ type, placeholder, children }: IProps) => {
+export const Input = ({ type, placeholder, children, errors }: IProps) => {
   return (
     <InputWrapper>
       <Label>{children}</Label>
       <StyledInput type={type} placeholder={placeholder} />
+      {errors && <ErrorMessage>{errors}</ErrorMessage>}
     </InputWrapper>
   );
 };
