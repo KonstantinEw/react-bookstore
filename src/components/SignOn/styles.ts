@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { B2, Color, H3 } from "ui";
+import { B2, Color } from "ui";
 
 const ErrorMessage = styled.p`
   height: 15px;

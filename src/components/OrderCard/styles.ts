@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Margin2, Color, Media, Margin5, randomColor, Margin8, H3, B1, S1, H2 } from "ui";
+import { Margin2, Color, Media, Margin5, randomColor, Margin8, H3, B1, H2 } from "ui";
 
 const StyledOrderCard = styled.div`
   display: grid;

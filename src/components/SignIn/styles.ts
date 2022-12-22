@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { B1, B2, Color, H2, H3, Margin1, Margin4, Margin7, Media } from "ui";
+import { B1, B2, Color } from "ui";
 
 const BodyForm = styled.form`
   display: flex;

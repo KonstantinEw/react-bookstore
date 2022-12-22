@@ -1,5 +1,6 @@
 import { AuthPage } from "./AuthPage/AuthPage";
 import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
+import { GetBookPage } from "./GetBookPage/GetBookPage";
 import { NewBooksPage } from "./NewBooksPage/NewBooksPage";
 import { NotFoundedPage } from "./NotFoundedPage/NotFoundedPage";
 import { OrderPage } from "./OrderPage/OrderPage";
@@ -14,4 +15,5 @@ export {
   OrderPage,
   NotFoundedPage,
   NewBooksPage,
+  GetBookPage,
 };

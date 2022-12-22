@@ -1,4 +1,4 @@
-import { Input, Button } from "components";
+import { Button } from "components";
 import { useForm } from "react-hook-form";
 import { BodyForm, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 
@@ -27,6 +27,7 @@ export const SignOn = () => {
 
   const onSubmit = (data: ISignOn) => {
     console.log(data);
+    reset();
   };
 
   return (
