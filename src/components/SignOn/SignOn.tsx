@@ -1,24 +1,106 @@
 import { Input, Button } from "components";
-import { BodyForm } from "./styles";
+import { useForm } from "react-hook-form";
+import { BodyForm, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
+
+interface ISignOn {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 
 export const SignOn = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  const onSubmit = (data: ISignOn) => {
+    console.log(data);
+  };
+
   return (
-    <BodyForm>
-      <Input type="text" placeholder="Your name">
-        name
-      </Input>
+    <BodyForm onSubmit={handleSubmit(onSubmit)}>
+      <InputWrapper>
+        <Label>name</Label>
+        <StyledInput
+          type="text"
+          placeholder="Your name"
+          {...register("name", {
+            required: {
+              value: true,
+              message: "Name is required field!",
+            },
+          })}
+        />
+        <ErrorMessage>{errors.name?.message}</ErrorMessage>
+      </InputWrapper>
 
-      <Input type="email" placeholder="Your email">
-        email
-      </Input>
+      <InputWrapper>
+        <Label>email</Label>
+        <StyledInput
+          type="text"
+          placeholder="Your email"
+          {...register("email", {
+            pattern: {
+              value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+              message: "Enter the correct email!",
+            },
+            required: {
+              value: true,
+              message: "Email is required field!",
+            },
+          })}
+        />
+        <ErrorMessage>{errors.email?.message}</ErrorMessage>
+      </InputWrapper>
 
-      <Input type="password" placeholder="Your password">
-        password
-      </Input>
+      <InputWrapper>
+        <Label>password</Label>
+        <StyledInput
+          type="password"
+          placeholder="Your password"
+          {...register("password", {
+            required: {
+              value: true,
+              message: "Password is required field!",
+            },
+            minLength: {
+              value: 6,
+              message: "You must enter at least 6 characters!",
+            },
+          })}
+        />
+        <ErrorMessage>{errors.password?.message}</ErrorMessage>
+      </InputWrapper>
 
-      <Input type="password" placeholder="Confirm password">
-        confirm password
-      </Input>
+      <InputWrapper>
+        <Label>confirm password</Label>
+        <StyledInput
+          type="password"
+          placeholder="Your password"
+          {...register("confirmPassword", {
+            required: {
+              value: true,
+              message: "This is required field!",
+            },
+            validate: (value) => {
+              return value === watch("password") || "Password does not match";
+            },
+          })}
+        />
+        <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+      </InputWrapper>
       <Button type="submit">sign on</Button>
     </BodyForm>
   );

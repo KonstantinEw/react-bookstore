@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Color, H3, Media } from "ui";
 
-const StyledAuthForm = styled.form`
+const StyledAuthForm = styled.div`
   width: 544px;
   min-height: 480px;
   margin-bottom: 100px;

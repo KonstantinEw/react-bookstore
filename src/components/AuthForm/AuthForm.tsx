@@ -16,7 +16,7 @@ export const AuthForm = () => {
   };
 
   return (
-    <StyledAuthForm action="">
+    <StyledAuthForm>
       <HeaderForm>
         <ButtonForm activeBorder={isSignIn} activeColor={isSignIn} onClick={handleSignOn}>
           Sign in
