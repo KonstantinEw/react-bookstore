@@ -3,7 +3,12 @@ import { ROUTE } from "router";
 import { IBook } from "types";
 import { ImageWrap, StyledBooksListItem, Subtitle, Title, Cost } from "./styles";
 
-export const BookListItem = ({ image, title, subtitle, price, isbn13 }: IBook) => {
+interface IProps {
+  book: IBook;
+}
+
+export const BookListItem = ({ book }: IProps) => {
+  const { image, title, subtitle, isbn13, price } = book;
   return (
     <StyledBooksListItem>
       <ImageWrap>

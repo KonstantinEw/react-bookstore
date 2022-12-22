@@ -10,7 +10,7 @@ export const BooksList = ({ responseBooks }: IProps) => {
   return (
     <StyledBooksList>
       {responseBooks.map((book) => (
-        <BookListItem key={book.isbn13} {...book} />
+        <BookListItem key={book.isbn13} book={book} />
       ))}
     </StyledBooksList>
   );
