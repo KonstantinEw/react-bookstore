@@ -1,26 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Color, H3, Media } from "ui";
-
-const StyledAuthForm = styled.form`
-  width: 544px;
-  min-height: 480px;
-  margin-bottom: 100px;
-  border: 1px solid ${Color.Gray};
-  ${Media.MD} {
-    margin-bottom: 170px;
-  }
-  ${Media.SM} {
-    width: 100%;
-    height: 404px;
-  }
-`;
-
-const HeaderForm = styled.div`
-  height: 72px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 32px;
-`;
+import { B1, Color, H3, Media } from "ui";
 
 const ButtonForm = styled.button<{ activeColor?: boolean; activeBorder: boolean }>`
   width: 50%;
@@ -35,4 +15,10 @@ const ButtonForm = styled.button<{ activeColor?: boolean; activeBorder: boolean 
   transition: all 0.3s ease;
 `;
 
-export { ButtonForm, HeaderForm, StyledAuthForm };
+const BodyForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0px 32px 32px 32px;
+`;
+
+export { BodyForm, ButtonForm };
