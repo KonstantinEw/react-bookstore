@@ -2,14 +2,11 @@ import styled from "styled-components";
 import { B2, Color, H2, Margin1, Margin4, Margin7, Media } from "ui";
 
 const StyledSubscribe = styled.section`
-  display: grid;
-  height: 300px;
   padding: 56px 64px 46px 64px;
   margin-bottom: ${Margin1.desktop};
   background-color: ${Color.Purple};
 
   ${Media.MD} {
-    height: 400px;
     padding: 24px;
     margin-bottom: ${Margin1.mobile};
   }
@@ -18,7 +15,7 @@ const StyledSubscribe = styled.section`
 const Form = styled.form`
   display: grid;
   grid-template-columns: 73% 27%;
-  height: 56px;
+  min-height: 56px;
   margin-bottom: 10px;
   ${Media.MD} {
     grid-template-columns: none;

@@ -1,4 +1,11 @@
-import { ArrowBack, Button, DescriptionTabs, DiscriptionList, Subscribe, Title } from "components";
+import {
+  ArrowBackButton,
+  Button,
+  DescriptionTabs,
+  DiscriptionList,
+  Subscribe,
+  Title,
+} from "components";
 import { IResponseBook } from "types";
 import { BookDetails, DescrWrap, ImageWrap, Image } from "./styles";
 
@@ -11,7 +18,7 @@ export const BookDescription = ({ result }: IProps) => {
 
   return (
     <div>
-      <ArrowBack />
+      <ArrowBackButton />
       <Title>{title}</Title>
       <BookDetails>
         <ImageWrap>

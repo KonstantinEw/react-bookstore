@@ -8,7 +8,7 @@ export const StyledButton = styled.button<{
   brColor?: string;
 }>`
   width: ${({ buttonWidth }) => buttonWidth || "100%"};
-  height: 60px;
+  min-height: 60px;
   background: ${({ bgColor }) => bgColor || Color.Primary};
   ${B2}
   text-transform: uppercase;

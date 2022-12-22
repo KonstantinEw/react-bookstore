@@ -11,8 +11,7 @@ export const SignIn = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     defaultValues: {
       email: "",
@@ -21,8 +20,7 @@ export const SignIn = () => {
   });
 
   const onSubmit = (data: ISingIn) => {
-    console.log(data);
-    reset();
+    return data;
   };
   return (
     <BodyForm onSubmit={handleSubmit(onSubmit)}>

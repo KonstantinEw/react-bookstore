@@ -1,11 +1,11 @@
-import { ArrowBack, Button, Input, Title } from "components";
+import { ArrowBackButton, Button, Input, Title } from "components";
 import { Color } from "ui";
 import { ButtonWrapper, ProfileInfo, Subtitle } from "./styles";
 
 export const Profile = () => {
   return (
     <form>
-      <ArrowBack />
+      <ArrowBackButton />
       <Title>account</Title>
       <Subtitle>profile</Subtitle>
       <ProfileInfo>

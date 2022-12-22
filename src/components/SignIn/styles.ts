@@ -16,7 +16,7 @@ const CustomLink = styled(Link)`
 `;
 
 const ErrorMessage = styled.p`
-  height: 15px;
+  min-height: 15px;
   margin-bottom: 10px;
   color: ${Color.Red};
 `;

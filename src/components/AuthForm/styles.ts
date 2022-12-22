@@ -3,7 +3,6 @@ import { Color, H3, Media } from "ui";
 
 const StyledAuthForm = styled.div`
   width: 544px;
-  min-height: 480px;
   margin-bottom: 100px;
   border: 1px solid ${Color.Gray};
   ${Media.MD} {
@@ -11,7 +10,6 @@ const StyledAuthForm = styled.div`
   }
   ${Media.SM} {
     width: 100%;
-    height: 404px;
   }
 `;
 

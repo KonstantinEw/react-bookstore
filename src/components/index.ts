@@ -19,7 +19,7 @@ import { AuthForm } from "./AuthForm/AuthForm";
 import { Input } from "./Input/Input";
 import { Profile } from "./Profile/Profile";
 import { FavoriteCard } from "./FavoriteCard/FavoriteCard";
-import { ArrowBack } from "./ArrowBack/ArrowBack";
+import { ArrowBackButton } from "./ArrowBackButton/ArrowBackButton";
 import { OrderCard } from "./OrderCard/OrderCard";
 import { Loader } from "./Loader/Loader";
 import { SignIn } from "./SignIn/SignIn";
@@ -47,7 +47,7 @@ export {
   Input,
   Profile,
   FavoriteCard,
-  ArrowBack,
+  ArrowBackButton,
   OrderCard,
   Loader,
   SignIn,

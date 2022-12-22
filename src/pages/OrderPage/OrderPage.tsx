@@ -1,10 +1,10 @@
-import { ArrowBack, OrderCard, Title } from "components";
+import { ArrowBackButton, OrderCard, Title } from "components";
 import { StyledOrderPage } from "./styles";
 
 export const OrderPage = () => {
   return (
     <StyledOrderPage>
-      <ArrowBack />
+      <ArrowBackButton />
       <Title>your cart</Title>
       <OrderCard />
       <OrderCard />

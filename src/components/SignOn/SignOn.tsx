@@ -13,9 +13,8 @@ export const SignOn = () => {
   const {
     register,
     handleSubmit,
-    reset,
     watch,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     defaultValues: {
       name: "",
@@ -26,8 +25,7 @@ export const SignOn = () => {
   });
 
   const onSubmit = (data: ISignOn) => {
-    console.log(data);
-    reset();
+    return data;
   };
 
   return (
