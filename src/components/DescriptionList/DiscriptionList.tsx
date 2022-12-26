@@ -1,15 +1,14 @@
-import { IResponseBook } from "types";
+import { IDetailsBook } from "types";
 import { CostRow, DescrItem, DescrList, DescrText, ListText } from "./styles";
 import StarsRating from "react-star-rate";
 import { useState } from "react";
-import { Color } from "ui";
 
 interface IProps {
-  result: IResponseBook;
+  book: IDetailsBook;
 }
 
-export const DiscriptionList = ({ result }: IProps) => {
-  const { price, rating, authors, pages, publisher, language, year } = result;
+export const DiscriptionList = ({ book }: IProps) => {
+  const { price, rating, authors, pages, publisher, language, year } = book;
   const [value] = useState(+rating);
   return (
     <DescrList>

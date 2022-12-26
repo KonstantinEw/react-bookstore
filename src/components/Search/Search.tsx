@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { SearchIcon, StyledSearchIcon } from "assets";
+import { StyledSearchIcon } from "assets";
 import { feachSearchBooks, getSearchBooks, useAppDispatch, useAppSelector } from "store";
 import { SearchButton, StyledSearch, Wrapper } from "./styles";
 

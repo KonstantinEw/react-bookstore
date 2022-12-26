@@ -5,13 +5,11 @@ import { ButtonForm, HeaderForm, StyledAuthForm } from "./styles";
 export const AuthForm = () => {
   const [isSignIn, setIsSignIn] = useState(true);
 
-  const handleSignOn = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
+  const handleSignOn = () => {
     setIsSignIn(true);
   };
 
-  const handleSignIn = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
+  const handleSignIn = () => {
     setIsSignIn(false);
   };
 

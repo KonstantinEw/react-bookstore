@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { H1, H3, Margin3 } from "ui";
 
-export const StyledNotFoundePage = styled.div`
+export const StyledNotFoundePage = styled.section`
   display: grid;
   grid-template-rows: 5fr 1fr 1fr;
   justify-items: center;

@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { restBooksAPI } from "services";
-import { IBookIsbn13, IResponseBook } from "types";
+import { IBookIsbn13, IDetailsBook } from "types";
 
-export const feachGetBooks = createAsyncThunk<IResponseBook, IBookIsbn13, { rejectValue: string }>(
+export const feachGetBooks = createAsyncThunk<IDetailsBook, IBookIsbn13, { rejectValue: string }>(
   "getBook/fetchGetBook",
   async (params, { rejectWithValue }) => {
     try {
@@ -16,13 +16,13 @@ export const feachGetBooks = createAsyncThunk<IResponseBook, IBookIsbn13, { reje
 );
 
 interface IGetBook {
-  result: IResponseBook;
+  result: IDetailsBook;
   isLoading: boolean;
   error: null | string;
 }
 
 const initialState: IGetBook = {
-  result: {} as IResponseBook,
+  result: {} as IDetailsBook,
   isLoading: false,
   error: null,
 };

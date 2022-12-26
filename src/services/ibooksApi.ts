@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   IBookIsbn13,
-  IResponseBook,
+  IDetailsBook,
   IResponseNewBooks,
   IResponseSearch,
   ISearchResult,
@@ -31,7 +31,7 @@ class booksAPI {
     return data;
   }
   public async getBook({ isbn13 }: IBookIsbn13) {
-    const { data } = await this.API.get<IResponseBook>(`${this.ENDPOINTS.books}/${isbn13}`);
+    const { data } = await this.API.get<IDetailsBook>(`${this.ENDPOINTS.books}/${isbn13}`);
     return data;
   }
 }

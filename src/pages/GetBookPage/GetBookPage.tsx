@@ -12,5 +12,5 @@ export const GetBookPage = () => {
     dispatch(feachGetBooks(opsions));
   }, [dispatch, opsions]);
 
-  return <section>{isLoading ? <Loader /> : <BookDescription result={result} />}</section>;
+  return <section>{isLoading ? <Loader /> : <BookDescription book={result} />}</section>;
 };

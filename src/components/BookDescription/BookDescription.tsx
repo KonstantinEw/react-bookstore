@@ -6,15 +6,15 @@ import {
   Subscribe,
   Title,
 } from "components";
-import { IResponseBook } from "types";
+import { IDetailsBook } from "types";
 import { BookDetails, DescrWrap, ImageWrap, Image } from "./styles";
 
 interface IProps {
-  result: IResponseBook;
+  book: IDetailsBook;
 }
 
-export const BookDescription = ({ result }: IProps) => {
-  const { title, image } = result;
+export const BookDescription = ({ book }: IProps) => {
+  const { title, image } = book;
 
   return (
     <div>
@@ -25,11 +25,11 @@ export const BookDescription = ({ result }: IProps) => {
           <Image src={image} alt={title} />
         </ImageWrap>
         <DescrWrap>
-          <DiscriptionList result={result} />
+          <DiscriptionList book={book} />
           <Button>add to card</Button>
         </DescrWrap>
       </BookDetails>
-      <DescriptionTabs result={result} />
+      <DescriptionTabs book={book} />
       <Subscribe />
     </div>
   );

@@ -2,7 +2,7 @@ import {
   IBook,
   IResponseNewBooks,
   IResponseSearch,
-  IResponseBook,
+  IDetailsBook,
   ISearchParams,
   ISearchResult,
   IBookIsbn13,
@@ -11,7 +11,7 @@ import {
 export type {
   IBook,
   IResponseNewBooks,
-  IResponseBook,
+  IDetailsBook,
   IResponseSearch,
   ISearchParams,
   ISearchResult,

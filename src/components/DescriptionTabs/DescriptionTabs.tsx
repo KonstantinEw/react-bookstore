@@ -1,14 +1,14 @@
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { IResponseBook } from "types";
+import { IDetailsBook } from "types";
 import { StyledTabs } from "./styles";
 
 interface IProps {
-  result: IResponseBook;
+  book: IDetailsBook;
 }
 
-export const DescriptionTabs = ({ result }: IProps) => {
-  const { desc, authors, subtitle } = result;
+export const DescriptionTabs = ({ book }: IProps) => {
+  const { desc, authors, subtitle } = book;
   return (
     <StyledTabs>
       <TabList>
