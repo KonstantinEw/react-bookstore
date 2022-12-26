@@ -1,17 +1,38 @@
-import { StyledLogoIcon } from "assets";
-import { HeaderNav, Search, ThemeToggler } from "components";
+import { StyledLogoIcon, StyledSearchIcon } from "assets";
+import { HeaderNav, ThemeToggler } from "components";
 import { useInput } from "hooks";
+import { useEffect, useState } from "react";
 import { ROUTE } from "router";
-import { LogoLink, StyledHeader } from "./styles";
+import { useAppDispatch, feachSearchBooks } from "store";
+import { InputWrapper, LogoLink, Search, SearchLink, StyledHeader } from "./styles";
 
 export const Header = () => {
-  const search = useInput();
+  const { value, onChange } = useInput();
+
+  const [params, setParams] = useState({
+    searchValue: value,
+    page: "",
+  });
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(feachSearchBooks(params));
+  }, [params, dispatch]);
+
+  const handleParams = () => {
+    setParams({ searchValue: value, page: "1" });
+  };
+
   return (
     <StyledHeader>
       <LogoLink to={ROUTE.HOME}>
         <StyledLogoIcon />
       </LogoLink>
-      {/* <Search {...search} type="search" placeholder="Search" /> */}
+      <InputWrapper>
+        <Search placeholder="Search" onChange={onChange} value={value} />
+        <SearchLink to={ROUTE.SEARCH} onClick={handleParams}>
+          <StyledSearchIcon />
+        </SearchLink>
+      </InputWrapper>
       <ThemeToggler type="checkbox" />
       <HeaderNav />
     </StyledHeader>

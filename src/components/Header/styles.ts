@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Color, Margin1, Media } from "ui";
+import { B1, Color, Margin1, Media } from "ui";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -14,4 +14,34 @@ const LogoLink = styled(NavLink)`
   padding: 14px 0px 14px 0px;
 `;
 
-export { LogoLink, StyledHeader };
+const Search = styled.input`
+  width: 100%;
+  height: 56px;
+  padding: 15px 20px 15px 20px;
+  border: 1px solid ${Color.Gray};
+  background-color: ${Color.Light};
+  ${B1}
+  outline: none;
+  &::placeholder {
+    color: ${Color.Secondary};
+  }
+  ${Media.LG} {
+    display: none;
+  }
+`;
+
+const SearchLink = styled(Link)`
+  position: absolute;
+  right: 1%;
+  top: 23%;
+  background: none;
+  border: none;
+  outline: none;
+`;
+
+const InputWrapper = styled.div`
+  position: relative;
+  width: 50%;
+`;
+
+export { LogoLink, StyledHeader, InputWrapper, SearchLink, Search };

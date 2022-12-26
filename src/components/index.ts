@@ -1,6 +1,5 @@
 import { Header } from "./Header/Header";
 import { HeaderNav } from "./HeaderNav/HeaderNav";
-import { Search } from "./Search/Search";
 import { Title } from "./Title/Title";
 import { BooksList } from "./BooksIist/BooksList";
 import { Subscribe } from "./Subscribe/Subscribe";
@@ -28,7 +27,6 @@ import { SignOn } from "./SignOn/SignOn";
 export {
   Header,
   HeaderNav,
-  Search,
   Title,
   BooksList,
   Subscribe,

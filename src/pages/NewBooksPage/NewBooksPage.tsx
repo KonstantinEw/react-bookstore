@@ -1,6 +1,6 @@
 import { BooksList, Loader, Subscribe, Title } from "components";
-import { useEffect, useState } from "react";
-import { feachGetBooks, fetchNewBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
+import { useEffect } from "react";
+import { fetchNewBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
 
 export const NewBooksPage = () => {
   const { isLoading, result } = useAppSelector(getNewBooks);
@@ -16,7 +16,7 @@ export const NewBooksPage = () => {
       ) : (
         <>
           <Title>New Releases Books</Title>
-          <BooksList responseBooks={result} />
+          <BooksList books={result} />
           <Subscribe />
         </>
       )}

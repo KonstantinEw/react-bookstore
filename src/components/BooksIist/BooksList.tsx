@@ -3,13 +3,13 @@ import { IBook } from "types";
 import { StyledBooksList } from "./styles";
 
 interface IProps {
-  responseBooks: IBook[];
+  books: IBook[];
 }
 
-export const BooksList = ({ responseBooks }: IProps) => {
+export const BooksList = ({ books }: IProps) => {
   return (
     <StyledBooksList>
-      {responseBooks.map((book) => (
+      {books?.map((book) => (
         <BookListItem key={book.isbn13} book={book} />
       ))}
     </StyledBooksList>
