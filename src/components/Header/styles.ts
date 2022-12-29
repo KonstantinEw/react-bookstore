@@ -30,7 +30,7 @@ const Search = styled.input`
   }
 `;
 
-const SearchLink = styled(Link)`
+const SearchButton = styled.button`
   position: absolute;
   right: 1%;
   top: 23%;
@@ -44,4 +44,4 @@ const InputWrapper = styled.div`
   width: 50%;
 `;
 
-export { LogoLink, StyledHeader, InputWrapper, SearchLink, Search };
+export { LogoLink, StyledHeader, InputWrapper, SearchButton, Search };

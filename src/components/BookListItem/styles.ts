@@ -12,6 +12,7 @@ const StyledBooksListItem = styled.figure`
 const ImageWrap = styled.div`
   display: flex;
   justify-content: center;
+  height: 300px;
   margin-bottom: ${Margin7.desktop};
   background-color: ${() => randomColor()};
 `;

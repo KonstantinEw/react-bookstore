@@ -1,6 +1,6 @@
 export enum ROUTE {
   HOME = "/",
-  SEARCH = "search",
+  SEARCH = "search/:searchValue/:page",
   FAVORITES = "favorites",
   PROFILE = "profile",
   SIGNUP = "auth",

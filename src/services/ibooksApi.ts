@@ -23,7 +23,6 @@ class booksAPI {
     return data;
   }
 
-  //починить опции
   public async searchBooks({ searchValue, page }: ISearchResult) {
     const { data } = await this.API.get<IResponseSearch>(
       `${this.ENDPOINTS.search}/${searchValue}/${page}`,
