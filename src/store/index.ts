@@ -8,6 +8,8 @@ import { getSearchBooks } from "./selectors/searchBooksSelectors";
 import { getBook } from "./selectors/getBookSelector";
 import { feachGetBooks } from "./slices/bookSlice";
 import { removeUser, setUser } from "./slices/userSlice";
+import { orderBooks } from "./selectors/orderSelector";
+import { addOrder, deleteOrder } from "./slices/orderSlice";
 
 export {
   store,
@@ -21,4 +23,7 @@ export {
   feachGetBooks,
   setUser,
   removeUser,
+  orderBooks,
+  addOrder,
+  deleteOrder,
 };

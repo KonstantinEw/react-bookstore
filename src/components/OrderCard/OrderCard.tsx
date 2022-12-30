@@ -1,3 +1,4 @@
+import { IBook } from "types";
 import {
   StyledOrderCard,
   ImgWrapper,
@@ -10,22 +11,31 @@ import {
   DeleteCross,
 } from "./styles";
 
-export const OrderCard = () => {
+interface IProps {
+  book: IBook;
+  deleteOrder: () => void;
+}
+
+export const OrderCard = ({ book, deleteOrder }: IProps) => {
+  const { image, title, subtitle, price } = book;
+  const handleDeleteBook = () => {
+    deleteOrder();
+  };
   return (
     <StyledOrderCard>
       <ImgWrapper>
-        <img src="" alt="" />
+        <img src={image} alt={`book is ${title}`} />
       </ImgWrapper>
       <TitleWrapper>
-        <CardTitle>Lorem, ipsum dolor sit amet</CardTitle>
-        <CardSubtitle>Lorem, ipsum dolor sit amet</CardSubtitle>
+        <CardTitle>{title}</CardTitle>
+        <CardSubtitle>{subtitle}</CardSubtitle>
         <p>
           <span>-</span>1<span>+</span>
         </p>
       </TitleWrapper>
       <CostWrapper>
-        <Cost>36$</Cost>
-        <DeleteButton>
+        <Cost>{price}</Cost>
+        <DeleteButton onClick={handleDeleteBook}>
           <DeleteCross />
         </DeleteButton>
       </CostWrapper>

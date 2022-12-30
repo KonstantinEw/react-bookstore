@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { B1, B2, Color, H3, Margin3, Margin7, Margin8, randomColor } from "ui";
+import { B1, B2, Color, H3, Margin7, randomColor } from "ui";
 
 const StyledBooksListItem = styled.figure`
   display: grid;
-  grid-template-rows: auto 0.5fr 0.5fr auto;
-  justify-items: auto;
+  grid-template-rows: 3fr 0.5fr 0.5fr 0.5fr;
+  gap: 10px;
+  /* justify-items: auto; */
   height: 550px;
+  padding: 10px 10px 10px 10px;
 `;
 
 const ImageWrap = styled.div`

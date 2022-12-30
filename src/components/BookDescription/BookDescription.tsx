@@ -6,6 +6,7 @@ import {
   Subscribe,
   Title,
 } from "components";
+import { addOrder, orderBooks, useAppDispatch } from "store";
 import { IDetailsBook } from "types";
 import { BookDetails, DescrWrap, ImageWrap, Image } from "./styles";
 
@@ -15,6 +16,11 @@ interface IProps {
 
 export const BookDescription = ({ book }: IProps) => {
   const { title, image } = book;
+
+  const dispatch = useAppDispatch();
+  const handleAddBook = () => {
+    dispatch(addOrder(book));
+  };
 
   return (
     <div>
@@ -26,7 +32,7 @@ export const BookDescription = ({ book }: IProps) => {
         </ImageWrap>
         <DescrWrap>
           <DiscriptionList book={book} />
-          <Button>add to card</Button>
+          <Button onClick={handleAddBook}>add to card</Button>
         </DescrWrap>
       </BookDetails>
       <DescriptionTabs book={book} />

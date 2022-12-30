@@ -12,7 +12,7 @@ const faviriteSlice = createSlice({
   name: "favorite",
   initialState,
   reducers: {
-    addFavorite: (state, { payload }) => {
+    addFavorite: (state, action) => {
       state.favorite.push();
     },
   },

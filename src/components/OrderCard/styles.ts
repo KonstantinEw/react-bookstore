@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Margin2, Color, Media, Margin5, randomColor, Margin8, H3, B1, H2 } from "ui";
 
-const StyledOrderCard = styled.div`
+const StyledOrderCard = styled.li`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 32px;
@@ -27,15 +27,12 @@ const StyledOrderCard = styled.div`
 
 const ImgWrapper = styled.div`
   width: 100%;
-  height: 192px;
   background-color: ${() => randomColor()};
   ${Media.MD} {
     width: 208px;
-    height: 156px;
   }
   ${Media.SM} {
     width: 90%;
-    height: 204px;
     margin-bottom: ${Margin5.desktop};
   }
 `;

@@ -14,8 +14,12 @@ export const BookListItem = ({ book }: IProps) => {
       <ImageWrap>
         <img src={image} alt={title} />
       </ImageWrap>
-      <Title to={generatePath(ROUTE.DETAILS, { isbn13: isbn13 })}>{title}</Title>
-      <Subtitle>{subtitle ? subtitle : "No description of book"}</Subtitle>
+      <Title to={generatePath(ROUTE.DETAILS, { isbn13: isbn13 })}>
+        {title.length > 40 ? title.slice(0, 40) + "..." : title}
+      </Title>
+      <Subtitle>
+        {subtitle.length > 60 ? subtitle.slice(0, 60) + "..." : "No description of book"}
+      </Subtitle>
       <Cost>{price}</Cost>
     </StyledBooksListItem>
   );

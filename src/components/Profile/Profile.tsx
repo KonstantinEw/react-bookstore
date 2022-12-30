@@ -1,10 +1,11 @@
 import { ArrowBackButton, Button, Input, Title } from "components";
 import { setUser, useAppSelector } from "store";
+import { getUser } from "store/selectors/userSelectors";
 import { Color } from "ui";
 import { ButtonWrapper, ProfileInfo, Subtitle } from "./styles";
 
 export const Profile = () => {
-  const { payload } = useAppSelector(setUser);
+  const { name, email } = useAppSelector(getUser);
 
   return (
     <form>
@@ -13,10 +14,10 @@ export const Profile = () => {
       <Subtitle>profile</Subtitle>
       <ProfileInfo>
         <Input type="text" placeholder="name">
-          name
+          {name}
         </Input>
         <Input type="email" placeholder="email">
-          email
+          {email}
         </Input>
       </ProfileInfo>
       <Subtitle>password</Subtitle>

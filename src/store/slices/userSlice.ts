@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface IUser {
-  name: string | null;
-  email: string | null;
-  id: string | null;
+  name: string;
+  email: string;
+  id: string;
   isAuth: boolean;
 }
 
@@ -25,9 +25,9 @@ const userSlice = createSlice({
       state.isAuth = true;
     },
     removeUser: (state) => {
-      state.name = null;
-      state.id = null;
-      state.email = null;
+      state.name = "";
+      state.id = "";
+      state.email = "";
       state.isAuth = false;
     },
   },
