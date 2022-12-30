@@ -1,6 +1,9 @@
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Button } from "components";
 import { useForm } from "react-hook-form";
 import { BodyForm, CustomLink, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
+import { setUser } from "store";
+import { useDispatch } from "react-redux";
 
 interface ISingIn {
   email: string;
@@ -8,6 +11,7 @@ interface ISingIn {
 }
 
 export const SignIn = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -19,11 +23,23 @@ export const SignIn = () => {
     },
   });
 
-  const onSubmit = (data: ISingIn) => {
-    return data;
+  const handleSignIn = ({ email, password }: ISingIn) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            isAuth: true,
+          }),
+        );
+      })
+      .catch(() => alert("Invalid user!"));
   };
+
   return (
-    <BodyForm onSubmit={handleSubmit(onSubmit)}>
+    <BodyForm onSubmit={handleSubmit(handleSignIn)}>
       <InputWrapper>
         <Label>email</Label>
         <StyledInput

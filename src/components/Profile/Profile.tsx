@@ -1,8 +1,11 @@
 import { ArrowBackButton, Button, Input, Title } from "components";
+import { setUser, useAppSelector } from "store";
 import { Color } from "ui";
 import { ButtonWrapper, ProfileInfo, Subtitle } from "./styles";
 
 export const Profile = () => {
+  const { payload } = useAppSelector(setUser);
+
   return (
     <form>
       <ArrowBackButton />
