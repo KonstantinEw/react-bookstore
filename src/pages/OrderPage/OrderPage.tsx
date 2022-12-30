@@ -1,9 +1,16 @@
 import { ArrowBackButton, OrderCard, Title } from "components";
-import { deleteOrder, orderBooks, useAppDispatch, useAppSelector } from "store";
+import {
+  decrementQuantity,
+  deleteOrder,
+  incrementQuantity,
+  orderBooks,
+  useAppDispatch,
+  useAppSelector,
+} from "store";
 import { StyledOrderPage } from "./styles";
 
 export const OrderPage = () => {
-  const { order } = useAppSelector(orderBooks);
+  const { cart, quantity } = useAppSelector(orderBooks);
   const dispatch = useAppDispatch();
 
   return (
@@ -11,14 +18,17 @@ export const OrderPage = () => {
       <ArrowBackButton />
       <Title>your cart</Title>
       <ul>
-        {order.map((book) => {
+        {cart.map((book) => {
           return (
             <OrderCard
               key={book.isbn13}
               book={book}
+              quantity={quantity}
               deleteOrder={() => {
                 dispatch(deleteOrder(book.isbn13));
               }}
+              incrementQuantity={() => dispatch(incrementQuantity(book.isbn13))}
+              decrimentQuantity={() => dispatch(decrementQuantity(book.isbn13))}
             />
           );
         })}

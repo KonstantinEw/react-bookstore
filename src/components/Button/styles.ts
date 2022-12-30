@@ -24,4 +24,8 @@ export const StyledButton = styled.button<{
   &:active {
     transform: scale(0.9);
   }
+  &:disabled {
+    background-color: ${Color.Secondary};
+    border: none;
+  }
 `;

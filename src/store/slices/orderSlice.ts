@@ -1,35 +1,53 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBook } from "types";
+import { IDetailsBook } from "types";
 
 interface IOrder {
-  order: IBook[];
+  cart: IDetailsBook[];
+  isAdd: boolean;
+  quantity: number;
 }
 
 const initialState: IOrder = {
-  order: [],
+  cart: [],
+  isAdd: false,
+  quantity: 0,
 };
 
 const orderSlice = createSlice({
   name: "orderBooks",
   initialState,
   reducers: {
-    addOrder: (state, action: PayloadAction<IBook>) => {
-      state.order.push({
-        image: action.payload.image,
-        isbn13: action.payload.isbn13,
-        price: action.payload.price,
-        subtitle: action.payload.subtitle,
-        title: action.payload.title,
-        url: action.payload.url,
-      });
+    //TODO type of payload
+    addOrder: (state, action: PayloadAction<IDetailsBook>) => {
+      const itemInCart = state.cart.find((item) => item.isbn13 === action.payload.isbn13);
+      if (itemInCart) {
+        state.quantity++;
+      }
+      if (!itemInCart) {
+        state.cart.push({
+          ...action.payload,
+        });
+      }
+    },
+    incrementQuantity: (state, action: PayloadAction<string>) => {
+      const book = state.cart.find((book) => book.isbn13 === action.payload);
+      if (book) {
+        state.quantity++;
+      }
+    },
+    decrementQuantity: (state, action: PayloadAction<string>) => {
+      const book = state.cart.find((book) => book.isbn13 === action.payload);
+      if (book) {
+        state.quantity--;
+      }
     },
     deleteOrder: (state, action: PayloadAction<string>) => {
-      state.order = state.order.filter((book) => {
+      state.cart = state.cart.filter((book) => {
         return book.isbn13 !== action.payload;
       });
     },
   },
 });
 
-export const { addOrder, deleteOrder } = orderSlice.actions;
+export const { addOrder, deleteOrder, incrementQuantity, decrementQuantity } = orderSlice.actions;
 export default orderSlice.reducer;

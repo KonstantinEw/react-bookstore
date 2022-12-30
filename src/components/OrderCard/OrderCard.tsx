@@ -14,13 +14,30 @@ import {
 interface IProps {
   book: IBook;
   deleteOrder: () => void;
+  incrementQuantity: () => void;
+  decrimentQuantity: () => void;
+  quantity: number;
 }
 
-export const OrderCard = ({ book, deleteOrder }: IProps) => {
+export const OrderCard = ({
+  book,
+  deleteOrder,
+  decrimentQuantity,
+  incrementQuantity,
+  quantity,
+}: IProps) => {
   const { image, title, subtitle, price } = book;
   const handleDeleteBook = () => {
     deleteOrder();
   };
+
+  const handleAddQuantity = () => {
+    incrementQuantity();
+  };
+  const handleMinusQuantity = () => {
+    decrimentQuantity();
+  };
+
   return (
     <StyledOrderCard>
       <ImgWrapper>
@@ -30,7 +47,9 @@ export const OrderCard = ({ book, deleteOrder }: IProps) => {
         <CardTitle>{title}</CardTitle>
         <CardSubtitle>{subtitle}</CardSubtitle>
         <p>
-          <span>-</span>1<span>+</span>
+          <button onClick={handleMinusQuantity}>-</button>
+          {quantity}
+          <button onClick={handleAddQuantity}>+</button>
         </p>
       </TitleWrapper>
       <CostWrapper>

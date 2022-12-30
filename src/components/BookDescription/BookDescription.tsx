@@ -6,20 +6,21 @@ import {
   Subscribe,
   Title,
 } from "components";
-import { addOrder, orderBooks, useAppDispatch } from "store";
 import { IDetailsBook } from "types";
 import { BookDetails, DescrWrap, ImageWrap, Image } from "./styles";
 
 interface IProps {
   book: IDetailsBook;
+  quantity: number;
+  isAdd: boolean;
+  addOrder: () => void;
 }
 
-export const BookDescription = ({ book }: IProps) => {
+export const BookDescription = ({ addOrder, book, isAdd }: IProps) => {
   const { title, image } = book;
 
-  const dispatch = useAppDispatch();
   const handleAddBook = () => {
-    dispatch(addOrder(book));
+    addOrder();
   };
 
   return (
@@ -32,7 +33,7 @@ export const BookDescription = ({ book }: IProps) => {
         </ImageWrap>
         <DescrWrap>
           <DiscriptionList book={book} />
-          <Button onClick={handleAddBook}>add to card</Button>
+          <Button onClick={handleAddBook}>add to cart</Button>
         </DescrWrap>
       </BookDetails>
       <DescriptionTabs book={book} />

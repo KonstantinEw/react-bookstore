@@ -5,11 +5,26 @@ import newBooksReducer from "./slices/newBooksSlice";
 import searchBooksReduser from "./slices/searchSlice";
 import bookReducer from "./slices/bookSlice";
 import orderReducer from "./slices/orderSlice";
+import storage from "redux-persist/lib/storage";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
-//Типизация возвращаемого значения
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, orderReducer);
+
 export type RootState = ReturnType<typeof store.getState>;
-
-// Тип самого диспатча
 export type AppDispatch = typeof store.dispatch;
 
 export const store = configureStore({
@@ -19,6 +34,14 @@ export const store = configureStore({
     newBooks: newBooksReducer,
     searchBooks: searchBooksReduser,
     bookIsbn: bookReducer,
-    orderBooks: orderReducer,
+    orderBooks: persistedReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
+
+export const persistor = persistStore(store);
