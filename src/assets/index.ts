@@ -6,6 +6,8 @@ import { ReactComponent as SearchIcon } from "./icons/search.svg";
 import { ReactComponent as ArrowIcon } from "./icons/back-arrow.svg";
 import { ReactComponent as NextButton } from "./icons/next.svg";
 import { ReactComponent as PrevButton } from "./icons/prev.svg";
+import { ReactComponent as AddFavoriteIcon } from "./icons/favorite-button.svg";
+import { ReactComponent as DeleteFavoriteIcon } from "./icons/favorite-heart.svg";
 import {
   StyledArrow,
   StyledFavoriteIcon,
@@ -34,4 +36,6 @@ export {
   PrevButton,
   StyledPrevButton,
   StyledNextButton,
+  AddFavoriteIcon,
+  DeleteFavoriteIcon,
 };

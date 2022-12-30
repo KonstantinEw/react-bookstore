@@ -27,15 +27,12 @@ const StyledFaviriteCard = styled.div`
 
 const ImgWrapper = styled.div`
   width: 100%;
-  height: 192px;
   background-color: ${() => randomColor()};
   ${Media.MD} {
     width: 208px;
-    height: 156px;
   }
   ${Media.SM} {
     width: 90%;
-    height: 204px;
     margin-bottom: ${Margin5.desktop};
   }
 `;
@@ -73,4 +70,20 @@ const Cost = styled.span`
   color: ${Color.Primary};
 `;
 
-export { Cost, CostWrapper, CardSubtitle, CardTitle, TitleWrapper, ImgWrapper, StyledFaviriteCard };
+const RemoveFavoriteButton = styled.button`
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
+export {
+  Cost,
+  CostWrapper,
+  CardSubtitle,
+  CardTitle,
+  TitleWrapper,
+  ImgWrapper,
+  StyledFaviriteCard,
+  RemoveFavoriteButton,
+};

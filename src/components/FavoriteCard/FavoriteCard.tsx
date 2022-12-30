@@ -1,27 +1,42 @@
+import { IDetailsBook } from "types";
+import StarsRating from "react-star-rate";
 import {
   CardSubtitle,
   CardTitle,
   Cost,
   CostWrapper,
   ImgWrapper,
+  RemoveFavoriteButton,
   StyledFaviriteCard,
   TitleWrapper,
 } from "./styles";
+import { useState } from "react";
+import { DeleteFavoriteIcon } from "assets";
 
-export const FavoriteCard = () => {
+interface IProps {
+  book: IDetailsBook;
+  deleteFavoriteBook: () => void;
+}
+
+export const FavoriteCard = ({ book, deleteFavoriteBook }: IProps) => {
+  const { image, title, subtitle, price, rating } = book;
+  const [value] = useState(+rating);
   return (
     <StyledFaviriteCard>
       <ImgWrapper>
-        <img src="" alt="" />
+        <img src={image} alt={`book is ${title}`} />
       </ImgWrapper>
       <TitleWrapper>
-        <CardTitle>Lorem, ipsum dolor sit amet</CardTitle>
-        <CardSubtitle>Lorem, ipsum dolor sit amet</CardSubtitle>
+        <CardTitle>{title}</CardTitle>
+        <CardSubtitle>{subtitle}</CardSubtitle>
         <CostWrapper>
-          <Cost>36$</Cost>
-          <span>raitingStar</span>
+          <Cost>{price}</Cost>
+          <StarsRating value={value} disabled />
         </CostWrapper>
       </TitleWrapper>
+      <RemoveFavoriteButton onClick={deleteFavoriteBook}>
+        <DeleteFavoriteIcon />
+      </RemoveFavoriteButton>
     </StyledFaviriteCard>
   );
 };

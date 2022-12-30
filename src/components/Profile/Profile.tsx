@@ -1,5 +1,5 @@
 import { ArrowBackButton, Button, Input, Title } from "components";
-import { setUser, useAppSelector } from "store";
+import { useAppSelector } from "store";
 import { getUser } from "store/selectors/userSelectors";
 import { Color } from "ui";
 import { ButtonWrapper, ProfileInfo, Subtitle } from "./styles";

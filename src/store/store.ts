@@ -22,7 +22,8 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, orderReducer);
+const persistedOrderReducer = persistReducer(persistConfig, orderReducer);
+const persistedFavoriteReducer = persistReducer(persistConfig, faviriteReducer);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
@@ -30,11 +31,11 @@ export type AppDispatch = typeof store.dispatch;
 export const store = configureStore({
   reducer: {
     user: userReduser,
-    favorite: faviriteReducer,
+    favoriteBooks: persistedFavoriteReducer,
     newBooks: newBooksReducer,
     searchBooks: searchBooksReduser,
     bookIsbn: bookReducer,
-    orderBooks: persistedReducer,
+    orderBooks: persistedOrderReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

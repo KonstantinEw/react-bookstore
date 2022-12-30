@@ -1,3 +1,4 @@
+import { AddFavoriteIcon } from "assets";
 import {
   ArrowBackButton,
   Button,
@@ -7,20 +8,23 @@ import {
   Title,
 } from "components";
 import { IDetailsBook } from "types";
-import { BookDetails, DescrWrap, ImageWrap, Image } from "./styles";
+import { BookDetails, DescrWrap, ImageWrap, Image, AddFavoriteButton } from "./styles";
 
 interface IProps {
   book: IDetailsBook;
   quantity: number;
-  isAdd: boolean;
+  addFavoriteBook: () => void;
   addOrder: () => void;
 }
 
-export const BookDescription = ({ addOrder, book, isAdd }: IProps) => {
+export const BookDescription = ({ addOrder, book, addFavoriteBook }: IProps) => {
   const { title, image } = book;
 
   const handleAddBook = () => {
     addOrder();
+  };
+  const handleAddFavoriteBook = () => {
+    addFavoriteBook();
   };
 
   return (
@@ -29,6 +33,9 @@ export const BookDescription = ({ addOrder, book, isAdd }: IProps) => {
       <Title>{title}</Title>
       <BookDetails>
         <ImageWrap>
+          <AddFavoriteButton onClick={handleAddFavoriteBook}>
+            <AddFavoriteIcon />
+          </AddFavoriteButton>
           <Image src={image} alt={title} />
         </ImageWrap>
         <DescrWrap>

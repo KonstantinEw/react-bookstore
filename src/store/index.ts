@@ -10,6 +10,8 @@ import { feachGetBooks } from "./slices/bookSlice";
 import { removeUser, setUser } from "./slices/userSlice";
 import { orderBooks } from "./selectors/orderSelector";
 import { addOrder, decrementQuantity, deleteOrder, incrementQuantity } from "./slices/orderSlice";
+import { favoriteBooks } from "./selectors/favoriteBooksSelector";
+import { addFavorite, deleteFavorite } from "./slices/faviriteSlice";
 
 export {
   store,
@@ -20,6 +22,7 @@ export {
   feachSearchBooks,
   getSearchBooks,
   getBook,
+  favoriteBooks,
   feachGetBooks,
   setUser,
   removeUser,
@@ -29,4 +32,6 @@ export {
   persistor,
   decrementQuantity,
   incrementQuantity,
+  addFavorite,
+  deleteFavorite,
 };

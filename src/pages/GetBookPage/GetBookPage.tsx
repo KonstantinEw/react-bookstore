@@ -2,6 +2,7 @@ import { BookDescription, Loader } from "components";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import {
+  addFavorite,
   addOrder,
   feachGetBooks,
   getBook,
@@ -13,7 +14,7 @@ import {
 export const GetBookPage = () => {
   const { isbn13 } = useParams();
   const { result, isLoading, error } = useAppSelector(getBook);
-  const { isAdd, quantity } = useAppSelector(orderBooks);
+  const { quantity } = useAppSelector(orderBooks);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(feachGetBooks({ isbn13: isbn13 }));
@@ -26,9 +27,9 @@ export const GetBookPage = () => {
       {result && (
         <BookDescription
           quantity={quantity}
-          isAdd={isAdd}
           addOrder={() => dispatch(addOrder(result))}
           book={result}
+          addFavoriteBook={() => dispatch(addFavorite(result))}
         />
       )}
     </section>

@@ -3,13 +3,11 @@ import { IDetailsBook } from "types";
 
 interface IOrder {
   cart: IDetailsBook[];
-  isAdd: boolean;
   quantity: number;
 }
 
 const initialState: IOrder = {
   cart: [],
-  isAdd: false,
   quantity: 0,
 };
 
