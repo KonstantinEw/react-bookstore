@@ -4,10 +4,14 @@ import { ReactComponent as UserProfileIcon } from "./icons/user-profile.svg";
 import { ReactComponent as LogoIcon } from "./icons/bookstore.svg";
 import { ReactComponent as SearchIcon } from "./icons/search.svg";
 import { ReactComponent as ArrowIcon } from "./icons/back-arrow.svg";
+import { ReactComponent as NextButton } from "./icons/next.svg";
+import { ReactComponent as PrevButton } from "./icons/prev.svg";
 import {
   StyledArrow,
   StyledFavoriteIcon,
   StyledLogoIcon,
+  StyledNextButton,
+  StyledPrevButton,
   StyledSearchIcon,
   StyledShopBagIcon,
   StyledUserProfileIcon,
@@ -26,4 +30,8 @@ export {
   SearchIcon,
   StyledSearchIcon,
   StyledArrow,
+  NextButton,
+  PrevButton,
+  StyledPrevButton,
+  StyledNextButton,
 };

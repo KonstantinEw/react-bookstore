@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Margin1, Color, Margin3, Media, H1 } from "ui";
+import { Margin1, Color, Margin3, Media, H1, Margin2, B1 } from "ui";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -19,4 +19,10 @@ const Title = styled.h1`
   }
 `;
 
-export { Title, StyledHeader };
+const Total = styled.p`
+  margin-bottom: ${Margin2.desktop};
+  ${B1};
+  color: ${Color.Secondary};
+`;
+
+export { Title, StyledHeader, Total };

@@ -1,31 +1,41 @@
-import { BooksList, Loader } from "components";
-import { useState, useEffect } from "react";
+import { ArrowBackButton, BooksList, Loader } from "components";
+import { PaginatedItems } from "components/Pagination/Pagination";
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useAppSelector, getSearchBooks, feachSearchBooks, useAppDispatch } from "store";
-import { Title } from "./styles";
+import { Title, Total } from "./styles";
 
 export const SearchPage = () => {
-  const params = useParams();
-  const [options, setOptions] = useState({
-    searchValue: `${params.searchValue}`,
-    page: `${params.page}`,
-  });
+  const { page, searchValue } = useParams();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(feachSearchBooks(options));
-  }, [options, dispatch]);
+    dispatch(
+      feachSearchBooks({
+        searchValue: searchValue,
+        page: page,
+      }),
+    );
+  }, [searchValue, page, dispatch]);
 
-  const { result, isLoading } = useAppSelector(getSearchBooks);
-  const { books } = result;
+  const { result, isLoading, error } = useAppSelector(getSearchBooks);
+  const { books, total } = result;
 
   return (
     <section>
-      {isLoading ? (
-        <Loader />
-      ) : (
+      {isLoading && <Loader />}
+      {error && <p>{error}</p>}
+      {books && books.length === 0 && (
         <>
-          <Title>{`'${params.searchValue}' search results`}</Title>
-          {books?.length > 0 ? <BooksList books={books} /> : <Title>no results</Title>}
+          <ArrowBackButton />
+          <Title>no results</Title>
+        </>
+      )}
+      {books && books.length > 0 && (
+        <>
+          <Title>{`'${searchValue}' search results`}</Title>
+          <Total>{`Found ${total} books`}</Total>
+          {<BooksList books={books} />}
+          <PaginatedItems total={total} />
         </>
       )}
     </section>

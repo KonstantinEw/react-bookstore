@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { fetchNewBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
 
 export const NewBooksPage = () => {
-  const { isLoading, result } = useAppSelector(getNewBooks);
+  const { isLoading, result, error } = useAppSelector(getNewBooks);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchNewBooks());
@@ -11,9 +11,9 @@ export const NewBooksPage = () => {
 
   return (
     <section>
-      {isLoading ? (
-        <Loader />
-      ) : (
+      {isLoading && <Loader />}
+      {error && <p>{error}</p>}
+      {result && (
         <>
           <Title>New Releases Books</Title>
           <BooksList books={result} />

@@ -3,6 +3,8 @@ import {
   ArrowIcon,
   FavoriteIcon,
   LogoIcon,
+  NextButton,
+  PrevButton,
   SearchIcon,
   ShopBagIcon,
   UserProfileIcon,
@@ -52,5 +54,19 @@ export const StyledSearchIcon = styled(SearchIcon)`
 export const StyledArrow = styled(ArrowIcon)`
   & path {
     fill: ${Color.Primary};
+  }
+`;
+
+export const StyledNextButton = styled(NextButton)`
+  cursor: pointer;
+  & path:hover {
+    fill: ${Color.Secondary};
+  }
+`;
+
+export const StyledPrevButton = styled(PrevButton)`
+  cursor: pointer;
+  & path:hover {
+    fill: ${Color.Secondary};
   }
 `;

@@ -41,6 +41,7 @@ const searchBooksSlice = createSlice({
       state.isLoading = false;
       state.result.books = payload.books;
       state.result.page = payload.page;
+      state.result.total = payload.total;
     });
     builder.addCase(feachSearchBooks.rejected, (state, { payload }) => {
       if (payload) {
