@@ -1,5 +1,8 @@
 import { Button } from "components";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setUser } from "store";
 import { BodyForm, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 
 interface ISignOn {
@@ -10,6 +13,24 @@ interface ISignOn {
 }
 
 export const SignOn = () => {
+  const dispatch = useDispatch();
+  const handleSignIn = (userData: ISignOn) => {
+    const { email, password, name } = userData;
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            name: name,
+            isAuth: true,
+          }),
+        );
+      })
+      .catch(() => alert("User existing!"));
+  };
+
   const {
     register,
     handleSubmit,
@@ -24,12 +45,8 @@ export const SignOn = () => {
     },
   });
 
-  const onSubmit = (data: ISignOn) => {
-    return data;
-  };
-
   return (
-    <BodyForm onSubmit={handleSubmit(onSubmit)}>
+    <BodyForm onSubmit={handleSubmit(handleSignIn)}>
       <InputWrapper>
         <Label>name</Label>
         <StyledInput
