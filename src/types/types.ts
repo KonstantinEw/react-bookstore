@@ -32,6 +32,7 @@ export interface IDetailsBook {
   pdf?: {
     [key: string]: string;
   };
+  amount?: number;
 }
 
 export interface IResponseSearch {

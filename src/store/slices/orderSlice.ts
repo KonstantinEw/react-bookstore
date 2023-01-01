@@ -16,14 +16,16 @@ const orderSlice = createSlice({
   initialState,
   reducers: {
     //TODO type of payload
-    addOrder: (state, action: PayloadAction<IDetailsBook>) => {
+    addOrder: (state, action: PayloadAction<any>) => {
       const itemInCart = state.cart.find((item) => item.isbn13 === action.payload.isbn13);
+      const amount = 1;
       if (itemInCart) {
         state.quantity++;
       }
       if (!itemInCart) {
         state.cart.push({
           ...action.payload,
+          amount,
         });
       }
     },
