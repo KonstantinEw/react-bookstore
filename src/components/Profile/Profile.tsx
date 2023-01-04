@@ -15,7 +15,6 @@ import {
   StyledInput,
   Subtitle,
 } from "./styles";
-import { useNavigate } from "react-router";
 
 interface IUserData {
   name: string;
@@ -25,17 +24,22 @@ interface IUserData {
   confirmNewPassword: string;
 }
 
-export const Profile = () => {
-  const navigate = useNavigate();
+interface IProps {
+  name: string;
+  email: string;
+}
+
+export const Profile = ({ email, name }: IProps) => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: "",
-      email: "",
+      name: name,
+      email: email,
       password: "",
       newPassword: "",
       confirmNewPassword: "",
@@ -43,35 +47,28 @@ export const Profile = () => {
   });
 
   const handleCancel = () => {
-    navigate("/");
+    reset();
   };
 
   const handleUserProfile = (userData: IUserData) => {
     const auth = getAuth();
     const user = auth.currentUser;
     if (user) {
-      updatePassword(user, userData.newPassword)
-        .then(() => {
-          updateEmail(user, userData.email)
+      updatePassword(user, userData.newPassword).then(() => {
+        updateEmail(user, userData.email).then(() => {
+          updateProfile(user, {
+            displayName: userData.name,
+          })
             .then(() => {
-              updateProfile(user, {
-                displayName: userData.name,
-              })
-                .then(() => {
-                  alert("complete");
-                })
-                .catch((error) => {
-                  alert(error.message);
-                });
+              alert("complete");
             })
             .catch((error) => {
               alert(error.message);
             });
-        })
-        .catch((error) => {
-          alert(error.message);
         });
+      });
     }
+    reset();
   };
 
   return (

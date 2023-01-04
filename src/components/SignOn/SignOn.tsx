@@ -1,5 +1,5 @@
 import { Button } from "components";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { ROUTE } from "router";
@@ -9,14 +9,16 @@ import { BodyForm, ErrorMessage, InputWrapper, Label, StyledInput } from "./styl
 interface ISignOn {
   email: string;
   password: string;
+  name: string;
 }
 
 export const SignOn = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const handleSignIn = (userData: ISignOn) => {
-    const { email, password } = userData;
+    const { email, password, name } = userData;
     const auth = getAuth();
+
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(
@@ -24,9 +26,19 @@ export const SignOn = () => {
             email: user.email,
             id: user.uid,
             isAuth: true,
+            name: user.displayName,
           }),
         );
       })
+      .then(() => {
+        const currentUser = auth.currentUser;
+        if (currentUser) {
+          updateProfile(currentUser, {
+            displayName: name,
+          });
+        }
+      })
+
       .then(() => {
         navigate(ROUTE.HOME);
       })
