@@ -2,6 +2,7 @@ import { Auth, Layout } from "components";
 import {
   AuthPage,
   FavoritesPage,
+  FoggotPassPage,
   NewBooksPage,
   NotFoundedPage,
   OrderPage,
@@ -19,6 +20,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.DETAILS} element={<GetBookPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
       <Route path={ROUTE.SIGNUP} element={<AuthPage />} />
+      <Route path={ROUTE.RESETPASS} element={<FoggotPassPage />} />
       <Route element={<Auth />}>
         <Route path={ROUTE.PROFILE} element={<ProfilePage />} />
         <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />

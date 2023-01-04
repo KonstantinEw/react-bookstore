@@ -6,4 +6,5 @@ export enum ROUTE {
   SIGNUP = "auth",
   SHOP_BAG = "order",
   DETAILS = "/books/:isbn13",
+  RESETPASS = "/reset",
 }

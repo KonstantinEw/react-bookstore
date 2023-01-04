@@ -3,6 +3,8 @@ import { Button } from "components";
 import { useForm } from "react-hook-form";
 import { BodyForm, CustomLink, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 import { setUser, useAppDispatch } from "store";
+import { useNavigate } from "react-router";
+import { ROUTE } from "router";
 
 interface ISingIn {
   email: string;
@@ -10,6 +12,7 @@ interface ISingIn {
 }
 
 export const SignIn = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const {
     register,
@@ -26,6 +29,7 @@ export const SignIn = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
+        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -35,6 +39,7 @@ export const SignIn = () => {
         );
       })
       .catch(() => alert("Invalid user!"));
+    navigate(ROUTE.HOME);
   };
 
   return (
@@ -76,7 +81,7 @@ export const SignIn = () => {
         />
         <ErrorMessage>{errors.password?.message}</ErrorMessage>
       </InputWrapper>
-      <CustomLink to="/">Foggot password?</CustomLink>
+      <CustomLink to={ROUTE.RESETPASS}>Foggot password?</CustomLink>
       <Button type="submit">sign in</Button>
     </BodyForm>
   );

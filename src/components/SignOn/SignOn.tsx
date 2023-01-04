@@ -2,16 +2,19 @@ import { Button } from "components";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
+import { ROUTE } from "router";
 import { setUser } from "store";
 import { BodyForm, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 
 interface ISignOn {
-  name: string;
+  name: string | null;
   email: string;
   password: string;
 }
 
 export const SignOn = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSignIn = (userData: ISignOn) => {
     const { email, password, name } = userData;
@@ -22,12 +25,12 @@ export const SignOn = () => {
           setUser({
             email: user.email,
             id: user.uid,
-            name: name,
             isAuth: true,
           }),
         );
       })
       .catch(() => alert("User existing!"));
+    navigate(ROUTE.HOME);
   };
 
   const {

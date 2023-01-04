@@ -2,9 +2,9 @@
 import { ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 
 interface IProps {
-  children: string;
+  children?: string;
   type: "password" | "email" | "text";
-  placeholder: string;
+  placeholder: string | undefined;
   errors?: string;
   name?: string;
 }
