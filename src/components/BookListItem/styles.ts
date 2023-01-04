@@ -2,13 +2,17 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { B1, B2, Color, H3, Margin7, randomColor } from "ui";
 
-const StyledBooksListItem = styled.figure`
+const StyledBooksListItem = styled(Link)`
   display: grid;
   grid-template-rows: 3fr 0.5fr 0.5fr 0.5fr;
   gap: 10px;
-  /* justify-items: auto; */
   height: 550px;
   padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  transition: all 0.5s ease-in;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const ImageWrap = styled.div`
@@ -19,15 +23,14 @@ const ImageWrap = styled.div`
   background-color: ${() => randomColor()};
 `;
 
-const Title = styled(Link)`
+const Title = styled.h3`
   ${H3};
-  text-decoration: none;
 `;
 
 const Subtitle = styled.p`
   min-height: 35px;
   ${B1};
-  color: ${Color.Primary};
+  color: ${Color.Secondary};
 `;
 
 const DescrWrapper = styled.div`

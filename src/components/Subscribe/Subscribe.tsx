@@ -52,6 +52,7 @@ export const Subscribe = () => {
               autoComplete="off"
               {...register("email", {
                 pattern: {
+                  // eslint-disable-next-line
                   value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                   message: "Enter the correct email!",
                 },

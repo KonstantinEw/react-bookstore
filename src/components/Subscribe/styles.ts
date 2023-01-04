@@ -20,6 +20,7 @@ const Form = styled.form`
   ${Media.MD} {
     grid-template-columns: none;
     grid-template-rows: 1fr 1fr;
+    gap: 10px;
   }
 `;
 

@@ -1,56 +1,179 @@
-import { ArrowBackButton, Button, Input, Title } from "components";
-import { getAuth, onAuthStateChanged, updateCurrentUser } from "firebase/auth";
-import { useAppSelector } from "store";
-import { getUser } from "store/selectors/userSelectors";
+import { Button } from "components";
+import { useForm } from "react-hook-form";
 import { Color } from "ui";
+import { getAuth, updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import {
   ButtonConteiner,
   ButtonWrapper,
   ConfirmPassWrapper,
+  ErrorMessage,
+  InputWrapper,
+  Label,
   NewPassWrapper,
   PassWrapper,
   ProfileInfo,
+  StyledInput,
   Subtitle,
 } from "./styles";
+import { useNavigate } from "react-router";
+
+interface IUserData {
+  name: string;
+  email: string;
+  password: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}
 
 export const Profile = () => {
-  const { name, email } = useAppSelector(getUser);
-  const auth = getAuth();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      newPassword: "",
+      confirmNewPassword: "",
+    },
+  });
+
+  const handleCancel = () => {
+    navigate("/");
+  };
+
+  const handleUserProfile = (userData: IUserData) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user) {
+      updatePassword(user, userData.newPassword)
+        .then(() => {
+          updateEmail(user, userData.email)
+            .then(() => {
+              updateProfile(user, {
+                displayName: userData.name,
+              })
+                .then(() => {
+                  alert("complete");
+                })
+                .catch((error) => {
+                  alert(error.message);
+                });
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    }
+  };
 
   return (
-    <form>
-      <ArrowBackButton />
-      <Title>account</Title>
+    <form onSubmit={handleSubmit(handleUserProfile)}>
       <Subtitle>profile</Subtitle>
       <ProfileInfo>
-        <Input type="text" placeholder="name">
-          Name
-        </Input>
-        <Input type="email" placeholder="email">
-          Email
-        </Input>
+        <InputWrapper>
+          <Label>name</Label>
+          <StyledInput
+            {...register("name", {
+              required: {
+                value: true,
+                message: "Name is required field!",
+              },
+            })}
+            type="text"
+            placeholder="Your name"
+          />
+          <ErrorMessage>{errors.name?.message}</ErrorMessage>
+        </InputWrapper>
+        <InputWrapper>
+          <Label>email</Label>
+          <StyledInput
+            {...register("email", {
+              pattern: {
+                // eslint-disable-next-line
+                value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                message: "Enter the correct email!",
+              },
+              required: {
+                value: true,
+                message: "Email is required field!",
+              },
+            })}
+            type="email"
+            placeholder="Your email"
+          />
+          <ErrorMessage>{errors.email?.message}</ErrorMessage>
+        </InputWrapper>
       </ProfileInfo>
-      <Subtitle>password</Subtitle>
+      <Subtitle>Password</Subtitle>
       <PassWrapper>
         <NewPassWrapper>
-          <Input type="password" placeholder="password">
-            password
-          </Input>
-          <Input type="password" placeholder="new password">
-            new password
-          </Input>
+          <InputWrapper>
+            <Label>password</Label>
+            <StyledInput
+              {...register("password", {
+                required: {
+                  value: true,
+                  message: "Password is required field!",
+                },
+              })}
+              type="password"
+              placeholder="Password"
+            />
+            <ErrorMessage>{errors.password?.message}</ErrorMessage>
+          </InputWrapper>
+          <InputWrapper>
+            <Label>New password</Label>
+            <StyledInput
+              {...register("newPassword", {
+                required: {
+                  value: true,
+                  message: "Required field!",
+                },
+              })}
+              type="password"
+              placeholder="New password"
+            />
+            <ErrorMessage>{errors.newPassword?.message}</ErrorMessage>
+          </InputWrapper>
         </NewPassWrapper>
 
         <ConfirmPassWrapper>
-          <Input type="password" placeholder="confirm new password">
-            confirm new password
-          </Input>
+          <InputWrapper>
+            <Label>Confirm new password</Label>
+            <StyledInput
+              {...register("confirmNewPassword", {
+                required: {
+                  value: true,
+                  message: "Required field!",
+                },
+                validate: (value) => {
+                  return value === watch("newPassword") || "Password does not match";
+                },
+              })}
+              type="password"
+              placeholder="Confirm new password"
+            />
+            <ErrorMessage>{errors.confirmNewPassword?.message}</ErrorMessage>
+          </InputWrapper>
         </ConfirmPassWrapper>
       </PassWrapper>
       <ButtonWrapper>
         <ButtonConteiner>
-          <Button>save changes</Button>
-          <Button brColor={Color.Primary} buttonColor={Color.Primary} bgColor={Color.Primary_Light}>
+          <Button type="submit">save changes</Button>
+          <Button
+            onClick={handleCancel}
+            brColor={Color.Primary}
+            buttonColor={Color.Primary}
+            bgColor={Color.Primary_Light}
+          >
             cancel
           </Button>
         </ButtonConteiner>

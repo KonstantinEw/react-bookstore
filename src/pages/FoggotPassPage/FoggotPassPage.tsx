@@ -29,7 +29,6 @@ export const FoggotPassPage = () => {
 
   const handleResetPassword = ({ email }: IReset) => {
     const auth = getAuth();
-    console.log(email);
     sendPasswordResetEmail(auth, email)
       .then(() => {
         alert("Password reset email sent!");

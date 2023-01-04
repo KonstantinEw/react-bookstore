@@ -29,7 +29,6 @@ export const SignIn = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -38,8 +37,10 @@ export const SignIn = () => {
           }),
         );
       })
+      .then(() => {
+        navigate(ROUTE.HOME);
+      })
       .catch(() => alert("Invalid user!"));
-    navigate(ROUTE.HOME);
   };
 
   return (

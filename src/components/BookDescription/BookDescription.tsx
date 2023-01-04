@@ -18,7 +18,7 @@ interface IProps {
 }
 
 export const BookDescription = ({ addOrder, book, addFavoriteBook }: IProps) => {
-  const { title, image } = book;
+  const { title, image, url } = book;
 
   const handleAddBook = () => {
     addOrder();
@@ -41,6 +41,7 @@ export const BookDescription = ({ addOrder, book, addFavoriteBook }: IProps) => 
         <DescrWrap>
           <DiscriptionList book={book} />
           <Button onClick={handleAddBook}>add to cart</Button>
+          <a href={url}>prewiew book</a>
         </DescrWrap>
       </BookDetails>
       <DescriptionTabs book={book} />

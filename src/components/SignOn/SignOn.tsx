@@ -1,23 +1,21 @@
 import { Button } from "components";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { ROUTE } from "router";
-import { setUser } from "store";
+import { setUser, useAppDispatch } from "store";
 import { BodyForm, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 
 interface ISignOn {
-  name: string | null;
   email: string;
   password: string;
 }
 
 export const SignOn = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleSignIn = (userData: ISignOn) => {
-    const { email, password, name } = userData;
+    const { email, password } = userData;
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -29,8 +27,10 @@ export const SignOn = () => {
           }),
         );
       })
+      .then(() => {
+        navigate(ROUTE.HOME);
+      })
       .catch(() => alert("User existing!"));
-    navigate(ROUTE.HOME);
   };
 
   const {
@@ -71,6 +71,7 @@ export const SignOn = () => {
           placeholder="Your email"
           {...register("email", {
             pattern: {
+              // eslint-disable-next-line
               value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
               message: "Enter the correct email!",
             },
