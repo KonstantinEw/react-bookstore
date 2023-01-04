@@ -105,6 +105,25 @@ const DeleteCross = styled.div`
   }
 `;
 
+const Amount = styled.p`
+  padding-bottom: 15px;
+  ${H3};
+`;
+
+const AmountButton = styled.button`
+  background: none;
+  border: none;
+  ${H2}
+  outline: none;
+  cursor: pointer;
+`;
+
+const AmountWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;
+
 export {
   DeleteCross,
   DeleteButton,
@@ -115,4 +134,7 @@ export {
   TitleWrapper,
   StyledOrderCard,
   ImgWrapper,
+  Amount,
+  AmountButton,
+  AmountWrapper,
 };

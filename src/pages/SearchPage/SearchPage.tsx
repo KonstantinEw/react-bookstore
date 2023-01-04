@@ -1,24 +1,33 @@
+import { StyledNextButton, StyledPrevButton } from "assets";
 import { ArrowBackButton, BooksList, Loader } from "components";
-import { PaginatedItems } from "components/Pagination/Pagination";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useAppSelector, getSearchBooks, feachSearchBooks, useAppDispatch } from "store";
-import { Title, Total } from "./styles";
+import { StyledPagination, Title, Total } from "./styles";
 
 export const SearchPage = () => {
-  const { page, searchValue } = useParams();
+  const { result, isLoading, error } = useAppSelector(getSearchBooks);
+  const { books, total } = result;
+  const { page, searchValue } = useParams<string>();
+
+  const pages = Math.ceil(+total / 10);
+  const [itemOffset, setItemOffset] = useState(page);
+  const handleSetPage = (event: { selected: number }) => {
+    const newOffset = event.selected;
+    if (newOffset) {
+      setItemOffset(newOffset + "");
+    }
+  };
+
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(
       feachSearchBooks({
         searchValue: searchValue,
-        page: page,
+        page: itemOffset,
       }),
     );
-  }, [searchValue, page, dispatch]);
-
-  const { result, isLoading, error } = useAppSelector(getSearchBooks);
-  const { books, total } = result;
+  }, [searchValue, itemOffset, page, dispatch]);
 
   return (
     <section>
@@ -35,7 +44,23 @@ export const SearchPage = () => {
           <Title>{`'${searchValue}' search results`}</Title>
           <Total>{`Found ${total} books`}</Total>
           {<BooksList books={books} />}
-          <PaginatedItems total={total} />
+          <StyledPagination
+            breakLabel="..."
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={1}
+            containerClassName="paginaton__container"
+            breakClassName="paginaton__break"
+            pageClassName="paginaton__page"
+            activeClassName="paginaton__active"
+            previousClassName="paginaton__previous"
+            nextClassName="paginaton__next"
+            disabledClassName="paginaton__disabled"
+            nextLabel={<StyledNextButton />}
+            previousLabel={<StyledPrevButton />}
+            pageCount={pages}
+            className="paginaton"
+            onPageChange={handleSetPage}
+          />
         </>
       )}
     </section>

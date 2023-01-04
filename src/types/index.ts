@@ -6,6 +6,7 @@ import {
   ISearchParams,
   ISearchResult,
   IBookIsbn13,
+  IOrderBook,
 } from "./types";
 
 export type {
@@ -16,4 +17,5 @@ export type {
   ISearchParams,
   ISearchResult,
   IBookIsbn13,
+  IOrderBook,
 };

@@ -8,6 +8,8 @@ import { ReactComponent as NextButton } from "./icons/next.svg";
 import { ReactComponent as PrevButton } from "./icons/prev.svg";
 import { ReactComponent as AddFavoriteIcon } from "./icons/favorite-button.svg";
 import { ReactComponent as DeleteFavoriteIcon } from "./icons/favorite-heart.svg";
+import { ReactComponent as PlusIcon } from "./icons/plus.svg";
+import { ReactComponent as MinusIcon } from "./icons/minus.svg";
 import {
   StyledArrow,
   StyledFavoriteIcon,
@@ -38,4 +40,6 @@ export {
   StyledNextButton,
   AddFavoriteIcon,
   DeleteFavoriteIcon,
+  PlusIcon,
+  MinusIcon,
 };

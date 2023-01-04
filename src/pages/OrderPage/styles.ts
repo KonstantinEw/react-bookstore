@@ -1,9 +1,57 @@
 import styled from "styled-components";
-import { Margin1, Media } from "ui";
+import { B1, Color, H2, Margin1, Media } from "ui";
 
-export const StyledOrderPage = styled.section`
+const StyledOrderPage = styled.section`
   margin-bottom: ${Margin1.desktop};
   ${Media.SM} {
     margin-bottom: ${Margin1.mobile};
   }
 `;
+
+const EmptyWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const PriceWrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
+const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+const ListWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 200px;
+  grid-row-gap: 20px;
+`;
+
+const PriceDescr = styled.span`
+  ${B1};
+  color: ${Color.Secondary};
+`;
+const Cost = styled.span`
+  ${B1};
+  color: ${Color.Primary};
+`;
+
+const TotalDescr = styled.span`
+  ${H2};
+  color: ${Color.Primary};
+`;
+
+export {
+  StyledOrderPage,
+  PriceContainer,
+  ListWrapper,
+  PriceWrapper,
+  PriceDescr,
+  Cost,
+  TotalDescr,
+  EmptyWrapper,
+};

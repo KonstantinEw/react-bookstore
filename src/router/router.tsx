@@ -1,4 +1,4 @@
-import { Layout } from "components";
+import { Auth, Layout } from "components";
 import {
   AuthPage,
   FavoritesPage,
@@ -16,12 +16,15 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.HOME} element={<Layout />}>
       <Route index element={<NewBooksPage />} />
-      <Route path={ROUTE.PROFILE} element={<ProfilePage />} />
-      <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
-      <Route path={ROUTE.SHOP_BAG} element={<OrderPage />} />
-      <Route path={ROUTE.SIGNUP} element={<AuthPage />} />
       <Route path={ROUTE.DETAILS} element={<GetBookPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
+      <Route path={ROUTE.SIGNUP} element={<AuthPage />} />
+      <Route element={<Auth />}>
+        <Route path={ROUTE.PROFILE} element={<ProfilePage />} />
+        <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
+        <Route path={ROUTE.SHOP_BAG} element={<OrderPage />} />
+      </Route>
+
       <Route path="*" element={<NotFoundedPage />} />
     </Route>,
   ),

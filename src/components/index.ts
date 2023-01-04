@@ -23,6 +23,7 @@ import { OrderCard } from "./OrderCard/OrderCard";
 import { Loader } from "./Loader/Loader";
 import { SignIn } from "./SignIn/SignIn";
 import { SignOn } from "./SignOn/SignOn";
+import { Auth } from "./Auth/Auth";
 
 export {
   Header,
@@ -50,4 +51,5 @@ export {
   Loader,
   SignIn,
   SignOn,
+  Auth,
 };

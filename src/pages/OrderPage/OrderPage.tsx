@@ -1,4 +1,6 @@
-import { ArrowBackButton, OrderCard, Title } from "components";
+import { ArrowBackButton, Button, OrderCard, Title } from "components";
+import { useEffect } from "react";
+
 import {
   decrementQuantity,
   deleteOrder,
@@ -6,13 +8,28 @@ import {
   orderBooks,
   useAppDispatch,
   useAppSelector,
+  getTotal,
 } from "store";
-import { StyledOrderPage } from "./styles";
+import {
+  Cost,
+  EmptyWrapper,
+  ListWrapper,
+  PriceContainer,
+  PriceDescr,
+  PriceWrapper,
+  StyledOrderPage,
+  TotalDescr,
+} from "./styles";
 
 export const OrderPage = () => {
-  const { cart, quantity } = useAppSelector(orderBooks);
+  const { cart, quantity, total } = useAppSelector(orderBooks);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(getTotal());
+  }, [cart, dispatch]);
+  const vat = total * 0.2;
+  const totalPrice = total + vat;
   return (
     <StyledOrderPage>
       <ArrowBackButton />
@@ -33,6 +50,26 @@ export const OrderPage = () => {
           );
         })}
       </ul>
+      {cart.length === 0 && (
+        <EmptyWrapper>
+          <TotalDescr>Cart is empty</TotalDescr>
+        </EmptyWrapper>
+      )}
+      {cart.length > 0 && (
+        <PriceWrapper>
+          <PriceContainer>
+            <ListWrapper>
+              <PriceDescr>Sum total</PriceDescr>
+              <Cost>${total.toFixed(2)}</Cost>
+              <PriceDescr>VAT</PriceDescr>
+              <Cost>${vat.toFixed(2)}</Cost>
+              <TotalDescr>TOTAL:</TotalDescr>
+              <TotalDescr>${totalPrice.toFixed(2)}</TotalDescr>
+            </ListWrapper>
+            <Button>check out</Button>
+          </PriceContainer>
+        </PriceWrapper>
+      )}
     </StyledOrderPage>
   );
 };

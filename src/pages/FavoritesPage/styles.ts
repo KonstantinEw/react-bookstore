@@ -1,9 +1,18 @@
 import styled from "styled-components";
-import { Margin1, Media } from "ui";
+import { Color, H2, Margin1, Media } from "ui";
 
-export const StyledFavoritesPage = styled.div`
+const StyledFavoritesPage = styled.div`
   margin-bottom: ${Margin1.desktop};
   ${Media.SM} {
     margin-bottom: ${Margin1.mobile};
   }
 `;
+
+const EmptyWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  ${H2};
+  color: ${Color.Primary};
+`;
+
+export { EmptyWrapper, StyledFavoritesPage };

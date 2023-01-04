@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IDetailsBook } from "types";
+import { IOrderBook } from "types";
 
 interface IOrder {
-  cart: IDetailsBook[];
+  cart: IOrderBook[];
   quantity: number;
+  total: number;
 }
 
 const initialState: IOrder = {
   cart: [],
   quantity: 0,
+  total: 0,
 };
 
 const orderSlice = createSlice({
@@ -18,36 +20,50 @@ const orderSlice = createSlice({
     //TODO type of payload
     addOrder: (state, action: PayloadAction<any>) => {
       const itemInCart = state.cart.find((item) => item.isbn13 === action.payload.isbn13);
-      const amount = 1;
       if (itemInCart) {
         state.quantity++;
+        itemInCart.amount++;
       }
       if (!itemInCart) {
         state.cart.push({
           ...action.payload,
-          amount,
+          amount: 1,
         });
       }
     },
     incrementQuantity: (state, action: PayloadAction<string>) => {
-      const book = state.cart.find((book) => book.isbn13 === action.payload);
-      if (book) {
+      const itemInCart = state.cart.find((book) => book.isbn13 === action.payload);
+      if (itemInCart) {
         state.quantity++;
+        itemInCart.amount++;
       }
     },
     decrementQuantity: (state, action: PayloadAction<string>) => {
-      const book = state.cart.find((book) => book.isbn13 === action.payload);
-      if (book) {
+      const itemInCart = state.cart.find((book) => book.isbn13 === action.payload);
+      if (itemInCart) {
         state.quantity--;
+        itemInCart.amount--;
       }
     },
     deleteOrder: (state, action: PayloadAction<string>) => {
-      state.cart = state.cart.filter((book) => {
-        return book.isbn13 !== action.payload;
+      state.cart = state.cart.filter((itemInCart) => {
+        return itemInCart.isbn13 !== action.payload;
       });
+    },
+    getTotal: (state) => {
+      const gettotalPrice = (amount = 0, total = 0) => {
+        state.cart.forEach((itemInCart) => {
+          amount += itemInCart.amount;
+          total += itemInCart.amount * parseFloat(itemInCart.price.replace(/[$]/gi, ""));
+        });
+        state.total = total;
+        state.quantity = amount;
+      };
+      gettotalPrice();
     },
   },
 });
 
-export const { addOrder, deleteOrder, incrementQuantity, decrementQuantity } = orderSlice.actions;
+export const { addOrder, deleteOrder, incrementQuantity, decrementQuantity, getTotal } =
+  orderSlice.actions;
 export default orderSlice.reducer;

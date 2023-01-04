@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { IDetailsBook } from "types";
+import { IOrderBook } from "types/types";
 import {
   StyledOrderCard,
   ImgWrapper,
@@ -10,10 +9,14 @@ import {
   Cost,
   DeleteButton,
   DeleteCross,
+  Amount,
+  AmountButton,
+  AmountWrapper,
 } from "./styles";
+import { MinusIcon, PlusIcon } from "assets";
 
 interface IProps {
-  book: IDetailsBook;
+  book: IOrderBook;
   deleteOrder: () => void;
   incrementQuantity: () => void;
   decrimentQuantity: () => void;
@@ -27,18 +30,16 @@ export const OrderCard = ({
   incrementQuantity,
   quantity,
 }: IProps) => {
-  const { image, title, subtitle, price, amount } = book;
-  const [bookAmount, setBookAmount] = useState(amount);
-  console.log(book);
+  const { image, title, price, amount, authors } = book;
   const handleDeleteBook = () => {
     deleteOrder();
   };
 
   const handleAddAmount = () => {
-    setBookAmount(bookAmount && bookAmount + 1);
+    incrementQuantity();
   };
   const handleDeleteAmount = () => {
-    setBookAmount(bookAmount && bookAmount - 1);
+    decrimentQuantity();
   };
 
   return (
@@ -48,12 +49,16 @@ export const OrderCard = ({
       </ImgWrapper>
       <TitleWrapper>
         <CardTitle>{title}</CardTitle>
-        <CardSubtitle>{subtitle}</CardSubtitle>
-        <p>
-          <button onClick={handleDeleteAmount}>-</button>
-          {bookAmount}
-          <button onClick={handleAddAmount}>+</button>
-        </p>
+        <CardSubtitle>{authors}</CardSubtitle>
+        <AmountWrapper>
+          <AmountButton onClick={handleDeleteAmount}>
+            <MinusIcon />
+          </AmountButton>
+          <Amount>{amount}</Amount>
+          <AmountButton onClick={handleAddAmount}>
+            <PlusIcon />
+          </AmountButton>
+        </AmountWrapper>
       </TitleWrapper>
       <CostWrapper>
         <Cost>{price}</Cost>

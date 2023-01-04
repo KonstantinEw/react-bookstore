@@ -32,7 +32,6 @@ const newBooksSlice = createSlice({
     });
     builder.addCase(fetchNewBooks.rejected, (state, action: any) => {
       state.isLoading = true;
-      state.result = action.payload;
       state.error = action.payload;
     });
   },

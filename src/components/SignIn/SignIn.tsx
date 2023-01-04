@@ -2,8 +2,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Button } from "components";
 import { useForm } from "react-hook-form";
 import { BodyForm, CustomLink, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
-import { setUser } from "store";
-import { useDispatch } from "react-redux";
+import { setUser, useAppDispatch } from "store";
 
 interface ISingIn {
   email: string;
@@ -11,7 +10,7 @@ interface ISingIn {
 }
 
 export const SignIn = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -45,6 +44,7 @@ export const SignIn = () => {
         <StyledInput
           {...register("email", {
             pattern: {
+              // eslint-disable-next-line
               value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
               message: "Enter the correct email!",
             },
