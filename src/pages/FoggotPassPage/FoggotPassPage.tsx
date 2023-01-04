@@ -1,5 +1,4 @@
 import { Button } from "components";
-
 import { useForm } from "react-hook-form";
 import {
   BodyForm,
@@ -11,6 +10,11 @@ import {
   StyledInput,
   Title,
 } from "./styles";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+
+interface IReset {
+  email: string;
+}
 
 export const FoggotPassPage = () => {
   const {
@@ -19,14 +23,21 @@ export const FoggotPassPage = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: "",
       email: "",
-      password: "",
-      confirmPassword: "",
     },
   });
 
-  const handleResetPassword = () => {};
+  const handleResetPassword = ({ email }: IReset) => {
+    const auth = getAuth();
+    console.log(email);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("Password reset email sent!");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
 
   return (
     <StyledFoggotPassPage>
