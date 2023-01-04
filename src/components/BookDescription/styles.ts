@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Margin1, Media, randomColor } from "../../ui";
+import { B1, Color, Margin1, Media, randomColor } from "ui";
 
 const ImageWrap = styled.div`
   position: relative;
@@ -40,5 +40,12 @@ const AddFavoriteButton = styled.button`
   border: none;
   cursor: pointer;
 `;
+const RewiewLink = styled.a`
+  display: flex;
+  justify-content: center;
+  ${B1};
+  color: ${Color.Primary};
+  text-decoration: none;
+`;
 
-export { BookDetails, DescrWrap, ImageWrap, Image, AddFavoriteButton };
+export { BookDetails, DescrWrap, ImageWrap, Image, AddFavoriteButton, RewiewLink };

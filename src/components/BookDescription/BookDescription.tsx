@@ -8,7 +8,7 @@ import {
   Title,
 } from "components";
 import { IDetailsBook } from "types";
-import { BookDetails, DescrWrap, ImageWrap, Image, AddFavoriteButton } from "./styles";
+import { BookDetails, DescrWrap, ImageWrap, Image, AddFavoriteButton, RewiewLink } from "./styles";
 
 interface IProps {
   book: IDetailsBook;
@@ -40,8 +40,12 @@ export const BookDescription = ({ addOrder, book, addFavoriteBook }: IProps) => 
         </ImageWrap>
         <DescrWrap>
           <DiscriptionList book={book} />
-          <Button onClick={handleAddBook}>add to cart</Button>
-          <a href={url}>prewiew book</a>
+          <Button margin={"0px 0px 40px 0px"} onClick={handleAddBook}>
+            add to cart
+          </Button>
+          <RewiewLink target="_blank" href={url}>
+            Prewiew book
+          </RewiewLink>
         </DescrWrap>
       </BookDetails>
       <DescriptionTabs book={book} />

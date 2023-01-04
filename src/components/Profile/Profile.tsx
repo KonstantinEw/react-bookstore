@@ -15,6 +15,7 @@ import {
   StyledInput,
   Subtitle,
 } from "./styles";
+import { setUser, useAppDispatch } from "store";
 
 interface IUserData {
   name: string;
@@ -30,6 +31,7 @@ interface IProps {
 }
 
 export const Profile = ({ email, name }: IProps) => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -60,7 +62,12 @@ export const Profile = ({ email, name }: IProps) => {
             displayName: userData.name,
           })
             .then(() => {
-              alert("complete");
+              dispatch(
+                setUser({
+                  name: userData.name,
+                  email: userData.email,
+                }),
+              );
             })
             .catch((error) => {
               alert(error.message);

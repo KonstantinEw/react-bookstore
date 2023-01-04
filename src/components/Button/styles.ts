@@ -6,9 +6,11 @@ export const StyledButton = styled.button<{
   buttonColor?: string;
   bgColor?: string;
   brColor?: string;
+  margin?: string;
 }>`
   width: ${({ buttonWidth }) => buttonWidth || "100%"};
   min-height: 60px;
+  margin: ${({ margin }) => margin};
   background: ${({ bgColor }) => bgColor || Color.Primary};
   ${B2}
   text-transform: uppercase;

@@ -20,13 +20,12 @@ export const SignOn = () => {
     const auth = getAuth();
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
+      .then(() => {
         dispatch(
           setUser({
-            email: user.email,
-            id: user.uid,
+            email: email,
+            name: name,
             isAuth: true,
-            name: user.displayName,
           }),
         );
       })
@@ -38,7 +37,6 @@ export const SignOn = () => {
           });
         }
       })
-
       .then(() => {
         navigate(ROUTE.HOME);
       })

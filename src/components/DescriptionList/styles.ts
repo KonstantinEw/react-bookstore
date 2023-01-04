@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { B1, Color, H2, Margin6, Media } from "ui";
 
 const DescrList = styled.ul`
-  padding: 40px 0px 64px 0px;
+  padding: 40px 0px 0px 0px;
 `;
 
 const CostRow = styled.li`
