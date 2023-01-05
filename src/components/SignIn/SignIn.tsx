@@ -82,7 +82,7 @@ export const SignIn = () => {
         />
         <ErrorMessage>{errors.password?.message}</ErrorMessage>
       </InputWrapper>
-      <CustomLink to={ROUTE.RESETPASS}>Foggot password?</CustomLink>
+      <CustomLink to={ROUTE.RESETPASS}>Forgot password?</CustomLink>
       <Button type="submit">sign in</Button>
     </BodyForm>
   );

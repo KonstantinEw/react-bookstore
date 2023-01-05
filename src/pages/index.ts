@@ -1,6 +1,6 @@
 import { AuthPage } from "./AuthPage/AuthPage";
 import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
-import { FoggotPassPage } from "./FoggotPassPage/FoggotPassPage";
+import { ResetPage } from "./ResetPage/ResetPage";
 import { GetBookPage } from "./GetBookPage/GetBookPage";
 import { NewBooksPage } from "./NewBooksPage/NewBooksPage";
 import { NotFoundedPage } from "./NotFoundedPage/NotFoundedPage";
@@ -17,5 +17,5 @@ export {
   NotFoundedPage,
   NewBooksPage,
   GetBookPage,
-  FoggotPassPage,
+  ResetPage,
 };
