@@ -16,7 +16,7 @@ interface IReset {
   email: string;
 }
 
-export const FoggotPassPage = () => {
+export const ResetPage = () => {
   const {
     register,
     handleSubmit,
