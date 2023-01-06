@@ -1,19 +1,24 @@
-import { StyledFavoriteIcon, StyledShopBagIcon, StyledUserProfileIcon } from "assets";
+import { StyledUserProfileIcon } from "assets";
+import { FavoriteNavButton, OrderNavButton } from "components";
+import { useWindowSize } from "hooks";
 import { ROUTE } from "router";
-import { ShopBagLink, StyledNav, StyledNavLink } from "./styles";
+import { StyledNav, StyledNavLink, TextLink } from "./styles";
 
 export const HeaderNav = () => {
+  const { width = 0 } = useWindowSize();
   return (
     <StyledNav>
       <StyledNavLink to={ROUTE.FAVORITES}>
-        <StyledFavoriteIcon />
+        {width < 993 ? <TextLink>Favorite</TextLink> : <FavoriteNavButton />}
       </StyledNavLink>
-      <ShopBagLink to={ROUTE.SHOP_BAG}>
-        <StyledShopBagIcon />
-      </ShopBagLink>
+      <StyledNavLink to={ROUTE.SHOP_BAG}>
+        {width < 993 ? <TextLink>Cart</TextLink> : <OrderNavButton />}
+      </StyledNavLink>
       <StyledNavLink to={ROUTE.PROFILE}>
-        <StyledUserProfileIcon />
+        {width < 993 ? <TextLink>Profile</TextLink> : <StyledUserProfileIcon />}
       </StyledNavLink>
     </StyledNav>
   );
 };
+
+<TextLink></TextLink>;

@@ -10,6 +10,9 @@ import { ReactComponent as AddFavoriteIcon } from "./icons/favorite-button.svg";
 import { ReactComponent as DeleteFavoriteIcon } from "./icons/favorite-heart.svg";
 import { ReactComponent as PlusIcon } from "./icons/plus.svg";
 import { ReactComponent as MinusIcon } from "./icons/minus.svg";
+import { ReactComponent as BurgerMenuIcon } from "./icons/burger.svg";
+import { ReactComponent as FavoriteActiveIcon } from "./icons/favorite-active.svg";
+import { ReactComponent as OrderActiveIcon } from "./icons/shopping-bag-active.svg";
 import {
   StyledAddFavoriteIcon,
   StyledArrow,
@@ -18,8 +21,10 @@ import {
   StyledNextButton,
   StyledPrevButton,
   StyledSearchIcon,
-  StyledShopBagIcon,
+  StyledOrderIcon,
   StyledUserProfileIcon,
+  StyledFavoriteActiveIcon,
+  StyledOrderActiveIcon,
 } from "./styles";
 
 export {
@@ -28,7 +33,7 @@ export {
   UserProfileIcon,
   LogoIcon,
   ArrowIcon,
-  StyledShopBagIcon,
+  StyledOrderIcon,
   StyledFavoriteIcon,
   StyledUserProfileIcon,
   StyledLogoIcon,
@@ -44,4 +49,9 @@ export {
   PlusIcon,
   MinusIcon,
   StyledAddFavoriteIcon,
+  BurgerMenuIcon,
+  FavoriteActiveIcon,
+  OrderActiveIcon,
+  StyledFavoriteActiveIcon,
+  StyledOrderActiveIcon,
 };

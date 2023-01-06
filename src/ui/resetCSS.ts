@@ -55,4 +55,8 @@ export const resetCSS = css`
   select {
     font: inherit;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;

@@ -24,6 +24,10 @@ import { Loader } from "./Loader/Loader";
 import { SignIn } from "./SignIn/SignIn";
 import { SignOn } from "./SignOn/SignOn";
 import { Auth } from "./Auth/Auth";
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
+import { MainSearch } from "./MainSearch/MainSearch";
+import { FavoriteNavButton } from "./FaviriteNavButton/FavoriteNavButton";
+import { OrderNavButton } from "./OrderNavButton/OrderNavButton";
 
 export {
   Header,
@@ -52,4 +56,8 @@ export {
   SignIn,
   SignOn,
   Auth,
+  BurgerMenu,
+  MainSearch,
+  FavoriteNavButton,
+  OrderNavButton,
 };

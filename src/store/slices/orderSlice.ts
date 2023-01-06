@@ -18,7 +18,7 @@ const orderSlice = createSlice({
   initialState,
   reducers: {
     //TODO type of payload
-    addOrder: (state, action: PayloadAction<any>) => {
+    addOrder: (state, action: PayloadAction<IOrderBook>) => {
       const itemInCart = state.cart.find((item) => item.isbn13 === action.payload.isbn13);
       if (itemInCart) {
         state.quantity++;

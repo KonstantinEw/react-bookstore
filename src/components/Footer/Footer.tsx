@@ -1,3 +1,4 @@
+import { ThemeToggler } from "components";
 import { StyledFooter, Text } from "./styles";
 
 export const Footer = () => {
@@ -5,6 +6,7 @@ export const Footer = () => {
     <StyledFooter>
       <Text>&copy;2022 Bookstore</Text>
       <Text>All rights reserved</Text>
+      <ThemeToggler type="checkbox" />
     </StyledFooter>
   );
 };

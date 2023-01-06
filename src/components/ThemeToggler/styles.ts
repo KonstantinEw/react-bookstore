@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { Color, Media } from "ui";
+import { Color } from "ui";
 
 export const StyledThemeToggler = styled.input`
   position: relative;
   display: block;
   width: 62px;
   height: 32px;
-  margin: 13px 0px 0px 0px;
   border: none;
   border-radius: 50px;
   overflow: hidden;
@@ -15,9 +14,6 @@ export const StyledThemeToggler = styled.input`
   cursor: pointer;
   background: ${Color.Gray};
   transition: background-color ease 0.3s;
-  ${Media.LG} {
-    display: none;
-  }
   &::before {
     content: url("https://shivanarrthine.com/public/images/icons/sun.svg");
     position: absolute;

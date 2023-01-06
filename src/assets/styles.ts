@@ -2,9 +2,11 @@ import styled from "styled-components";
 import {
   AddFavoriteIcon,
   ArrowIcon,
+  FavoriteActiveIcon,
   FavoriteIcon,
   LogoIcon,
   NextButton,
+  OrderActiveIcon,
   PrevButton,
   SearchIcon,
   ShopBagIcon,
@@ -18,7 +20,7 @@ const StyledFavoriteIcon = styled(FavoriteIcon)`
   }
 `;
 
-const StyledShopBagIcon = styled(ShopBagIcon)`
+const StyledOrderIcon = styled(ShopBagIcon)`
   & path {
     stroke: ${Color.Primary};
   }
@@ -71,9 +73,20 @@ const StyledAddFavoriteIcon = styled(AddFavoriteIcon)`
   }
 `;
 
+const StyledFavoriteActiveIcon = styled(FavoriteActiveIcon)`
+  & path {
+    stroke: ${Color.Primary};
+  }
+`;
+const StyledOrderActiveIcon = styled(OrderActiveIcon)`
+  & path {
+    stroke: ${Color.Primary};
+  }
+`;
+
 export {
   StyledFavoriteIcon,
-  StyledShopBagIcon,
+  StyledOrderIcon,
   StyledUserProfileIcon,
   StyledLogoIcon,
   StyledAddFavoriteIcon,
@@ -81,4 +94,6 @@ export {
   StyledNextButton,
   StyledArrow,
   StyledSearchIcon,
+  StyledFavoriteActiveIcon,
+  StyledOrderActiveIcon,
 };

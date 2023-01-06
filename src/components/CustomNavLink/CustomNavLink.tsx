@@ -5,6 +5,7 @@ import { ROUTE } from "router";
 interface IProps {
   children: ReactNode;
   to: ROUTE;
+  onClick?: () => void;
 }
 
 export const CustomNavLink = ({ children, to }: IProps) => {

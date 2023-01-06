@@ -1,47 +1,43 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { B1, Color, Margin1, Media } from "ui";
+import { Color, Margin1, Media } from "ui";
 
 const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
   padding: 24px 0px 24px 0px;
   margin-bottom: ${Margin1.desktop};
   border-bottom: 1px solid ${Color.Gray};
+  ${Media.LG} {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 const LogoLink = styled(NavLink)`
   padding: 14px 0px 14px 0px;
 `;
 
-const Search = styled.input`
-  width: 100%;
-  height: 56px;
-  padding: 15px 20px 15px 20px;
-  border: 1px solid ${Color.Gray};
-  background-color: ${Color.Light};
-  ${B1}
-  outline: none;
-  &::placeholder {
-    color: ${Color.Secondary};
-  }
+const NavWrapper = styled.div<{ isOpen: boolean }>`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 105px;
+  background-color: ${Color.Primary_Light};
   ${Media.LG} {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 32px;
+    width: 100%;
+    height: calc(100% - 82px);
+    margin-top: 82px;
+    padding: 56px 40px;
+    align-items: center;
+    transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
   }
 `;
 
-const SearchButton = styled.button`
-  position: absolute;
-  right: 1%;
-  top: 23%;
-  background: none;
-  border: none;
-  outline: none;
-`;
-
-const InputWrapper = styled.div`
-  position: relative;
-  width: 50%;
-`;
-
-export { LogoLink, StyledHeader, InputWrapper, SearchButton, Search };
+export { LogoLink, StyledHeader, NavWrapper };
