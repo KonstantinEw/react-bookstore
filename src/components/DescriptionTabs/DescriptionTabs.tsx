@@ -1,7 +1,7 @@
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { IDetailsBook } from "types";
-import { StyledTabs } from "./styles";
+import { StyledTab, StyledTabList, StyledTabs, Text } from "./styles";
 
 interface IProps {
   book: IDetailsBook;
@@ -11,20 +11,20 @@ export const DescriptionTabs = ({ book }: IProps) => {
   const { desc, authors, subtitle } = book;
   return (
     <StyledTabs>
-      <TabList>
-        <Tab>Description</Tab>
-        <Tab>Authors</Tab>
-        <Tab>Reviews</Tab>
-      </TabList>
+      <StyledTabList>
+        <StyledTab>Description</StyledTab>
+        <StyledTab>Authors</StyledTab>
+        <StyledTab>Reviews</StyledTab>
+      </StyledTabList>
 
       <TabPanel>
-        <p>{desc}</p>
+        <Text>{desc}</Text>
       </TabPanel>
       <TabPanel>
-        <p>{authors}</p>
+        <Text>{authors}</Text>
       </TabPanel>
       <TabPanel>
-        <p>{subtitle}</p>
+        <Text>{subtitle}</Text>
       </TabPanel>
     </StyledTabs>
   );

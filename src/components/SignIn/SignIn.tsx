@@ -34,13 +34,14 @@ export const SignIn = () => {
             email: user.email,
             id: user.uid,
             isAuth: true,
+            name: user.displayName,
           }),
         );
       })
       .then(() => {
         navigate(ROUTE.HOME);
       })
-      .catch(() => alert("Invalid user!"));
+      .catch(() => alert("Invalid user or password!"));
   };
 
   return (

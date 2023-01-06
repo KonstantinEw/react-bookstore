@@ -1,11 +1,12 @@
 import { BookDescription, Loader } from "components";
 import { useEffect } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import {
   addFavorite,
   addOrder,
   feachGetBooks,
   getBook,
+  getUser,
   orderBooks,
   useAppDispatch,
   useAppSelector,
@@ -13,7 +14,9 @@ import {
 
 export const GetBookPage = () => {
   const { isbn13 } = useParams();
+  const navigator = useNavigate();
   const { result, isLoading, error } = useAppSelector(getBook);
+  const { isAuth } = useAppSelector(getUser);
   const { quantity } = useAppSelector(orderBooks);
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -26,6 +29,8 @@ export const GetBookPage = () => {
       {error && <p>{error}</p>}
       {result && (
         <BookDescription
+          navigator={navigator}
+          isAuth={isAuth}
           quantity={quantity}
           addOrder={() => dispatch(addOrder(result))}
           book={result}

@@ -8,5 +8,5 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSEGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_API_ID,
 };
-
+// eslint-disable-next-line
 const app = initializeApp(firebaseConfig);

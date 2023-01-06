@@ -11,6 +11,7 @@ import { ReactComponent as DeleteFavoriteIcon } from "./icons/favorite-heart.svg
 import { ReactComponent as PlusIcon } from "./icons/plus.svg";
 import { ReactComponent as MinusIcon } from "./icons/minus.svg";
 import {
+  StyledAddFavoriteIcon,
   StyledArrow,
   StyledFavoriteIcon,
   StyledLogoIcon,
@@ -42,4 +43,5 @@ export {
   DeleteFavoriteIcon,
   PlusIcon,
   MinusIcon,
+  StyledAddFavoriteIcon,
 };
