@@ -20,5 +20,3 @@ export const HeaderNav = () => {
     </StyledNav>
   );
 };
-
-<TextLink></TextLink>;

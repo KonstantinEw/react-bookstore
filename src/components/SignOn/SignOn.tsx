@@ -1,54 +1,21 @@
-import { Button } from "components";
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import { Button, Modal } from "components";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
-import { ROUTE } from "router";
-import { setUser, useAppDispatch } from "store";
+import { ISignOn } from "types";
 import { BodyForm, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
 
-interface ISignOn {
-  email: string;
-  password: string;
-  name: string;
+interface IProps {
+  handleRegisterUser: (userData: ISignOn) => void;
+  handleCloseModal: () => void;
+  isOpen: boolean;
 }
 
-export const SignOn = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-  const handleSignIn = (userData: ISignOn) => {
-    const { email, password, name } = userData;
-    const auth = getAuth();
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        dispatch(
-          setUser({
-            email: email,
-            name: name,
-            isAuth: true,
-          }),
-        );
-      })
-      .then(() => {
-        const currentUser = auth.currentUser;
-        if (currentUser) {
-          updateProfile(currentUser, {
-            displayName: name,
-          });
-        }
-      })
-      .then(() => {
-        navigate(ROUTE.HOME);
-      })
-      .catch(() => alert("User existing!"));
-  };
-
+export const SignOn = ({ handleRegisterUser, handleCloseModal, isOpen }: IProps) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm({
+  } = useForm<ISignOn>({
     defaultValues: {
       name: "",
       email: "",
@@ -58,7 +25,12 @@ export const SignOn = () => {
   });
 
   return (
-    <BodyForm onSubmit={handleSubmit(handleSignIn)}>
+    <BodyForm onSubmit={handleSubmit(handleRegisterUser)}>
+      {isOpen && (
+        <Modal onClick={handleCloseModal} textButton="Ok">
+          User existing!
+        </Modal>
+      )}
       <InputWrapper>
         <Label>name</Label>
         <StyledInput

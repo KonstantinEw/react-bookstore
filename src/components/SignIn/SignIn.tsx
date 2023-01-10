@@ -1,19 +1,16 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Button } from "components";
+import { Button, Modal } from "components";
 import { useForm } from "react-hook-form";
 import { BodyForm, CustomLink, ErrorMessage, InputWrapper, Label, StyledInput } from "./styles";
-import { setUser, useAppDispatch } from "store";
-import { useNavigate } from "react-router";
 import { ROUTE } from "router";
+import { ISingIn } from "types";
 
-interface ISingIn {
-  email: string;
-  password: string;
+interface IProps {
+  handleSignInUser: (userData: ISingIn) => void;
+  handleCloseModal: () => void;
+  isOpen: boolean;
 }
 
-export const SignIn = () => {
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+export const SignIn = ({ handleSignInUser, handleCloseModal, isOpen }: IProps) => {
   const {
     register,
     handleSubmit,
@@ -25,27 +22,13 @@ export const SignIn = () => {
     },
   });
 
-  const handleSignIn = ({ email, password }: ISingIn) => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            isAuth: true,
-            name: user.displayName,
-          }),
-        );
-      })
-      .then(() => {
-        navigate(ROUTE.HOME);
-      })
-      .catch(() => alert("Invalid user or password!"));
-  };
-
   return (
-    <BodyForm onSubmit={handleSubmit(handleSignIn)}>
+    <BodyForm onSubmit={handleSubmit(handleSignInUser)}>
+      {isOpen && (
+        <Modal onClick={handleCloseModal} textButton="Ok">
+          Invalid user or password!
+        </Modal>
+      )}
       <InputWrapper>
         <Label>email</Label>
         <StyledInput

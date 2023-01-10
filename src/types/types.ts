@@ -76,3 +76,23 @@ export interface IOrderBook {
   };
   amount: number;
 }
+
+export interface IUserData {
+  name: string;
+  email: string;
+  password: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}
+
+export interface ISignOn {
+  email: string;
+  password: string;
+  name: string;
+  confirmPassword: string;
+}
+
+export interface ISingIn {
+  email: string;
+  password: string;
+}

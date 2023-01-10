@@ -23,13 +23,7 @@ interface IProps {
   quantity: number;
 }
 
-export const OrderCard = ({
-  book,
-  deleteOrder,
-  decrimentQuantity,
-  incrementQuantity,
-  quantity,
-}: IProps) => {
+export const OrderCard = ({ book, deleteOrder, decrimentQuantity, incrementQuantity }: IProps) => {
   const { image, title, price, amount, authors } = book;
   const handleDeleteBook = () => {
     deleteOrder();

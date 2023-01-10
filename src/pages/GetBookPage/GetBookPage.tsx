@@ -22,7 +22,7 @@ export const GetBookPage = () => {
   useEffect(() => {
     dispatch(feachGetBooks({ isbn13: isbn13 }));
   }, [dispatch, isbn13]);
-  const CartResult = { ...result, amount: 1 };
+  const cartResult = { ...result, amount: 1 };
   return (
     <section>
       {isLoading && <Loader />}
@@ -32,7 +32,7 @@ export const GetBookPage = () => {
           navigator={navigator}
           isAuth={isAuth}
           quantity={quantity}
-          addOrder={() => dispatch(addOrder(CartResult))}
+          addOrder={() => dispatch(addOrder(cartResult))}
           book={result}
           addFavoriteBook={() => dispatch(addFavorite(result))}
         />

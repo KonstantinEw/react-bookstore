@@ -14,7 +14,6 @@ import { Button } from "./Button/Button";
 import { BookSlider } from "./BookSlider/BookSlider";
 import { Layout } from "./Layout/Layout";
 import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
-import { AuthForm } from "./AuthForm/AuthForm";
 import { Input } from "./Input/Input";
 import { Profile } from "./Profile/Profile";
 import { FavoriteCard } from "./FavoriteCard/FavoriteCard";
@@ -28,6 +27,8 @@ import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { MainSearch } from "./MainSearch/MainSearch";
 import { FavoriteNavButton } from "./FaviriteNavButton/FavoriteNavButton";
 import { OrderNavButton } from "./OrderNavButton/OrderNavButton";
+import { Portal } from "./Portal/Portal";
+import { Modal } from "./Modal/Modal";
 
 export {
   Header,
@@ -46,7 +47,6 @@ export {
   BookSlider,
   Layout,
   CustomNavLink,
-  AuthForm,
   Input,
   Profile,
   FavoriteCard,
@@ -60,4 +60,6 @@ export {
   MainSearch,
   FavoriteNavButton,
   OrderNavButton,
+  Portal,
+  Modal,
 };

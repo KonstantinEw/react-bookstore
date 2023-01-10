@@ -1,3 +1,4 @@
+import { TargetPortal } from "./portal";
 import {
   IBook,
   IResponseNewBooks,
@@ -7,6 +8,9 @@ import {
   ISearchResult,
   IBookIsbn13,
   IOrderBook,
+  IUserData,
+  ISignOn,
+  ISingIn,
 } from "./types";
 
 export type {
@@ -18,4 +22,8 @@ export type {
   ISearchResult,
   IBookIsbn13,
   IOrderBook,
+  IUserData,
+  ISignOn,
+  ISingIn,
 };
+export { TargetPortal };

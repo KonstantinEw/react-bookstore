@@ -1,7 +1,6 @@
 import { Button } from "components";
 import { useForm } from "react-hook-form";
 import { Color } from "ui";
-import { getAuth, updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import {
   ButtonConteiner,
   ButtonWrapper,
@@ -15,23 +14,15 @@ import {
   StyledInput,
   Subtitle,
 } from "./styles";
-import { setUser, useAppDispatch } from "store";
-
-interface IUserData {
-  name: string;
-  email: string;
-  password: string;
-  newPassword: string;
-  confirmNewPassword: string;
-}
+import { IUserData } from "types";
 
 interface IProps {
   name: string;
   email: string;
+  handleUserProfile: (userData: IUserData) => void;
 }
 
-export const Profile = ({ email, name }: IProps) => {
-  const dispatch = useAppDispatch();
+export const Profile = ({ email, name, handleUserProfile }: IProps) => {
   const {
     register,
     handleSubmit,
@@ -49,32 +40,6 @@ export const Profile = ({ email, name }: IProps) => {
   });
 
   const handleCancel = () => {
-    reset();
-  };
-
-  const handleUserProfile = (userData: IUserData) => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (user) {
-      updatePassword(user, userData.newPassword).then(() => {
-        updateEmail(user, userData.email).then(() => {
-          updateProfile(user, {
-            displayName: userData.name,
-          })
-            .then(() => {
-              dispatch(
-                setUser({
-                  name: userData.name,
-                  email: userData.email,
-                }),
-              );
-            })
-            .catch((error) => {
-              alert(error.message);
-            });
-        });
-      });
-    }
     reset();
   };
 

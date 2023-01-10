@@ -16,13 +16,13 @@ export const Header = () => {
     setIsOpen((isOpen) => (isOpen === false ? true : false));
   };
   const handleLogOut = () => {
-    signOut(auth);
-    // .then(() => {
-    //   navigator(ROUTE.HOME);
-    // })
-    // .catch((error) => {
-    //   alert(error.message);
-    // });
+    signOut(auth)
+      .then(() => {
+        navigator(ROUTE.HOME);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
   return (
     <StyledHeader>

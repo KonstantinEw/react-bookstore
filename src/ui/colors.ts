@@ -11,4 +11,5 @@ export enum Color {
   Orange = "#FEE9E2",
   Purple = "var(--subs-bg)",
   Purple_Light = "#f4eefd",
+  Background_Modal = "rgb(0,0,0,0.8)",
 }
