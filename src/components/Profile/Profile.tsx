@@ -1,4 +1,4 @@
-import { Button } from "components";
+import { Button, Modal } from "components";
 import { useForm } from "react-hook-form";
 import { Color } from "ui";
 import {
@@ -19,10 +19,12 @@ import { IUserData } from "types";
 interface IProps {
   name: string;
   email: string;
-  handleUserProfile: (userData: IUserData) => void;
+  handleUpdateUser: (userData: IUserData) => void;
+  isOpen: boolean;
+  handleCloseModal: () => void;
 }
 
-export const Profile = ({ email, name, handleUserProfile }: IProps) => {
+export const Profile = ({ email, name, handleUpdateUser, isOpen, handleCloseModal }: IProps) => {
   const {
     register,
     handleSubmit,
@@ -44,7 +46,12 @@ export const Profile = ({ email, name, handleUserProfile }: IProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleUserProfile)}>
+    <form onSubmit={handleSubmit(handleUpdateUser)}>
+      {isOpen && (
+        <Modal onClick={handleCloseModal} textButton="Ok">
+          Profile Update!
+        </Modal>
+      )}
       <Subtitle>profile</Subtitle>
       <ProfileInfo>
         <InputWrapper>

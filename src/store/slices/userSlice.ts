@@ -1,6 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { FirebaseError } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  updateEmail,
+  updatePassword,
+  updateProfile,
+} from "firebase/auth";
 
 interface IRegisterUser {
   name: string;
@@ -58,6 +65,27 @@ export const fetchSignIn = createAsyncThunk<IUserData, ISsgnInUser, { rejectValu
   },
 );
 
+export const fetchUpdateUser = createAsyncThunk<
+  void,
+  IRegisterUser,
+  { rejectValue: FirebaseError }
+>("auth/updateUser", async ({ name, email, password }, { rejectWithValue }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (user) {
+    try {
+      await updatePassword(user, password);
+      await updateEmail(user, email);
+      await updateProfile(user, {
+        displayName: name,
+      });
+    } catch (error) {
+      const firebaseError = error as { code: FirebaseError };
+      return rejectWithValue(firebaseError.code);
+    }
+  }
+});
+
 const initialState: IUser = {
   name: "",
   email: "",
@@ -96,6 +124,9 @@ const userSlice = createSlice({
       state.name = payload.userName;
     });
     builder.addCase(fetchSignIn.rejected, (state, { payload }) => {
+      state.error = payload?.code;
+    });
+    builder.addCase(fetchUpdateUser.rejected, (state, { payload }) => {
       state.error = payload?.code;
     });
   },

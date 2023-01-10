@@ -25,7 +25,7 @@ export const Header = () => {
       });
   };
   return (
-    <StyledHeader>
+    <StyledHeader isOpen={isOpen}>
       <LogoLink to={ROUTE.HOME}>
         <StyledLogoIcon />
       </LogoLink>

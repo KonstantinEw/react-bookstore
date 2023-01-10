@@ -1,42 +1,44 @@
 import { ArrowBackButton, Profile, Title } from "components";
-import { getAuth, updateEmail, updatePassword, updateProfile } from "firebase/auth";
-import { getUser, setUser, useAppDispatch, useAppSelector } from "store";
+import { useState } from "react";
+import { fetchUpdateUser, getUser, useAppDispatch, useAppSelector } from "store";
 import { IUserData } from "types";
 
 export const ProfilePage = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
 
   const { name, email } = useAppSelector(getUser);
 
-  const handleUserProfile = (userData: IUserData) => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (user) {
-      updatePassword(user, userData.newPassword).then(() => {
-        updateEmail(user, userData.email).then(() => {
-          updateProfile(user, {
-            displayName: userData.name,
-          })
-            .then(() => {
-              dispatch(
-                setUser({
-                  name: userData.name,
-                  email: userData.email,
-                }),
-              );
-            })
-            .catch((error) => {
-              alert(error.message);
-            });
-        });
+  const handleUpdateUser = (userData: IUserData) => {
+    dispatch(
+      fetchUpdateUser({
+        name: userData.name,
+        email: userData.email,
+        password: userData.newPassword,
+      }),
+    )
+      .unwrap()
+      .then(() => setIsOpen(true))
+      .catch((error) => {
+        alert(error.message);
       });
-    }
   };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <section>
       <ArrowBackButton />
       <Title>account</Title>
-      <Profile name={name} email={email} handleUserProfile={handleUserProfile} />
+      <Profile
+        name={name}
+        email={email}
+        handleUpdateUser={handleUpdateUser}
+        isOpen={isOpen}
+        handleCloseModal={handleCloseModal}
+      />
     </section>
   );
 };
