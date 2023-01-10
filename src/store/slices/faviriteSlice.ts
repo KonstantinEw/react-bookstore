@@ -13,17 +13,15 @@ const faviriteSlice = createSlice({
   name: "favoriteBooks",
   initialState,
   reducers: {
-    addFavorite: (state, action: PayloadAction<IDetailsBook>) => {
-      const itemInCart = state.favorite.find((item) => item.isbn13 === action.payload.isbn13);
+    addFavorite: (state, { payload }: PayloadAction<IDetailsBook>) => {
+      const itemInCart = state.favorite.find((item) => item.isbn13 === payload.isbn13);
       if (!itemInCart) {
-        state.favorite.push({
-          ...action.payload,
-        });
+        state.favorite.push(payload);
       }
     },
-    deleteFavorite: (state, action: PayloadAction<string>) => {
+    deleteFavorite: (state, { payload }: PayloadAction<string>) => {
       state.favorite = state.favorite.filter((book) => {
-        return book.isbn13 !== action.payload;
+        return book.isbn13 !== payload;
       });
     },
   },
