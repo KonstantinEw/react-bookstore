@@ -9,7 +9,9 @@ import { getBook } from "./selectors/getBookSelector";
 import { feachGetBooks } from "./slices/bookSlice";
 import {
   fetchRegisterUser,
+  fetchResetPassword,
   fetchSignIn,
+  fetchSignOut,
   fetchUpdateUser,
   removeUser,
   setUser,
@@ -52,4 +54,6 @@ export {
   fetchRegisterUser,
   fetchSignIn,
   fetchUpdateUser,
+  fetchSignOut,
+  fetchResetPassword,
 };

@@ -1,25 +1,26 @@
 import { BooksList, Loader, Subscribe, Title } from "components";
 import { useEffect } from "react";
 import { fetchNewBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
+import { StyledNewBooksPage } from "./styles";
 
 export const NewBooksPage = () => {
-  const { isLoading, result, error } = useAppSelector(getNewBooks);
+  const { isLoading, results, error } = useAppSelector(getNewBooks);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchNewBooks());
   }, [dispatch]);
 
   return (
-    <section>
+    <StyledNewBooksPage>
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
-      {result && (
+      {results && results.length > 0 && (
         <>
           <Title>New Releases Books</Title>
-          <BooksList books={result} />
+          <BooksList books={results} />
           <Subscribe />
         </>
       )}
-    </section>
+    </StyledNewBooksPage>
   );
 };

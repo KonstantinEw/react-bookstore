@@ -19,12 +19,24 @@ import { IUserData } from "types";
 interface IProps {
   name: string;
   email: string;
+  error: string | undefined;
   handleUpdateUser: (userData: IUserData) => void;
-  isOpen: boolean;
+  handleCloseModalError: () => void;
   handleCloseModal: () => void;
+  isOpen: boolean;
+  isError: boolean;
 }
 
-export const Profile = ({ email, name, handleUpdateUser, isOpen, handleCloseModal }: IProps) => {
+export const Profile = ({
+  email,
+  name,
+  error,
+  handleUpdateUser,
+  handleCloseModalError,
+  handleCloseModal,
+  isError,
+  isOpen,
+}: IProps) => {
   const {
     register,
     handleSubmit,
@@ -50,6 +62,11 @@ export const Profile = ({ email, name, handleUpdateUser, isOpen, handleCloseModa
       {isOpen && (
         <Modal onClick={handleCloseModal} textButton="Ok">
           Profile Update!
+        </Modal>
+      )}
+      {isError && (
+        <Modal onClick={handleCloseModalError} textButton="Ok">
+          {error !== undefined ? error : "Unknown error"}
         </Modal>
       )}
       <Subtitle>profile</Subtitle>

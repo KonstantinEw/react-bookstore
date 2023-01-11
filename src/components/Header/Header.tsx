@@ -1,27 +1,30 @@
 import { StyledLogoIcon } from "assets";
 import { HeaderNav, BurgerMenu, MainSearch, Button } from "components";
-import { getAuth, signOut } from "firebase/auth";
 import { useWindowSize } from "hooks";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ROUTE } from "router";
-import { LogoLink, NavWrapper, StyledHeader } from "./styles";
+import { fetchSignOut, getUser, useAppDispatch, useAppSelector } from "store";
+import { ErrorText, LogoLink, NavWrapper, StyledHeader } from "./styles";
 
 export const Header = () => {
-  const auth = getAuth();
   const navigator = useNavigate();
+  const [signOuterror, setSignOutError] = useState(false);
+  const { error } = useAppSelector(getUser);
+  const dispatch = useAppDispatch();
   const { width = 0 } = useWindowSize();
   const [isOpen, setIsOpen] = useState(true);
   const handleToggleOpenMenu = () => {
     setIsOpen((isOpen) => (isOpen === false ? true : false));
   };
   const handleLogOut = () => {
-    signOut(auth)
+    dispatch(fetchSignOut())
+      .unwrap()
       .then(() => {
         navigator(ROUTE.HOME);
       })
-      .catch((error) => {
-        alert(error.message);
+      .catch(() => {
+        setSignOutError(true);
       });
   };
   return (
@@ -34,7 +37,12 @@ export const Header = () => {
         <HeaderNav />
         {width < 993 && <Button onClick={handleLogOut}>log out</Button>}
       </NavWrapper>
-      {width < 993 && <BurgerMenu toggleOpenMenu={handleToggleOpenMenu} />}
+      {width < 993 && (
+        <>
+          <BurgerMenu toggleOpenMenu={handleToggleOpenMenu} />
+          {signOuterror && <ErrorText>{error}</ErrorText>}
+        </>
+      )}
     </StyledHeader>
   );
 };

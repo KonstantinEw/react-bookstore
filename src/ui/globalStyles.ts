@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { Color, Media, resetCSS } from "ui";
+import { createGlobalStyle } from "styled-components";
+import { Color, resetCSS } from "ui";
 import { DarkTheme, LightTheme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
@@ -14,29 +14,6 @@ html[theme="light"]{
 }
 
 body {
-  min-height: 100%;
   background-color: ${Color.Primary_Light};
 }
-`;
-
-export const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  max-width: 1200px;
-  min-height: 100vh;
-  margin: 0px auto;
-  padding: 0px 40px 0px 40px;
-  background-color: ${Color.Primary_Light};
-  ${Media.EL} {
-    max-width: 1000px;
-  }
-  ${Media.LG} {
-    max-width: 750px;
-  }
-  ${Media.MD} {
-    max-width: none;
-    padding: 0px 25px 0px 25px;
-  }
-  ${Media.SM} {
-  }
 `;

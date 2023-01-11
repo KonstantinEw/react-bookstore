@@ -1,12 +1,14 @@
 import { Footer, Header } from "components";
 import { Outlet } from "react-router-dom";
-import { Wrapper } from "ui";
+import { Container, Wrapper } from "./styles";
 
 export const Layout = () => {
   return (
     <Wrapper>
       <Header />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
       <Footer />
     </Wrapper>
   );

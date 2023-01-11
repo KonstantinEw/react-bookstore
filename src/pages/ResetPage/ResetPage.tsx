@@ -10,13 +10,14 @@ import {
   StyledInput,
   Title,
 } from "./styles";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { fetchResetPassword, useAppDispatch } from "store";
 
 interface IReset {
   email: string;
 }
 
 export const ResetPage = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -27,14 +28,14 @@ export const ResetPage = () => {
     },
   });
 
-  const handleResetPassword = ({ email }: IReset) => {
-    const auth = getAuth();
-    sendPasswordResetEmail(auth, email)
+  const handleResetPassword = (userData: IReset) => {
+    dispatch(fetchResetPassword({ email: userData.email }))
+      .unwrap()
       .then(() => {
         alert("Password reset email sent!");
       })
       .catch((error) => {
-        alert(error.message);
+        alert(error);
       });
   };
 

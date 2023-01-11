@@ -1,14 +1,15 @@
-import { ArrowBackButton, Profile, Title } from "components";
+import { ArrowBackButton, Loader, Profile, Title } from "components";
 import { useState } from "react";
 import { fetchUpdateUser, getUser, useAppDispatch, useAppSelector } from "store";
 import { IUserData } from "types";
+import { StyledProfilePage } from "./styles";
 
 export const ProfilePage = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isError, setIsError] = useState(false);
   const dispatch = useAppDispatch();
 
-  const { name, email } = useAppSelector(getUser);
-
+  const { name, email, error, isLoading } = useAppSelector(getUser);
   const handleUpdateUser = (userData: IUserData) => {
     dispatch(
       fetchUpdateUser({
@@ -19,8 +20,8 @@ export const ProfilePage = () => {
     )
       .unwrap()
       .then(() => setIsOpen(true))
-      .catch((error) => {
-        alert(error.message);
+      .catch(() => {
+        setIsError(true);
       });
   };
 
@@ -28,17 +29,30 @@ export const ProfilePage = () => {
     setIsOpen(false);
   };
 
+  const handleCloseModalError = () => {
+    setIsError(false);
+  };
+
   return (
-    <section>
-      <ArrowBackButton />
-      <Title>account</Title>
-      <Profile
-        name={name}
-        email={email}
-        handleUpdateUser={handleUpdateUser}
-        isOpen={isOpen}
-        handleCloseModal={handleCloseModal}
-      />
-    </section>
+    <StyledProfilePage>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <ArrowBackButton />
+          <Title>account</Title>
+          <Profile
+            name={name}
+            email={email}
+            error={error}
+            handleUpdateUser={handleUpdateUser}
+            isOpen={isOpen}
+            isError={isError}
+            handleCloseModal={handleCloseModal}
+            handleCloseModalError={handleCloseModalError}
+          />
+        </>
+      )}
+    </StyledProfilePage>
   );
 };

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { restBooksAPI } from "services";
 import { IBook } from "types";
 
@@ -7,13 +7,13 @@ export const fetchNewBooks = createAsyncThunk<IBook[]>("newBooks/fetchNewBooks",
 });
 
 interface INewBook {
-  result: IBook[];
+  results: IBook[];
   isLoading: boolean;
   error: null | string;
 }
 
 const initialState: INewBook = {
-  result: [],
+  results: [],
   isLoading: false,
   error: null,
 };
@@ -28,11 +28,11 @@ const newBooksSlice = createSlice({
     });
     builder.addCase(fetchNewBooks.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.result = payload;
+      state.results = payload;
     });
-    builder.addCase(fetchNewBooks.rejected, (state, action: any) => {
-      state.isLoading = true;
-      state.error = action.payload;
+    builder.addCase(fetchNewBooks.rejected, (state, { payload }: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.error = payload;
     });
   },
 });

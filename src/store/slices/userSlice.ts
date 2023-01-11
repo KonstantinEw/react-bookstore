@@ -3,7 +3,9 @@ import { FirebaseError } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  signOut,
   updateEmail,
   updatePassword,
   updateProfile,
@@ -25,11 +27,16 @@ interface IUserData {
   userEmail: string;
 }
 
+interface IResetEmail {
+  email: string;
+}
+
 interface IUser {
   name: string;
   email: string;
   isAuth: boolean;
   error?: string;
+  isLoading: boolean;
 }
 
 export const fetchRegisterUser = createAsyncThunk<
@@ -86,11 +93,39 @@ export const fetchUpdateUser = createAsyncThunk<
   }
 });
 
+export const fetchSignOut = createAsyncThunk<void, void, { rejectValue: FirebaseError }>(
+  "auth/signOut",
+  async (params, { rejectWithValue }) => {
+    const auth = getAuth();
+    try {
+      await signOut(auth);
+    } catch (error) {
+      const firebaseError = error as { code: FirebaseError };
+      return rejectWithValue(firebaseError.code);
+    }
+  },
+);
+
+export const fetchResetPassword = createAsyncThunk<
+  void,
+  IResetEmail,
+  { rejectValue: FirebaseError }
+>("auth/resetPassword", async ({ email }, { rejectWithValue }) => {
+  const auth = getAuth();
+  try {
+    await sendPasswordResetEmail(auth, email);
+  } catch (error) {
+    const firebaseError = error as { code: FirebaseError };
+    return rejectWithValue(firebaseError.code);
+  }
+});
+
 const initialState: IUser = {
   name: "",
   email: "",
   isAuth: false,
   error: undefined,
+  isLoading: false,
 };
 
 const userSlice = createSlice({
@@ -109,24 +144,63 @@ const userSlice = createSlice({
     },
   },
   extraReducers(builder) {
+    builder.addCase(fetchRegisterUser.pending, (state) => {
+      state.isLoading = true;
+    });
     builder.addCase(fetchRegisterUser.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
       state.isAuth = true;
       state.name = payload.userName;
       state.email = payload.userEmail;
     });
     builder.addCase(fetchRegisterUser.rejected, (state, { payload }) => {
+      state.isLoading = false;
       state.error = payload?.code;
     });
 
+    builder.addCase(fetchSignIn.pending, (state) => {
+      state.isLoading = true;
+    });
     builder.addCase(fetchSignIn.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
       state.isAuth = true;
       state.email = payload.userEmail;
       state.name = payload.userName;
     });
     builder.addCase(fetchSignIn.rejected, (state, { payload }) => {
+      state.isLoading = false;
       state.error = payload?.code;
     });
+
+    builder.addCase(fetchUpdateUser.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchUpdateUser.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+    });
     builder.addCase(fetchUpdateUser.rejected, (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload?.code;
+    });
+
+    builder.addCase(fetchSignOut.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchSignOut.fulfilled, (state) => {
+      state.isLoading = false;
+      state.isAuth = false;
+    });
+    builder.addCase(fetchSignOut.rejected, (state, { payload }) => {
+      state.error = payload?.code;
+    });
+
+    builder.addCase(fetchResetPassword.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchResetPassword.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
       state.error = payload?.code;
     });
   },

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Color, Margin1, Media } from "ui";
+import { B1, Color, Margin1, Media } from "ui";
 
 const StyledHeader = styled.header<{ isOpen: boolean }>`
   display: grid;
@@ -26,6 +26,11 @@ const LogoLink = styled(NavLink)`
   padding: 14px 0px 14px 0px;
 `;
 
+const ErrorText = styled.p`
+  ${B1};
+  color: ${Color.Red};
+`;
+
 const NavWrapper = styled.div<{ isOpen: boolean }>`
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -38,6 +43,7 @@ const NavWrapper = styled.div<{ isOpen: boolean }>`
     z-index: 10;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 32px;
     width: 100%;
     height: calc(100% - 60px);
@@ -48,4 +54,4 @@ const NavWrapper = styled.div<{ isOpen: boolean }>`
   }
 `;
 
-export { LogoLink, StyledHeader, NavWrapper };
+export { LogoLink, StyledHeader, NavWrapper, ErrorText };

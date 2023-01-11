@@ -6,8 +6,9 @@ import { useAppSelector, getSearchBooks, feachSearchBooks, useAppDispatch } from
 import { StyledPagination, Title, Total } from "./styles";
 
 export const SearchPage = () => {
-  const { result, isLoading, error } = useAppSelector(getSearchBooks);
-  const { books, total } = result;
+  const { results, isLoading, error } = useAppSelector(getSearchBooks);
+  const dispatch = useAppDispatch();
+  const { books, total } = results;
   const { page, searchValue } = useParams<string>();
 
   const pages = Math.ceil(+total / 10);
@@ -19,7 +20,6 @@ export const SearchPage = () => {
     }
   };
 
-  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(
       feachSearchBooks({
