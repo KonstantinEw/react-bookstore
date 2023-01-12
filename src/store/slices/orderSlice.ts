@@ -34,14 +34,16 @@ const orderSlice = createSlice({
       const itemInCart = state.cart.find((book) => book.isbn13 === action.payload);
       if (itemInCart) {
         state.quantity++;
-        itemInCart.amount++;
+        itemInCart.amount = itemInCart.amount + 1;
       }
     },
     decrementQuantity: (state, action: PayloadAction<string>) => {
       const itemInCart = state.cart.find((book) => book.isbn13 === action.payload);
       if (itemInCart) {
         state.quantity--;
-        itemInCart.amount--;
+        if (itemInCart.amount > 0) {
+          itemInCart.amount = itemInCart.amount - 1;
+        }
       }
     },
     deleteOrder: (state, action: PayloadAction<string>) => {
