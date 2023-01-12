@@ -4,18 +4,30 @@ import { useWindowSize } from "hooks";
 import { ROUTE } from "router";
 import { StyledNav, StyledNavLink, TextLink } from "./styles";
 
-export const HeaderNav = () => {
+interface IProps {
+  handleCloseMenu: () => void;
+}
+
+export const HeaderNav = ({ handleCloseMenu }: IProps) => {
   const { width = 0 } = useWindowSize();
   return (
     <StyledNav>
       <StyledNavLink to={ROUTE.FAVORITES}>
-        {width < 993 ? <TextLink>Favorite</TextLink> : <FavoriteNavButton />}
+        {width < 993 ? (
+          <TextLink onClick={handleCloseMenu}>Favorite</TextLink>
+        ) : (
+          <FavoriteNavButton />
+        )}
       </StyledNavLink>
       <StyledNavLink to={ROUTE.SHOP_BAG}>
-        {width < 993 ? <TextLink>Cart</TextLink> : <OrderNavButton />}
+        {width < 993 ? <TextLink onClick={handleCloseMenu}>Cart</TextLink> : <OrderNavButton />}
       </StyledNavLink>
       <StyledNavLink to={ROUTE.PROFILE}>
-        {width < 993 ? <TextLink>Profile</TextLink> : <StyledUserProfileIcon />}
+        {width < 993 ? (
+          <TextLink onClick={handleCloseMenu}>Profile</TextLink>
+        ) : (
+          <StyledUserProfileIcon />
+        )}
       </StyledNavLink>
     </StyledNav>
   );

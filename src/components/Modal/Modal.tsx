@@ -1,4 +1,5 @@
 import { Button, Portal } from "components";
+import { useLockBodyScroll } from "hooks";
 import { TargetPortal } from "types";
 
 import { ModalContainer, ModalWrapper, Text } from "./styles";
@@ -10,6 +11,7 @@ interface IProps {
 }
 
 export const Modal = ({ children, textButton, onClick }: IProps) => {
+  useLockBodyScroll();
   return (
     <Portal target={TargetPortal.MODAL}>
       <ModalWrapper>

@@ -17,10 +17,14 @@ export const Header = () => {
   const handleToggleOpenMenu = () => {
     setIsOpen((isOpen) => (isOpen === false ? true : false));
   };
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
   const handleLogOut = () => {
     dispatch(fetchSignOut())
       .unwrap()
       .then(() => {
+        setIsOpen(false);
         navigator(ROUTE.HOME);
       })
       .catch(() => {
@@ -34,7 +38,7 @@ export const Header = () => {
       </LogoLink>
       <NavWrapper isOpen={isOpen}>
         <MainSearch />
-        <HeaderNav />
+        <HeaderNav handleCloseMenu={handleCloseMenu} />
         {width < 993 && <Button onClick={handleLogOut}>log out</Button>}
       </NavWrapper>
       {width < 993 && (

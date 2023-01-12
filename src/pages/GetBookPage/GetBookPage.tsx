@@ -23,8 +23,17 @@ export const GetBookPage = () => {
     dispatch(feachGetBooks({ isbn13: isbn13 }));
   }, [dispatch, isbn13]);
   const cartResult = { ...result, amount: 1 };
+
+  const ScrollToTopOnMount = () => {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
+    return null;
+  };
   return (
     <section>
+      <ScrollToTopOnMount />
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
       {result && (

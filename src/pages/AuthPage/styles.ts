@@ -2,19 +2,17 @@ import styled from "styled-components";
 import { Color, H3, Media } from "ui";
 
 const StyledAuthPage = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
 `;
 
 const StyledAuthForm = styled.div`
+  place-self: center;
   width: 544px;
-  margin-bottom: 100px;
+  margin-bottom: 90px;
   border: 1px solid ${Color.Gray};
   ${Media.MD} {
-    margin-bottom: 170px;
-  }
-  ${Media.SM} {
     width: 100%;
+    margin-bottom: 50px;
   }
 `;
 
