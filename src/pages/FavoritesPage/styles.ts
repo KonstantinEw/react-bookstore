@@ -11,6 +11,7 @@ const StyledFavoritesPage = styled.div`
 const EmptyWrapper = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: ${Margin1.desktop};
   ${H2};
   color: ${Color.Primary};
 `;

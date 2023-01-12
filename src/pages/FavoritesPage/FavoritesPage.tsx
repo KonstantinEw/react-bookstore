@@ -1,4 +1,4 @@
-import { ArrowBackButton, FavoriteCard, Title } from "components";
+import { ArrowBackButton, FavoriteCard, SliderBooks, Title } from "components";
 import { deleteFavorite, favoriteBooks, useAppDispatch, useAppSelector } from "store";
 import { EmptyWrapper, StyledFavoritesPage } from "./styles";
 
@@ -25,6 +25,7 @@ export const FavoritesPage = () => {
       ) : (
         <EmptyWrapper>Favorite list is empty</EmptyWrapper>
       )}
+      <SliderBooks />
     </StyledFavoritesPage>
   );
 };

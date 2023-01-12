@@ -1,12 +1,5 @@
 import { StyledAddFavoriteIcon } from "assets";
-import {
-  ArrowBackButton,
-  Button,
-  DescriptionTabs,
-  DiscriptionList,
-  Subscribe,
-  Title,
-} from "components";
+import { ArrowBackButton, Button, DescriptionTabs, DiscriptionList, Title } from "components";
 import { NavigateFunction } from "react-router";
 import { ROUTE } from "router";
 import { IDetailsBook } from "types";
@@ -66,7 +59,6 @@ export const BookDescription = ({ addOrder, book, addFavoriteBook, isAuth, navig
         </DescrWrap>
       </BookDetails>
       <DescriptionTabs book={book} />
-      <Subscribe />
     </>
   );
 };

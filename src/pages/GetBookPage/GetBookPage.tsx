@@ -1,4 +1,4 @@
-import { BookDescription, Loader } from "components";
+import { BookDescription, Loader, SliderBooks, Subscribe } from "components";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import {
@@ -46,6 +46,8 @@ export const GetBookPage = () => {
           addFavoriteBook={() => dispatch(addFavorite(result))}
         />
       )}
+      <Subscribe />
+      <SliderBooks />
     </section>
   );
 };

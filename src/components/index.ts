@@ -29,6 +29,7 @@ import { FavoriteNavButton } from "./FaviriteNavButton/FavoriteNavButton";
 import { OrderNavButton } from "./OrderNavButton/OrderNavButton";
 import { Portal } from "./Portal/Portal";
 import { Modal } from "./Modal/Modal";
+import { SliderBooks } from "./SliderBooks/SliderBooks";
 
 export {
   Header,
@@ -62,4 +63,5 @@ export {
   OrderNavButton,
   Portal,
   Modal,
+  SliderBooks,
 };

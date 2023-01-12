@@ -36,7 +36,7 @@ const InputField = styled.input`
 `;
 
 const Title = styled.h2`
-  ${Margin7.desktop};
+  margin-bottom: ${Margin7.desktop};
   ${H2};
   color: ${Color.Primary};
 `;
