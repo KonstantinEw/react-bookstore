@@ -12,8 +12,11 @@ import {
   Amount,
   AmountButton,
   AmountWrapper,
+  Img,
+  DeleteButtonOnImg,
 } from "./styles";
-import { MinusIcon, PlusIcon } from "assets";
+import { DeleteCrossIcon, MinusIcon, PlusIcon } from "assets";
+import { useWindowSize } from "hooks";
 
 interface IProps {
   book: IOrderBook;
@@ -25,6 +28,7 @@ interface IProps {
 
 export const OrderCard = ({ book, deleteOrder, decrimentQuantity, incrementQuantity }: IProps) => {
   const { image, title, price, amount, authors } = book;
+  const { width = 0 } = useWindowSize();
   const handleDeleteBook = () => {
     deleteOrder();
   };
@@ -39,7 +43,12 @@ export const OrderCard = ({ book, deleteOrder, decrimentQuantity, incrementQuant
   return (
     <StyledOrderCard>
       <ImgWrapper>
-        <img src={image} alt={`book is ${title}`} />
+        {width < 575 && (
+          <DeleteButtonOnImg onClick={handleDeleteBook}>
+            <DeleteCrossIcon />
+          </DeleteButtonOnImg>
+        )}
+        <Img src={image} alt={`book is ${title}`} />
       </ImgWrapper>
       <TitleWrapper>
         <CardTitle>{title}</CardTitle>
@@ -56,9 +65,11 @@ export const OrderCard = ({ book, deleteOrder, decrimentQuantity, incrementQuant
       </TitleWrapper>
       <CostWrapper>
         <Cost>{price}</Cost>
-        <DeleteButton onClick={handleDeleteBook}>
-          <DeleteCross />
-        </DeleteButton>
+        {width > 575 && (
+          <DeleteButton onClick={handleDeleteBook}>
+            <DeleteCross />
+          </DeleteButton>
+        )}
       </CostWrapper>
     </StyledOrderCard>
   );

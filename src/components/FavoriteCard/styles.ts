@@ -3,17 +3,16 @@ import { B1, Color, H3, Margin2, Margin5, Margin8, Media, randomColor, S1 } from
 
 const StyledFaviriteCard = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 0.5fr;
   gap: 32px;
   margin-bottom: ${Margin2.desktop};
   padding: 0px 20px 50px 0px;
   border-bottom: 1px solid ${Color.Gray};
   ${Media.LG} {
-    grid-template-columns: 1fr 2fr;
     padding: 0px 0px 50px 0px;
   }
   ${Media.MD} {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 0.3fr;
     padding: 0px 0px 50px 0px;
   }
   ${Media.SM} {
@@ -26,21 +25,33 @@ const StyledFaviriteCard = styled.div`
 `;
 
 const ImgWrapper = styled.div`
+  position: relative;
+  place-self: center;
+  align-items: center;
   width: 100%;
-  background-color: ${() => randomColor()};
-  ${Media.MD} {
-    width: 208px;
+  background-color: ${randomColor()};
+  ${Media.LG} {
+    place-self: start;
+    margin-top: 43px;
   }
   ${Media.SM} {
+    place-self: center;
     width: 90%;
     margin-bottom: ${Margin5.desktop};
   }
 `;
 
+const Img = styled.img`
+  width: 100%;
+`;
+
 const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 36px 0px 0px 0px;
+
   ${Media.SM} {
-    /* margin-bottom: ${Margin2.mobile}; */
+    margin-bottom: ${Margin2.mobile};
     padding: 0px 0px 32px 0px;
   }
 `;
@@ -60,17 +71,42 @@ const CardSubtitle = styled.p`
 const CostWrapper = styled.div`
   display: flex;
   gap: 187px;
-  ${Media.SM} {
+  ${Media.EL} {
     gap: 100px;
+  }
+  ${Media.LG} {
+    flex-direction: column;
+    gap: 20px;
   }
 `;
 
 const Cost = styled.span`
+  align-self: center;
   ${S1};
   color: ${Color.Primary};
+  ${Media.LG} {
+    align-self: start;
+  }
 `;
 
 const RemoveFavoriteButton = styled.button`
+  place-self: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  ${Media.LG} {
+    place-self: start;
+    padding-top: 42px;
+  }
+`;
+
+const DeleteFavoriteButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
   padding: 0;
   background: none;
   border: none;
@@ -86,4 +122,6 @@ export {
   ImgWrapper,
   StyledFaviriteCard,
   RemoveFavoriteButton,
+  Img,
+  DeleteFavoriteButton,
 };

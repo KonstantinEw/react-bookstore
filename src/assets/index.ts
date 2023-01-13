@@ -13,6 +13,7 @@ import { ReactComponent as MinusIcon } from "./icons/minus.svg";
 import { ReactComponent as BurgerMenuIcon } from "./icons/burger.svg";
 import { ReactComponent as FavoriteActiveIcon } from "./icons/favorite-active.svg";
 import { ReactComponent as OrderActiveIcon } from "./icons/shopping-bag-active.svg";
+import { ReactComponent as DeleteCrossIcon } from "./icons/delete-cross.svg";
 import {
   StyledAddFavoriteIcon,
   StyledArrow,
@@ -54,4 +55,5 @@ export {
   OrderActiveIcon,
   StyledFavoriteActiveIcon,
   StyledOrderActiveIcon,
+  DeleteCrossIcon,
 };

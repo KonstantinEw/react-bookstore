@@ -12,6 +12,7 @@ const EmptyWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: ${Margin1.desktop};
+  padding: 100px 0px 100px 0px;
   ${H2};
   color: ${Color.Primary};
 `;

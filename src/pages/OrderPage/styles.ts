@@ -11,17 +11,22 @@ const StyledOrderPage = styled.section`
 const EmptyWrapper = styled.div`
   display: flex;
   justify-content: center;
+  padding: 100px 0px 100px 0px;
 `;
 
 const PriceWrapper = styled.div`
   display: flex;
   justify-content: end;
+  ${Media.MD} {
+    justify-content: center;
+  }
 `;
 
 const PriceContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding: 20px;
 `;
 
 const ListWrapper = styled.div`
@@ -29,6 +34,9 @@ const ListWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 200px;
   grid-row-gap: 20px;
+  ${Media.SM} {
+    grid-column-gap: 50px;
+  }
 `;
 
 const PriceDescr = styled.span`

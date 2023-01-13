@@ -8,39 +8,46 @@ const StyledOrderCard = styled.li`
   margin-bottom: ${Margin2.desktop};
   padding: 0px 20px 50px 0px;
   border-bottom: 1px solid ${Color.Gray};
+  ${Media.EL} {
+    grid-template-columns: 1.5fr 2fr 0.3fr;
+  }
   ${Media.LG} {
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 0.5fr;
     padding: 0px 0px 50px 0px;
   }
   ${Media.MD} {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr 0.3fr;
     padding: 0px 0px 50px 0px;
   }
   ${Media.SM} {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     margin-bottom: ${Margin5.desktop};
     padding: 0px 0px 0px 0px;
   }
 `;
 
 const ImgWrapper = styled.div`
+  position: relative;
+  place-self: center;
+  align-items: center;
   width: 100%;
-  background-color: ${() => randomColor()};
-  ${Media.MD} {
-    width: 208px;
-  }
+  background-color: ${randomColor()};
   ${Media.SM} {
     width: 90%;
     margin-bottom: ${Margin5.desktop};
   }
 `;
 
+const Img = styled.img`
+  width: 100%;
+`;
+
 const TitleWrapper = styled.div`
   padding: 36px 0px 0px 0px;
-  ${Media.SM} {
-    padding: 0px 0px 32px 0px;
+  ${Media.LG} {
+    padding: 0;
   }
 `;
 
@@ -58,8 +65,17 @@ const CardSubtitle = styled.p`
 
 const CostWrapper = styled.div`
   display: flex;
-  padding-top: 56px;
   gap: 113px;
+  padding-top: 56px;
+  ${Media.EL} {
+    gap: 30px;
+  }
+  ${Media.LG} {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0;
+  }
   ${Media.SM} {
     gap: 100px;
   }
@@ -68,6 +84,22 @@ const CostWrapper = styled.div`
 const Cost = styled.span`
   ${H2};
   color: ${Color.Primary};
+  ${Media.LG} {
+    ${H3};
+  }
+  ${Media.SM} {
+    margin-bottom: ${Margin2.mobile};
+  }
+`;
+
+const DeleteButtonOnImg = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 
 const DeleteButton = styled.button`
@@ -137,4 +169,6 @@ export {
   Amount,
   AmountButton,
   AmountWrapper,
+  Img,
+  DeleteButtonOnImg,
 };

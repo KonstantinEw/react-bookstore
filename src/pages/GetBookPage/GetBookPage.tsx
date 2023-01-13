@@ -11,6 +11,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "store";
+import { StyledBookPage } from "./styles";
 
 export const GetBookPage = () => {
   const { isbn13 } = useParams();
@@ -32,7 +33,7 @@ export const GetBookPage = () => {
     return null;
   };
   return (
-    <section>
+    <StyledBookPage>
       <ScrollToTopOnMount />
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
@@ -48,6 +49,6 @@ export const GetBookPage = () => {
       )}
       <Subscribe />
       <SliderBooks />
-    </section>
+    </StyledBookPage>
   );
 };

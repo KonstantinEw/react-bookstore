@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export const DiscriptionList = ({ book }: IProps) => {
-  const { price, rating, pages, publisher, language, year, isbn13 } = book;
+  const { price, rating, pages, publisher, language, year, isbn13, isbn10 } = book;
   const [value] = useState(+rating);
   return (
     <DescrList>
@@ -35,6 +35,10 @@ export const DiscriptionList = ({ book }: IProps) => {
       <DescrItem>
         <ListText>Isbn13:</ListText>
         <DescrText>{isbn13}</DescrText>
+      </DescrItem>
+      <DescrItem>
+        <ListText>Isbn10:</ListText>
+        <DescrText>{isbn10}</DescrText>
       </DescrItem>
     </DescrList>
   );

@@ -16,9 +16,12 @@ const StyledHeader = styled.header<{ isOpen: boolean }>`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 50px 0px 50px;
+    padding: 10px 30px 0px 30px;
     margin-bottom: ${Margin1.mobile};
     background-color: ${Color.Primary_Light};
+  }
+  ${Media.MD} {
+    padding: 10px 10px 0px 10px;
   }
 `;
 

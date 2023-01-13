@@ -5,13 +5,16 @@ import {
   CardTitle,
   Cost,
   CostWrapper,
+  DeleteFavoriteButton,
+  Img,
   ImgWrapper,
   RemoveFavoriteButton,
   StyledFaviriteCard,
   TitleWrapper,
 } from "./styles";
 import { useState } from "react";
-import { DeleteFavoriteIcon } from "assets";
+import { DeleteFavoriteIcon, StyledAddFavoriteIcon } from "assets";
+import { useWindowSize } from "hooks";
 
 interface IProps {
   book: IDetailsBook;
@@ -19,12 +22,18 @@ interface IProps {
 }
 
 export const FavoriteCard = ({ book, deleteFavoriteBook }: IProps) => {
+  const { width = 0 } = useWindowSize();
   const { image, title, subtitle, price, rating } = book;
   const [value] = useState(+rating);
   return (
     <StyledFaviriteCard>
       <ImgWrapper>
-        <img src={image} alt={`book is ${title}`} />
+        {width < 575 && (
+          <DeleteFavoriteButton onClick={deleteFavoriteBook}>
+            <StyledAddFavoriteIcon />
+          </DeleteFavoriteButton>
+        )}
+        <Img src={image} alt={`book is ${title}`} />
       </ImgWrapper>
       <TitleWrapper>
         <CardTitle>{title}</CardTitle>
@@ -34,9 +43,11 @@ export const FavoriteCard = ({ book, deleteFavoriteBook }: IProps) => {
           <StarsRating value={value} disabled />
         </CostWrapper>
       </TitleWrapper>
-      <RemoveFavoriteButton onClick={deleteFavoriteBook}>
-        <DeleteFavoriteIcon />
-      </RemoveFavoriteButton>
+      {width > 575 && (
+        <RemoveFavoriteButton onClick={deleteFavoriteBook}>
+          <DeleteFavoriteIcon />
+        </RemoveFavoriteButton>
+      )}
     </StyledFaviriteCard>
   );
 };
