@@ -10,12 +10,12 @@ interface IProps {
 
 export const SliderBooks = ({ books, title }: IProps) => {
   const settings = {
-    dots: false,
-    infinite: false,
+    dots: true,
+    infinite: true,
     slidesToShow: 3,
-    slidesToScroll: 2,
-    initialSlide: 6,
-    speed: 7000,
+    slidesToScroll: 3,
+    initialSlide: 1,
+    speed: 500,
     autoplay: true,
     autoplaySpeed: 7000,
     cssEase: "linear",
