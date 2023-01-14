@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const Spinner = styled.div`
+const Spinner = styled(motion.div)`
   place-self: center;
   width: 25px;
   height: 25px;
@@ -9,22 +10,11 @@ const Spinner = styled.div`
   border-radius: 50%;
   border-left: 4px solid #000;
   border-right: 4px solid #000;
-  animation: spinner 1s linear infinite forwards;
-
-  @keyframes spinner {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 `;
 
 const StyledLoader = styled.div`
   display: grid;
-  height: 100vh;
+  height: 50vh;
 `;
 
 export { StyledLoader, Spinner };
