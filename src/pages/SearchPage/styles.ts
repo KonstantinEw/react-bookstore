@@ -2,6 +2,11 @@ import ReactPaginate from "react-paginate";
 import styled from "styled-components";
 import { Margin1, Color, Margin3, Media, H1, Margin2, B1, B2 } from "ui";
 
+const StyledSearchPage = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -70,4 +75,4 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export { Title, StyledHeader, Total };
+export { Title, StyledHeader, Total, StyledSearchPage };

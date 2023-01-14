@@ -3,12 +3,12 @@ import { ArrowBackButton, BooksList, Loader } from "components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useAppSelector, getSearchBooks, feachSearchBooks, useAppDispatch } from "store";
-import { StyledPagination, Title, Total } from "./styles";
+import { StyledPagination, StyledSearchPage, Title, Total } from "./styles";
 
 export const SearchPage = () => {
-  const { results, isLoading, error } = useAppSelector(getSearchBooks);
+  const { searchResults, isLoading, error } = useAppSelector(getSearchBooks);
   const dispatch = useAppDispatch();
-  const { books, total } = results;
+  const { books, total } = searchResults;
   const { page, searchValue } = useParams<string>();
 
   const pages = Math.ceil(+total / 10);
@@ -30,7 +30,7 @@ export const SearchPage = () => {
   }, [searchValue, itemOffset, page, dispatch]);
 
   return (
-    <section>
+    <StyledSearchPage>
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
       {books && books.length === 0 && (
@@ -63,6 +63,6 @@ export const SearchPage = () => {
           />
         </>
       )}
-    </section>
+    </StyledSearchPage>
   );
 };

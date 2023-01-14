@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FirebaseError } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
@@ -132,7 +132,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser: (state, { payload }) => {
+    setUser: (state, { payload }: PayloadAction<Omit<IRegisterUser, "password">>) => {
       state.name = payload.name;
       state.email = payload.email;
       state.isAuth = true;
@@ -175,7 +175,7 @@ const userSlice = createSlice({
     builder.addCase(fetchUpdateUser.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(fetchUpdateUser.fulfilled, (state, { payload }) => {
+    builder.addCase(fetchUpdateUser.fulfilled, (state) => {
       state.isLoading = false;
     });
     builder.addCase(fetchUpdateUser.rejected, (state, { payload }) => {

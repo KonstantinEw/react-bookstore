@@ -5,9 +5,10 @@ import {
   addFavorite,
   addOrder,
   feachGetBooks,
+  feachSearchBooks,
   getBook,
+  getSearchBooks,
   getUser,
-  orderBooks,
   useAppDispatch,
   useAppSelector,
 } from "store";
@@ -17,12 +18,13 @@ export const GetBookPage = () => {
   const { isbn13 } = useParams();
   const navigator = useNavigate();
   const { result, isLoading, error } = useAppSelector(getBook);
+  const { searchResults } = useAppSelector(getSearchBooks);
   const { isAuth } = useAppSelector(getUser);
-  const { quantity } = useAppSelector(orderBooks);
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(feachGetBooks({ isbn13: isbn13 }));
-  }, [dispatch, isbn13]);
+  }, [dispatch, isbn13, result.title]);
   const cartResult = { ...result, amount: 1 };
 
   const ScrollToTopOnMount = () => {
@@ -32,6 +34,18 @@ export const GetBookPage = () => {
 
     return null;
   };
+
+  useEffect(() => {
+    if (result.title) {
+      const similarBook = result.title.slice(0, 4);
+      dispatch(
+        feachSearchBooks({
+          searchValue: similarBook,
+          page: "1",
+        }),
+      );
+    }
+  }, [dispatch, result.title]);
   return (
     <StyledBookPage>
       <ScrollToTopOnMount />
@@ -41,14 +55,13 @@ export const GetBookPage = () => {
         <BookDescription
           navigator={navigator}
           isAuth={isAuth}
-          quantity={quantity}
           addOrder={() => dispatch(addOrder(cartResult))}
           book={result}
           addFavoriteBook={() => dispatch(addFavorite(result))}
         />
       )}
       <Subscribe />
-      <SliderBooks />
+      <SliderBooks title="Similar books" books={searchResults.books} />
     </StyledBookPage>
   );
 };

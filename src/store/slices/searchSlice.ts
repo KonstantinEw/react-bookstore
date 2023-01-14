@@ -17,13 +17,13 @@ export const feachSearchBooks = createAsyncThunk<
 });
 
 interface ISearchBook {
-  results: IResponseSearch;
+  searchResults: IResponseSearch;
   isLoading: boolean;
   error: null | string;
 }
 
 const initialState: ISearchBook = {
-  results: {} as IResponseSearch,
+  searchResults: {} as IResponseSearch,
   isLoading: false,
   error: null,
 };
@@ -39,9 +39,9 @@ const searchBooksSlice = createSlice({
     });
     builder.addCase(feachSearchBooks.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.results.books = payload.books;
-      state.results.page = payload.page;
-      state.results.total = payload.total;
+      state.searchResults.books = payload.books;
+      state.searchResults.page = payload.page;
+      state.searchResults.total = payload.total;
     });
     builder.addCase(feachSearchBooks.rejected, (state, { payload }) => {
       if (payload) {

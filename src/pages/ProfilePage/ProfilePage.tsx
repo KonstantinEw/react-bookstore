@@ -35,24 +35,20 @@ export const ProfilePage = () => {
 
   return (
     <StyledProfilePage>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <ArrowBackButton />
-          <Title>account</Title>
-          <Profile
-            name={name}
-            email={email}
-            error={error}
-            handleUpdateUser={handleUpdateUser}
-            isOpen={isOpen}
-            isError={isError}
-            handleCloseModal={handleCloseModal}
-            handleCloseModalError={handleCloseModalError}
-          />
-        </>
-      )}
+      {isLoading && <Loader />}
+      {error && <p>{error}</p>}
+      <ArrowBackButton />
+      <Title>account</Title>
+      <Profile
+        name={name}
+        email={email}
+        error={error}
+        handleUpdateUser={handleUpdateUser}
+        isOpen={isOpen}
+        isError={isError}
+        handleCloseModal={handleCloseModal}
+        handleCloseModalError={handleCloseModalError}
+      />
     </StyledProfilePage>
   );
 };

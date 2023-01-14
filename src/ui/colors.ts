@@ -2,6 +2,7 @@ export enum Color {
   Primary = "var(--primary)",
   Primary_Light = "var(--primary-bg)",
   Secondary = "#A8A8A8",
+  Secondary_Light = "var(--secondary-input)",
   White = "#FFFFFF",
   Gray = "#E7E7E7",
   Light = "#F7F7F7",
@@ -11,5 +12,5 @@ export enum Color {
   Orange = "#FEE9E2",
   Purple = "var(--subs-bg)",
   Purple_Light = "#f4eefd",
-  Background_Modal = "rgb(0,0,0,0.8)",
+  Primary_opacity = "rgb(0,0,0,0.8)",
 }

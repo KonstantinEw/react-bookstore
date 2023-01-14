@@ -9,7 +9,7 @@ const ModalWrapper = styled.div`
   right: 0;
   z-index: 10;
   display: grid;
-  background-color: ${Color.Background_Modal};
+  background-color: ${Color.Primary_opacity};
 `;
 
 const ModalContainer = styled.div`

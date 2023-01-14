@@ -77,6 +77,7 @@ const StyledInput = styled.input`
   height: 56px;
   margin-bottom: 5px;
   padding: 10px 20px 10px 20px;
+  background-color: ${Color.Secondary_Light};
   border: 1px solid ${Color.Gray};
   outline: none;
   &::placeholder {

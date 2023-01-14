@@ -1,11 +1,14 @@
 import { BookListItem } from "components";
-import { Spinner } from "components/Loader/styles";
 import Slider from "react-slick";
-import { getNewBooks, useAppSelector } from "store";
+import { IBook } from "types";
 import { SliderWrapper, Title } from "./styles";
 
-export const SliderBooks = () => {
-  const { isLoading, results } = useAppSelector(getNewBooks);
+interface IProps {
+  title: string;
+  books?: IBook[];
+}
+
+export const SliderBooks = ({ books, title }: IProps) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -45,15 +48,12 @@ export const SliderBooks = () => {
 
   return (
     <SliderWrapper>
-      <Title>New Releases Books</Title>
+      <Title>{title}</Title>
       <Slider {...settings}>
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          results.books.map((book) => {
+        {books &&
+          books.map((book) => {
             return <BookListItem key={book.isbn13} book={book} />;
-          })
-        )}
+          })}
       </Slider>
     </SliderWrapper>
   );

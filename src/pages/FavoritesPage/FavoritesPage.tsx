@@ -1,9 +1,10 @@
 import { ArrowBackButton, FavoriteCard, SliderBooks, Title } from "components";
-import { deleteFavorite, favoriteBooks, useAppDispatch, useAppSelector } from "store";
+import { deleteFavorite, favoriteBooks, getNewBooks, useAppDispatch, useAppSelector } from "store";
 import { EmptyWrapper, StyledFavoritesPage } from "./styles";
 
 export const FavoritesPage = () => {
   const { favorite } = useAppSelector(favoriteBooks);
+  const { results } = useAppSelector(getNewBooks);
   const dispatch = useAppDispatch();
 
   return (
@@ -25,7 +26,7 @@ export const FavoritesPage = () => {
       ) : (
         <EmptyWrapper>Favorite list is empty</EmptyWrapper>
       )}
-      <SliderBooks />
+      <SliderBooks books={results.books} title="New Releases books" />
     </StyledFavoritesPage>
   );
 };

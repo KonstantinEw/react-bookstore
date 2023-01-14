@@ -7,7 +7,6 @@ import { BookDetails, DescrWrap, ImageWrap, Image, AddFavoriteButton, RewiewLink
 
 interface IProps {
   book: IDetailsBook;
-  quantity: number;
   isAuth: boolean;
   navigator: NavigateFunction;
   addFavoriteBook: () => void;
