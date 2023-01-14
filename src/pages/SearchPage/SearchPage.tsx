@@ -1,33 +1,32 @@
 import { StyledNextButton, StyledPrevButton } from "assets";
 import { ArrowBackButton, BooksList, Loader } from "components";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router";
 import { useAppSelector, getSearchBooks, feachSearchBooks, useAppDispatch } from "store";
 import { StyledPagination, StyledSearchPage, Title, Total } from "./styles";
 
 export const SearchPage = () => {
-  const { searchResults, isLoading, error } = useAppSelector(getSearchBooks);
+  const navigator = useNavigate();
   const dispatch = useAppDispatch();
-  const { books, total } = searchResults;
-  const { page, searchValue } = useParams<string>();
+  const { page, searchValue } = useParams();
+  const { searchResults, isLoading, error } = useAppSelector(getSearchBooks);
 
+  const { books, total } = searchResults;
   const pages = Math.ceil(+total / 10);
-  const [itemOffset, setItemOffset] = useState(page);
-  const handleSetPage = (event: { selected: number }) => {
-    const newOffset = event.selected;
-    if (newOffset) {
-      setItemOffset(newOffset + "");
-    }
-  };
 
   useEffect(() => {
     dispatch(
       feachSearchBooks({
         searchValue: searchValue,
-        page: itemOffset,
+        page: page,
       }),
     );
-  }, [searchValue, itemOffset, page, dispatch]);
+  }, [searchValue, page, dispatch]);
+
+  const handleSetPage = (event: { selected: number }) => {
+    const newOffset = event.selected + 1 + "";
+    navigator(`/search/${searchValue}/${newOffset}`);
+  };
 
   return (
     <StyledSearchPage>
