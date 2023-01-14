@@ -29,7 +29,7 @@ export const SearchPage = () => {
   };
 
   return (
-    <StyledSearchPage>
+    <StyledSearchPage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
       {books && books.length === 0 && (

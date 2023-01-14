@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { B2, Color, H3, Margin1, Media } from "ui";
 
@@ -37,7 +38,7 @@ const BodyForm = styled.form`
   flex-direction: column;
 `;
 
-const StyledFoggotPassPage = styled.div`
+const StyledFoggotPassPage = styled(motion.section)`
   display: flex;
   justify-content: center;
 `;

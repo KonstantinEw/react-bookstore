@@ -3,7 +3,7 @@ import { StyledNotFoundePage, Subtitle, SubtitleText, SubtitleWrapper, Title } f
 
 export const NotFoundedPage = () => {
   return (
-    <StyledNotFoundePage>
+    <StyledNotFoundePage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <Title>404</Title>
       <ArrowBackButton />
       <SubtitleWrapper>

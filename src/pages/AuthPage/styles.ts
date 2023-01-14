@@ -1,11 +1,12 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, H3, Media } from "ui";
 
-const StyledAuthPage = styled.div`
+const StyledAuthPage = styled(motion.section)`
   display: grid;
 `;
 
-const StyledAuthForm = styled.div`
+const StyledAuthForm = styled(motion.div)`
   place-self: center;
   width: 544px;
   margin-bottom: 90px;

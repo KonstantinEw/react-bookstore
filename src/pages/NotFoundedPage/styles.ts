@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { H1, H3, Margin3 } from "ui";
 
-export const StyledNotFoundePage = styled.section`
+export const StyledNotFoundePage = styled(motion.section)`
   display: grid;
   grid-template-rows: 5fr 1fr 1fr;
   justify-items: center;

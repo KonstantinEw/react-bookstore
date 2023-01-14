@@ -11,7 +11,7 @@ export const NewBooksPage = () => {
   }, [dispatch]);
 
   return (
-    <StyledNewBooksPage>
+    <StyledNewBooksPage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
       {results.books && results.books.length > 0 && (

@@ -31,7 +31,7 @@ export const OrderPage = () => {
   const vat = total * 0.2;
   const totalPrice = total + vat;
   return (
-    <StyledOrderPage>
+    <StyledOrderPage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ArrowBackButton />
       <Title>your cart</Title>
       <ul>

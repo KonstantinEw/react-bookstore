@@ -3,21 +3,9 @@ import { StyledTitle } from "./styles";
 interface IProps {
   children: string;
 }
-
-const textAnimation = {
-  hidden: {
-    x: 100,
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-  },
-};
-
 export const Title = ({ children }: IProps) => {
   return (
-    <StyledTitle initial={textAnimation.hidden} whileInView={textAnimation.visible}>
+    <StyledTitle initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }}>
       {children}
     </StyledTitle>
   );

@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { B1, Color, H2, Margin6, Media } from "ui";
 
-const DescrList = styled.ul`
+const DescrList = styled(motion.ul)`
   padding: 40px 0px 0px 0px;
 `;
 

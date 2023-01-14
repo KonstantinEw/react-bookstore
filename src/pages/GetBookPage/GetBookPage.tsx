@@ -47,7 +47,7 @@ export const GetBookPage = () => {
     }
   }, [dispatch, result.title]);
   return (
-    <StyledBookPage>
+    <StyledBookPage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ScrollToTopOnMount />
       {isLoading && <Loader />}
       {error && <p>{error}</p>}

@@ -40,7 +40,7 @@ export const ResetPage = () => {
   };
 
   return (
-    <StyledFoggotPassPage>
+    <StyledFoggotPassPage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <FormWrapper>
         <Title>Reset password</Title>
         <BodyForm onSubmit={handleSubmit(handleResetPassword)}>

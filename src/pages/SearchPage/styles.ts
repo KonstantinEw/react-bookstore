@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import ReactPaginate from "react-paginate";
 import styled from "styled-components";
 import { Margin1, Color, Margin3, Media, H1, Margin2, B1, B2 } from "ui";
 
-const StyledSearchPage = styled.section`
+const StyledSearchPage = styled(motion.section)`
   display: flex;
   flex-direction: column;
 `;

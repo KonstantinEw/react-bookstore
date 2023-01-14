@@ -16,17 +16,6 @@ interface ISubmitEmail {
   email: string;
 }
 
-const subscrAnimation = {
-  hidden: {
-    x: -100,
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-  },
-};
-
 export const Subscribe = () => {
   const {
     register,
@@ -47,7 +36,7 @@ export const Subscribe = () => {
   };
 
   return (
-    <StyledSubscribe initial={subscrAnimation.hidden} whileInView={subscrAnimation.visible}>
+    <StyledSubscribe initial={{ y: 100 }} whileInView={{ y: 0 }}>
       {isSubmitSuccessful ? (
         <SuccessTitle>
           Successfully! <FaCheck />

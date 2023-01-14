@@ -34,7 +34,7 @@ export const ProfilePage = () => {
   };
 
   return (
-    <StyledProfilePage>
+    <StyledProfilePage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
       <ArrowBackButton />

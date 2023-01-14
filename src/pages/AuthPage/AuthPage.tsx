@@ -50,8 +50,8 @@ export const AuthPage = () => {
   };
 
   return (
-    <StyledAuthPage>
-      <StyledAuthForm>
+    <StyledAuthPage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <StyledAuthForm initial={{ y: 100 }} animate={{ y: 0 }}>
         <HeaderForm>
           <ButtonForm activeBorder={isSignIn} activeColor={isSignIn} onClick={handleSignOn}>
             Sign in

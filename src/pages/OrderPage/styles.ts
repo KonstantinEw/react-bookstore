@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { B1, Color, H2, Margin1, Media } from "ui";
 
-const StyledOrderPage = styled.section`
+const StyledOrderPage = styled(motion.section)`
   margin-bottom: ${Margin1.desktop};
   ${Media.SM} {
     margin-bottom: ${Margin1.mobile};

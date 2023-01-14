@@ -8,7 +8,7 @@ export const FavoritesPage = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <StyledFavoritesPage>
+    <StyledFavoritesPage initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <ArrowBackButton />
       <Title>favorites</Title>
       {favorite.length > 0 ? (
