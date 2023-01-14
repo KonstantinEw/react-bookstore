@@ -5,6 +5,10 @@ import { B1, Color, Margin1 } from "ui";
 const StyledTabs = styled(Tabs)`
   min-height: 200px;
   margin-bottom: ${Margin1.desktop};
+
+  .react-tabs__tab--selected {
+    border-bottom: 3px solid ${Color.Primary};
+  }
 `;
 
 const StyledTabList = styled(TabList)`
