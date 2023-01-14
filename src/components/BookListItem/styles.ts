@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { B1, B2, Color, H3, Margin7, randomColor } from "ui";
@@ -16,7 +17,7 @@ const StyledBooksListItem = styled(Link)`
   }
 `;
 
-const ImageWrap = styled.div`
+const ImageWrap = styled(motion.div)`
   display: flex;
   justify-content: center;
   height: 300px;

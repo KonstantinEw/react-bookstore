@@ -3,17 +3,18 @@ import { AxiosError } from "axios";
 import { restBooksAPI } from "services";
 import { IResponseNewBooks } from "types";
 
-export const fetchNewBooks = createAsyncThunk<IResponseNewBooks, void, { rejectValue: string }>(
-  "newBooks/fetchNewBooks",
-  async (params, { rejectWithValue }) => {
-    try {
-      return await restBooksAPI.getNewBooks();
-    } catch (error) {
-      const errorResponse = error as AxiosError;
-      return rejectWithValue(errorResponse.message);
-    }
-  },
-);
+export const fetchNewBooks = createAsyncThunk<
+  IResponseNewBooks,
+  undefined,
+  { rejectValue: string }
+>("newBooks/fetchNewBooks", async (_, { rejectWithValue }) => {
+  try {
+    return await restBooksAPI.getNewBooks();
+  } catch (error) {
+    const errorResponse = error as AxiosError;
+    return rejectWithValue(errorResponse.message);
+  }
+});
 
 interface INewBook {
   results: IResponseNewBooks;

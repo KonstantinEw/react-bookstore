@@ -10,11 +10,26 @@ interface IProps {
   onClick: () => void;
 }
 
+const modalAnimation = {
+  hidden: {
+    y: -100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+  exit: {
+    y: -100,
+    opacity: 0,
+  },
+};
+
 export const Modal = ({ children, textButton, onClick }: IProps) => {
   useLockBodyScroll();
   return (
     <Portal target={TargetPortal.MODAL}>
-      <ModalWrapper>
+      <ModalWrapper initial={modalAnimation.hidden} whileInView={modalAnimation.visible}>
         <ModalContainer>
           <Text>{children}</Text>
           <Button onClick={onClick}>{textButton}</Button>

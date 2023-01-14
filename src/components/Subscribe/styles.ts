@@ -1,11 +1,12 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { B2, Color, H2, Margin1, Margin4, Margin7, Media } from "ui";
 
-const StyledSubscribe = styled.section`
+const StyledSubscribe = styled(motion.section)`
   padding: 56px 64px 46px 64px;
   margin-bottom: ${Margin1.desktop};
   background-color: ${Color.Purple};
-  border: 1px solid ${Color.Gray};
+  border: 1px solid ${Color.Purple_Light};
   border-radius: 5px;
   ${Media.MD} {
     padding: 24px;

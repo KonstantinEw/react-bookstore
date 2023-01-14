@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color, H3 } from "ui";
 
-const ModalWrapper = styled.div`
+const ModalWrapper = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;

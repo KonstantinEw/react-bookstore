@@ -13,8 +13,6 @@ import {
   fetchSignIn,
   fetchSignOut,
   fetchUpdateUser,
-  removeUser,
-  setUser,
 } from "./slices/userSlice";
 import { orderBooks } from "./selectors/orderSelector";
 import {
@@ -39,8 +37,6 @@ export {
   getBook,
   favoriteBooks,
   feachGetBooks,
-  setUser,
-  removeUser,
   orderBooks,
   addOrder,
   deleteOrder,

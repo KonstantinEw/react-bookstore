@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { FirebaseError } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
@@ -131,18 +131,7 @@ const initialState: IUser = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    setUser: (state, { payload }: PayloadAction<Omit<IRegisterUser, "password">>) => {
-      state.name = payload.name;
-      state.email = payload.email;
-      state.isAuth = true;
-    },
-    removeUser: (state) => {
-      state.name = "";
-      state.email = "";
-      state.isAuth = false;
-    },
-  },
+  reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchRegisterUser.pending, (state) => {
       state.isLoading = true;
@@ -207,4 +196,3 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { setUser, removeUser } = userSlice.actions;

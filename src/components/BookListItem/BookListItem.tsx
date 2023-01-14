@@ -7,11 +7,23 @@ interface IProps {
   book: IBook;
 }
 
+const imageAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
 export const BookListItem = ({ book }: IProps) => {
   const { image, title, subtitle, isbn13, price } = book;
   return (
     <StyledBooksListItem to={generatePath(ROUTE.DETAILS, { isbn13: isbn13 })}>
-      <ImageWrap>
+      <ImageWrap initial={imageAnimation.hidden} whileInView={imageAnimation.visible}>
         <img src={image} alt={title} />
       </ImageWrap>
       <Title>{title.length > 40 ? title.slice(0, 40) + "..." : title}</Title>
