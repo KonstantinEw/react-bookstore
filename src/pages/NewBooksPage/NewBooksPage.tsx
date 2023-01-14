@@ -14,10 +14,10 @@ export const NewBooksPage = () => {
     <StyledNewBooksPage>
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
-      {results && results.length > 0 && (
+      {results.books && results.books.length > 0 && (
         <>
           <Title>New Releases Books</Title>
-          <BooksList books={results} />
+          <BooksList books={results.books} />
           <Subscribe />
         </>
       )}

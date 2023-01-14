@@ -50,7 +50,7 @@ export const SliderBooks = () => {
         {isLoading ? (
           <Spinner />
         ) : (
-          results.map((book) => {
+          results.books.map((book) => {
             return <BookListItem key={book.isbn13} book={book} />;
           })
         )}
