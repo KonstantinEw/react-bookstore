@@ -6,7 +6,7 @@ const ImageWrap = styled.div`
   display: grid;
   width: 50%;
   height: 472px;
-  background: ${() => randomColor()};
+  background: ${randomColor()};
   ${Media.MD} {
     width: 100%;
   }

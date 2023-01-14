@@ -51,6 +51,7 @@ export const SliderBooks = ({ books, title }: IProps) => {
       <Title>{title}</Title>
       <Slider {...settings}>
         {books &&
+          books.length > 0 &&
           books.map((book) => {
             return <BookListItem key={book.isbn13} book={book} />;
           })}

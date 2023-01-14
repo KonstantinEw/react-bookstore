@@ -13,7 +13,7 @@ const ModalWrapper = styled(motion.div)`
   background-color: ${Color.Primary_opacity};
 `;
 
-const ModalContainer = styled.div`
+const ModalContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

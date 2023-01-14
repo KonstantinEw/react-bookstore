@@ -29,8 +29,8 @@ export const Modal = ({ children, textButton, onClick }: IProps) => {
   useLockBodyScroll();
   return (
     <Portal target={TargetPortal.MODAL}>
-      <ModalWrapper initial={modalAnimation.hidden} whileInView={modalAnimation.visible}>
-        <ModalContainer>
+      <ModalWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
+        <ModalContainer initial={modalAnimation.hidden} animate={modalAnimation.visible}>
           <Text>{children}</Text>
           <Button onClick={onClick}>{textButton}</Button>
         </ModalContainer>

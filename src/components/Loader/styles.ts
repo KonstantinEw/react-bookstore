@@ -14,7 +14,7 @@ const Spinner = styled(motion.div)`
 
 const StyledLoader = styled.div`
   display: grid;
-  height: 50vh;
+  height: 80vh;
 `;
 
 export { StyledLoader, Spinner };
