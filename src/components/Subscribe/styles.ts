@@ -5,7 +5,8 @@ const StyledSubscribe = styled.section`
   padding: 56px 64px 46px 64px;
   margin-bottom: ${Margin1.desktop};
   background-color: ${Color.Purple};
-
+  border: 1px solid ${Color.Gray};
+  border-radius: 5px;
   ${Media.MD} {
     padding: 24px;
     margin-bottom: ${Margin1.mobile};

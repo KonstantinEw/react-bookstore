@@ -41,7 +41,7 @@ const orderSlice = createSlice({
       const itemInCart = state.cart.find((book) => book.isbn13 === action.payload);
       if (itemInCart) {
         state.quantity--;
-        if (itemInCart.amount > 0) {
+        if (itemInCart.amount > 1) {
           itemInCart.amount = itemInCart.amount - 1;
         }
       }

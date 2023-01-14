@@ -94,8 +94,8 @@ const Cost = styled.span`
 
 const DeleteButtonOnImg = styled.button`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1px;
+  right: 1px;
   padding: 0;
   background: none;
   border: none;
@@ -127,7 +127,7 @@ const DeleteCross = styled.div`
     content: " ";
     height: 20px;
     width: 2px;
-    background-color: #333;
+    background-color: ${Color.Primary};
   }
   &:before {
     transform: rotate(45deg);

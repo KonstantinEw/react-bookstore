@@ -8,7 +8,6 @@ const StyledBooksListItem = styled(Link)`
   gap: 10px;
   height: 550px;
   padding: 10px 10px 10px 10px;
-  border: 1px solid #ffffff;
   border-radius: 5px;
   text-decoration: none;
   transition: all 0.3s ease-in;

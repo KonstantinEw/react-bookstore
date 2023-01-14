@@ -105,8 +105,8 @@ const RemoveFavoriteButton = styled.button`
 
 const DeleteFavoriteButton = styled.button`
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 1px;
+  top: 1px;
   padding: 0;
   background: none;
   border: none;
