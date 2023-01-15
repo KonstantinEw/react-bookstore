@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {
   AddFavoriteIcon,
   ArrowIcon,
+  BurgerMenuIcon,
   FavoriteActiveIcon,
   FavoriteIcon,
   LogoIcon,
@@ -84,6 +85,12 @@ const StyledOrderActiveIcon = styled(OrderActiveIcon)`
   }
 `;
 
+const StyledBurgerMenuIcon = styled(BurgerMenuIcon)`
+  & path {
+    fill: ${Color.Primary};
+  }
+`;
+
 export {
   StyledFavoriteIcon,
   StyledOrderIcon,
@@ -96,4 +103,5 @@ export {
   StyledSearchIcon,
   StyledFavoriteActiveIcon,
   StyledOrderActiveIcon,
+  StyledBurgerMenuIcon,
 };

@@ -26,6 +26,7 @@ import {
   StyledUserProfileIcon,
   StyledFavoriteActiveIcon,
   StyledOrderActiveIcon,
+  StyledBurgerMenuIcon,
 } from "./styles";
 
 export {
@@ -56,4 +57,5 @@ export {
   StyledFavoriteActiveIcon,
   StyledOrderActiveIcon,
   DeleteCrossIcon,
+  StyledBurgerMenuIcon,
 };

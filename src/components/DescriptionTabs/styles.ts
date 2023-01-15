@@ -1,6 +1,6 @@
 import { Tabs, Tab, TabList } from "react-tabs";
 import styled from "styled-components";
-import { B1, Color, Margin1 } from "ui";
+import { B1, Color, Margin1, Media } from "ui";
 
 const StyledTabs = styled(Tabs)`
   min-height: 200px;
@@ -30,6 +30,9 @@ const StyledTab = styled(Tab)`
   cursor: pointer;
   &:hover {
     border-bottom: 3px solid ${Color.Primary};
+  }
+  ${Media.SM} {
+    margin-top: 10px;
   }
 `;
 

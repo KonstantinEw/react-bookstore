@@ -13,9 +13,9 @@ export const Header = () => {
   const { error } = useAppSelector(getUser);
   const dispatch = useAppDispatch();
   const { width = 0 } = useWindowSize();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const handleToggleOpenMenu = () => {
-    setIsOpen((isOpen) => (isOpen === false ? true : false));
+    setIsOpen((isOpen) => (isOpen === true ? false : true));
   };
   const handleCloseMenu = () => {
     setIsOpen(false);
@@ -31,6 +31,15 @@ export const Header = () => {
         setSignOutError(true);
       });
   };
+
+  const blockBody = (isOpen: boolean) => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+    if (!isOpen) {
+      document.body.style.overflow = "auto";
+    }
+  };
   return (
     <StyledHeader isOpen={isOpen}>
       <LogoLink to={ROUTE.HOME}>
@@ -43,7 +52,7 @@ export const Header = () => {
       </NavWrapper>
       {width < 993 && (
         <>
-          <BurgerMenu toggleOpenMenu={handleToggleOpenMenu} />
+          <BurgerMenu blockBody={blockBody} isOpen={isOpen} toggleOpenMenu={handleToggleOpenMenu} />
           {signOuterror && <ErrorText>{error}</ErrorText>}
         </>
       )}
