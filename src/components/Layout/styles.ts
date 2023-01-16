@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   }
   ${Media.MD} {
     max-width: 100%;
-    padding: 0px 25px 0px 25px;
+    padding: 0px 5px 0px 5px;
   }
 `;
 

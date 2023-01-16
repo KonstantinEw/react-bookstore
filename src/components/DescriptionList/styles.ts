@@ -7,9 +7,9 @@ const DescrList = styled(motion.ul)`
 `;
 
 const CostRow = styled.li`
-  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
   ${H2}
   ${Media.LG} {
     flex-direction: column;

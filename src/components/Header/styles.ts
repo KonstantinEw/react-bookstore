@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { B1, Color, Margin1, Media } from "ui";
 
 const StyledHeader = styled.header<{ isOpen: boolean }>`
+  max-width: 100vw;
   display: grid;
   grid-template-columns: 0.5fr 2fr;
   padding: 24px 0px 24px 0px;
@@ -17,6 +18,7 @@ const StyledHeader = styled.header<{ isOpen: boolean }>`
     background-color: ${Color.Primary_Light};
   }
   ${Media.MD} {
+    margin-right: 0px;
     padding: 10px 10px 0px 10px;
   }
 `;
@@ -50,6 +52,7 @@ const NavWrapper = styled.div<{ isOpen: boolean }>`
     padding: 56px 40px;
     align-items: center;
     transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(100%)")};
+    transition: all 0.3s ease;
   }
 `;
 
