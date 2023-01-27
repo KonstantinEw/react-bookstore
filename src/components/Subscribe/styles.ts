@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { B2, Color, H2, Margin1, Margin4, Margin7, Media } from "ui";
 
 const StyledSubscribe = styled(motion.section)`
+  min-height: 288px;
   padding: 56px 64px 46px 64px;
   margin-bottom: ${Margin1.desktop};
   background-color: ${Color.Purple};
