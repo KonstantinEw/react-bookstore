@@ -1,5 +1,5 @@
 export enum ROUTE {
-  HOME = "/",
+  HOME = "react-bookstore/",
   SEARCH = "search/:searchValue/:page",
   FAVORITES = "favorites",
   PROFILE = "profile",
